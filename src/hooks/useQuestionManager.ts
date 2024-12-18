@@ -15,6 +15,8 @@ export function useQuestionManager(categories: Category[], config: GameConfig) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [questionsAnswered, setQuestionsAnswered] = useState(0)
 
+  console.log('config', config)
+
   useEffect(() => {
     if (categories.length > 0) {
       const firstCategory = categories[0]
