@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'TekoRegular';
+  src: url('../src/assets/fonts/Teko/Teko-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'TekoMedium';
+  src: url('../src/assets/fonts/Teko/Teko-Medium.ttf') format('truetype');
+}
+
+
+@font-face {
+  font-family: 'OswaldLight';
+  src: url('../src/assets/fonts/Oswald/Oswald-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'OswaldRegular';
+  src: url('../src/assets/fonts/Oswald/Oswald-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'OswaldMedium';
+  src: url('../src/assets/fonts/Oswald/Oswald-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'OswaldBold';
+  src: url('../src/assets/fonts/Oswald/Oswald-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'OswaldHeavyItalic';
+  src: url('../src/assets/fonts/Oswald/Oswald-Heavy-Italic.otf')
+    format('opentype');
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+    color: #646464;
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}

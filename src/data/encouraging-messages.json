@@ -1,0 +1,66 @@
+{
+  "correct": {
+    "3": {
+      "title": "¡Impresionante!",
+      "image": "",
+      "longMessage": "¡Estás calentando motores!",
+      "shortMessage": "¡Sigue así!"
+    },
+    "5": {
+      "title": "¡Wouw 5 al hilo!",
+      "image": "",
+      "longMessage": "¡Estás en una buena racha!",
+      "shortMessage": "¡Sigue así!"
+    },
+    "7": {
+      "title": "¡Esto es épico!",
+      "image": "",
+      "longMessage": "¡Estás en una buena racha!",
+      "shortMessage": "¡Sigue así!"
+    },
+    "10": {
+      "title": "¡Eres muy crack!",
+      "image": "",
+      "longMessage": "¡Eres una genialidad en acción!",
+      "shortMessage": "¡Sigue así!"
+    },
+    "12": {
+      "title": "¡Eres muy crack!",
+      "image": "",
+      "longMessage": "¡Tu cerebro está en Modo Turbo!",
+      "shortMessage": "¡Sigue así!"
+    }
+  },
+  "incorrect": {
+    "3": {
+      "title": "No te desanimes!",
+      "image": "",
+      "longMessage": "¡Vamos tu puedes con la próxima!",
+      "shortMessage": "¡La próxima es tuya!"
+    },
+    "5": {
+      "title": "¡No pasa nada!",
+      "image": "",
+      "longMessage": "¡Hasta los mejores tienen malos días!",
+      "shortMessage": "¡La próxima es tuya!"
+    },
+    "7": {
+      "title": "¡Necesitas practicar!",
+      "image": "",
+      "longMessage": "¡Respira hondo y sigue adelante!",
+      "shortMessage": "¡A revertirlo!"
+    },
+    "10": {
+      "title": "¡Vamos, no te desanimes!",
+      "image": "",
+      "longMessage": "Las grandes comebacks comienzan así",
+      "shortMessage": "¡Se que lo revertirás!"
+    },
+    "12": {
+      "title": "¡Se que puedes!",
+      "image": "",
+      "longMessage": "¡Recuerda que esto es para divertirse!",
+      "shortMessage": "¡Sigue intentando!"
+    }
+  }
+}
