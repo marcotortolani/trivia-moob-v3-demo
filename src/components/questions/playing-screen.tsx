@@ -17,7 +17,7 @@ import ENCOURAGING_MESSAGES from '@/data/encouraging-messages.json'
 import { useStateMachine } from '@/hooks/useStateMachine'
 import ModalGoalAchievement from './modal-goal-achievement'
 
-import goldenRing from '@/assets/img/default/anillo-ruleta.webp'
+import goldenRing from '/img/default/anillo-ruleta.webp'
 
 type ValidSizes = keyof (typeof ENCOURAGING_MESSAGES)['correct' | 'incorrect']
 export type EncouragingMessage = (typeof ENCOURAGING_MESSAGES)[
