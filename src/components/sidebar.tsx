@@ -10,8 +10,8 @@ import { useConfigStore } from '@/lib/config-store'
 import { useGameStore } from '@/lib/game-store'
 import { hexToRgb } from '@/lib/utils'
 
-import goldenRing from '@/assets/img/default/anillo-ruleta.webp'
-import mediaMoob from '@/assets/img/default/logo-media-moob.svg'
+import goldenRing from '/img/default/anillo-ruleta.webp'
+import mediaMoob from '/img/default/logo-media-moob.svg'
 
 import { UserCircle, BadgeInfo, Home } from 'lucide-react'
 

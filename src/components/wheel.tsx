@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { useGameStore } from '@/lib/game-store'
 import { useConfigStore } from '@/lib/config-store'
 
-import ringWheel from '/src/assets/img/default/anillo-ruleta.webp'
-import indicatorCategory from '/src/assets/img/default/senalador-categoria-anillo.webp'
+import ringWheel from '/img/default/anillo-ruleta.webp'
+import indicatorCategory from '/img/default/senalador-categoria-anillo.webp'
 
 const SPINS = 5
 const TIME_SPINNING = 3000 // miliseconds
