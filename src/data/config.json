@@ -50,57 +50,57 @@
   },
   "images": {
     "es": {
-      "logoHeader": "/src/assets/img/logo.webp",
+      "logoHeader": "/img/logo.webp",
       "bubbleStartMessage": "",
       "bubbleDailyLimit": "",
       "rewardsImages": [
         {
-          "src": "/src/assets/img/premio01.webp",
+          "src": "/img/premio01.webp",
           "name": "prize"
         }
       ]
     },
-    "madeBy": "/src/assets/img/by-memoob.webp",
+    "madeBy": "/img/by-memoob.webp",
     "backgroundApp": "",
-    "iconSoundActive": "/src/assets/img/sound_active_icon.webp",
-    "iconSoundMute": "/src/assets/img/sound_mute_icon.webp",
-    "spinButton": "/src/assets/img/girar-icon.webp",
+    "iconSoundActive": "/img/sound_active_icon.webp",
+    "iconSoundMute": "/img/sound_mute_icon.webp",
+    "spinButton": "/img/girar-icon.webp",
     "pointerRoulette": "",
-    "rewardsButton": "/src/assets/img/premios-icon.webp",
-    "termsButton": "/src/assets/img/bases-icon.webp",
+    "rewardsButton": "/img/premios-icon.webp",
+    "termsButton": "/img/bases-icon.webp",
     "arrowsSlider": {
-      "left": "/src/assets/img/left-golden-arrow.webp",
-      "right": "/src/assets/img/right-golden-arrow.webp"
+      "left": "/img/left-golden-arrow.webp",
+      "right": "/img/right-golden-arrow.webp"
     },
-    "backgroundPoints": "/src/assets/img/barra-puntos.webp",
-    "backgroundPointsMenu": "/src/assets/img/puntaje-perfil.webp",
-    "rouletteSpinAgain": "/src/assets/img/volveratirar.webp",
-    "circleQuestionsCounter": "/src/assets/img/circulo-preguntas.webp",
-    "triviaUpcoming": "/src/assets/img/trivia-proximamente.webp",
-    "triviaEnded": "/src/assets/img/trivia-finalizada.webp",
+    "backgroundPoints": "/img/barra-puntos.webp",
+    "backgroundPointsMenu": "/img/puntaje-perfil.webp",
+    "rouletteSpinAgain": "/img/volveratirar.webp",
+    "circleQuestionsCounter": "/img/circulo-preguntas.webp",
+    "triviaUpcoming": "/img/trivia-proximamente.webp",
+    "triviaEnded": "/img/trivia-finalizada.webp",
     "avatars": [
-      "/src/assets/img/avatars/avatar-1.webp",
-      "/src/assets/img/avatars/avatar-2.webp",
-      "/src/assets/img/avatars/avatar-3.webp",
-      "/src/assets/img/avatars/avatar-4.webp",
-      "/src/assets/img/avatars/avatar-5.webp",
-      "/src/assets/img/avatars/avatar-6.webp",
-      "/src/assets/img/avatars/avatar-7.webp",
-      "/src/assets/img/avatars/avatar-8.webp",
-      "/src/assets/img/avatars/avatar-9.webp",
-      "/src/assets/img/avatars/avatar-10.webp",
-      "/src/assets/img/avatars/avatar-11.webp",
-      "/src/assets/img/avatars/avatar-12.webp"
+      "/img/avatars/avatar-1.webp",
+      "/img/avatars/avatar-2.webp",
+      "/img/avatars/avatar-3.webp",
+      "/img/avatars/avatar-4.webp",
+      "/img/avatars/avatar-5.webp",
+      "/img/avatars/avatar-6.webp",
+      "/img/avatars/avatar-7.webp",
+      "/img/avatars/avatar-8.webp",
+      "/img/avatars/avatar-9.webp",
+      "/img/avatars/avatar-10.webp",
+      "/img/avatars/avatar-11.webp",
+      "/img/avatars/avatar-12.webp"
     ]
   },
   "sounds": {
-    "muteButton": "/src/assets/sound/pop-click.mp3",
-    "clickOpen": "/src/assets/sound/arcade-pop.mp3",
-    "closePopup": "/src/assets/sound/popup-close-minimize.mp3",
-    "startButton": "/src/assets/sound/button_sound.mp3",
-    "rouletteWheel": "/src/assets/sound/roulette_wheel.mp3",
-    "correctAnswerSound": "/src/assets/sound/correct_answer.mp3",
-    "wrongAnswerSound": "/src/assets/sound/wrong_answer.mp3"
+    "muteButton": "/sound/pop-click.mp3",
+    "clickOpen": "/sound/arcade-pop.mp3",
+    "closePopup": "/sound/popup-close-minimize.mp3",
+    "startButton": "/sound/button_sound.mp3",
+    "rouletteWheel": "/sound/roulette_wheel.mp3",
+    "correctAnswerSound": "/sound/correct_answer.mp3",
+    "wrongAnswerSound": "/sound/wrong_answer.mp3"
   },
   "links": {
     "termsURL": "/"
@@ -183,7 +183,7 @@
     {
       "id": 1,
       "name": "PERSONAJES",
-      "imgURL": "/src/assets/img/categoria-personajes.webp",
+      "imgURL": "/img/categoria-personajes.webp",
       "bonus": true,
       "questions": [
         {
@@ -381,7 +381,7 @@
     {
       "id": 2,
       "name": "JUEGOS",
-      "imgURL": "/src/assets/img/categoria-juegos.webp",
+      "imgURL": "/img/categoria-juegos.webp",
       "bonus": true,
       "questions": [
         {
@@ -579,7 +579,7 @@
     {
       "id": 3,
       "name": "TECNO",
-      "imgURL": "/src/assets/img/categoria-tecno.webp",
+      "imgURL": "/img/categoria-tecno.webp",
       "bonus": true,
       "questions": [
         {
@@ -777,7 +777,7 @@
     {
       "id": 4,
       "name": "RETRO",
-      "imgURL": "/src/assets/img/categoria-retro.webp",
+      "imgURL": "/img/categoria-retro.webp",
       "bonus": true,
       "questions": [
         {
@@ -975,7 +975,7 @@
     {
       "id": 5,
       "name": "GAMERS",
-      "imgURL": "/src/assets/img/categoria-gamers.webp",
+      "imgURL": "/img/categoria-gamers.webp",
       "bonus": true,
       "questions": [
         {
