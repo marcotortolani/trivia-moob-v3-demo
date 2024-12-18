@@ -4,7 +4,7 @@ import { useGameStore } from '@/lib/game-store'
 import { useConfigStore } from '@/lib/config-store'
 import { useQuestionStore } from '@/lib/questions/questions-store'
 
-import goldenRing from '@/assets/img/default/anillo-ruleta.webp'
+import goldenRing from '/img/default/anillo-ruleta.webp'
 
 export const StartScreen = () => {
   const { colors } = useConfigStore()
