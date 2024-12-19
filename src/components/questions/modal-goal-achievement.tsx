@@ -6,19 +6,23 @@ import { MEDAL_THRESHOLDS } from '@/lib/questions/questions-constants'
 import goldMedal from '@/assets/lotties/gold-medal.json'
 import silverMedal from '@/assets/lotties/silver-medal.json'
 import copperMedal from '@/assets/lotties/copper-medal.json'
-import podium3D from "/img/default/3d-cylinder-podium-white.webp"
+import podium3D from '/img/default/3d-cylinder-podium-white.webp'
 
 export default function ModalGoalAchievement({
   medal = '',
 }: {
   medal: string | null
 }) {
-  const { colors, images } = useConfigStore()
+  const { colors, images, config, categories } = useConfigStore()
   const options = {
     animationData: goldMedal,
     loop: true,
     autoplay: true,
   }
+
+  const totalQuestionsGame = categories.reduce((total, category) => {
+    return total + category.questions.length
+  }, 0)
   let goalName = ''
 
   switch (medal) {
@@ -56,7 +60,10 @@ export default function ModalGoalAchievement({
         <img src={images.backgroundPointsMenu} alt="medal" />
         <span className="absolute ml-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-oswaldBold">
           {(
-            MEDAL_THRESHOLDS[medal as keyof typeof MEDAL_THRESHOLDS].scoreGoal /
+            (MEDAL_THRESHOLDS[medal as keyof typeof MEDAL_THRESHOLDS]
+              .percentageGoal *
+              totalQuestionsGame *
+              config.pointsCorrect) /
             1000
           ).toFixed(3)}
         </span>

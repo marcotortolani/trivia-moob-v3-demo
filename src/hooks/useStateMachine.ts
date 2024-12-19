@@ -384,7 +384,7 @@ export function useStateMachine(initialState = 'answering') {
   //   [state, stateMachineConfig, transitionDelays]
   // )
   const send = useCallback(
-    (event: TEvent, payload: Record<string, TState> = {}) => {
+    (event: TEvent, payload: Record<string, any> = {}) => {
       const currentStateConfig = stateMachineConfig[state as TState]
 
       if ('on' in currentStateConfig && currentStateConfig.on) {
@@ -401,7 +401,7 @@ export function useStateMachine(initialState = 'answering') {
                 ? (
                     transition as (
                       context: Context,
-                      payload?: Record<string, TState>
+                      payload?: Record<string, any>
                     ) => TState
                   )(newContext, payload)
                 : (transition as TState)
