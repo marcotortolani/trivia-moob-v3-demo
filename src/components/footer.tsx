@@ -20,7 +20,7 @@ export function Footer() {
     <motion.footer
       initial={{ y: 200 }}
       animate={{ y: -5, transition: { duration: 0.5 } }}
-      className="z-20 px-4"
+      className="z-20 px-4 pb-1"
     >
       <div className="flex justify-between items-end gap-4 max-w-3xl mx-auto ">
         <Link to="/terms">

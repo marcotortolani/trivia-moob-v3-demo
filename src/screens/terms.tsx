@@ -15,7 +15,7 @@ export default function Terms() {
         layout
         initial={{ scale: 1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1, transition: { duration: 0.5 } }}
-        className={` relative min-h-screen flex flex-col overflow-hidden `}
+        className={` relative min-h-[100dvh] flex flex-col overflow-hidden `}
         style={{
           background: `linear-gradient(to bottom, ${colors.secondary}, #000)`,
         }}

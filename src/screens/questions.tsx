@@ -24,7 +24,7 @@ export default function QuestionsPage() {
 
   return (
     <div
-      className="min-h-screen flex flex-col"
+      className="min-h-[100dvh] flex flex-col"
       style={{
         background: `linear-gradient(to bottom, ${colors.secondary}, #000)`,
         color: colors.text,

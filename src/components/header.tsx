@@ -36,10 +36,12 @@ export function Header({ onMenuClick }: HeaderProps) {
         />
       </Link>
 
-      <Button
-        variant="ghost"
-        size="default"
-        className=" focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-100 ease-in-out"
+      <motion.button
+        initial={{ scale: 1, rotate: 0 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9, rotate: -60 }}
+        type="button"
+        className=" p-1 focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-100 ease-in-out"
         onClick={() => setIsMuted(!isMuted)}
       >
         {isMuted ? (
@@ -59,7 +61,7 @@ export function Header({ onMenuClick }: HeaderProps) {
             }}
           />
         )}
-      </Button>
+      </motion.button>
     </motion.header>
   )
 }

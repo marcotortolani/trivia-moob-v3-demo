@@ -6,6 +6,7 @@ import { MEDAL_THRESHOLDS } from '@/lib/questions/questions-constants'
 import goldMedal from '@/assets/lotties/gold-medal.json'
 import silverMedal from '@/assets/lotties/silver-medal.json'
 import copperMedal from '@/assets/lotties/copper-medal.json'
+import podium3D from "/img/default/3d-cylinder-podium-white.webp"
 
 export default function ModalGoalAchievement({
   medal = '',
@@ -41,12 +42,12 @@ export default function ModalGoalAchievement({
     <motion.div
       initial={{ opacity: 0, y: 1000 }}
       animate={{ opacity: 1, y: 0 }}
-      className="absolute top-0 z-50 w-screen min-h-screen bg-gradient-to-b from-black/30 to-black/90 backdrop-blur-sm px-2 flex flex-col items-center justify-center pb-2"
+      className="absolute top-0 z-50 w-screen h-[100dvh] bg-gradient-to-b from-black/30 to-black/90 backdrop-blur-sm px-2 flex flex-col items-center justify-center pb-2"
     >
       <div className="relative z-0 flex items-center justify-center -mb-10 -mt-10 ">
         <div className=" absolute bottom-0 w-4/5 mb-10 md:mb-28 ">{View}</div>
         <img
-          src={'../src/assets/img/default/3d-cylinder-podium-white.webp'}
+          src={podium3D}
           alt="3D Cylinder Podium image"
           className=" w-5/6 mx-auto "
         />

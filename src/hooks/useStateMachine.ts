@@ -1,6 +1,10 @@
 import { useState, useCallback } from 'react'
+import { useConfigStore } from '@/lib/config-store'
 import MOTIVATIONAL_MESSAGES from '@/data/encouraging-messages.json'
-import { MEDAL_THRESHOLDS, MedalType } from '@/lib/questions/questions-constants'
+import {
+  MEDAL_THRESHOLDS,
+  MedalType,
+} from '@/lib/questions/questions-constants'
 
 // Configuración de transiciones con delays
 const transitionDelays = [
@@ -15,7 +19,6 @@ const transitionDelays = [
   { from: 'motivationalMessage', to: 'goalAchieved', delay: 2000 },
   { from: 'goalAchieved', to: 'nextQuestion', delay: 2000 },
 ]
-
 
 // Tipos para definir estados y eventos
 type TState =
@@ -221,11 +224,32 @@ function getMotivationalMessage(type: string, size: number) {
 }
 
 export function checkMedalAchievement(score: number): MedalType {
-  if (score >= MEDAL_THRESHOLDS.gold.scoreGoal)
+  const { config, categories } = useConfigStore.getState()
+
+  const totalQuestionsGame = categories.reduce((total, category) => {
+    return total + category.questions.length
+  }, 0)
+
+  if (
+    score >=
+    MEDAL_THRESHOLDS.gold.percentageGoal *
+      totalQuestionsGame *
+      config.pointsCorrect
+  )
     return MEDAL_THRESHOLDS.gold.type
-  if (score >= MEDAL_THRESHOLDS.silver.scoreGoal)
+  if (
+    score >=
+    MEDAL_THRESHOLDS.silver.percentageGoal *
+      totalQuestionsGame *
+      config.pointsCorrect
+  )
     return MEDAL_THRESHOLDS.silver.type
-  if (score >= MEDAL_THRESHOLDS.copper.scoreGoal)
+  if (
+    score >=
+    MEDAL_THRESHOLDS.copper.percentageGoal *
+      totalQuestionsGame *
+      config.pointsCorrect
+  )
     return MEDAL_THRESHOLDS.copper.type
   return null
 }
@@ -360,7 +384,7 @@ export function useStateMachine(initialState = 'answering') {
   //   [state, stateMachineConfig, transitionDelays]
   // )
   const send = useCallback(
-    (event: TEvent, payload: Record<string, any> = {}) => {
+    (event: TEvent, payload: Record<string, TState> = {}) => {
       const currentStateConfig = stateMachineConfig[state as TState]
 
       if ('on' in currentStateConfig && currentStateConfig.on) {
@@ -377,7 +401,7 @@ export function useStateMachine(initialState = 'answering') {
                 ? (
                     transition as (
                       context: Context,
-                      payload?: Record<string, any>
+                      payload?: Record<string, TState>
                     ) => TState
                   )(newContext, payload)
                 : (transition as TState)
