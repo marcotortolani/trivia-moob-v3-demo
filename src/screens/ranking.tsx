@@ -168,7 +168,7 @@ export default function Ranking() {
                   )}
 
                   <div>
-                    <img src="/" alt="" />
+                    {/* <img src="/" alt="" /> */}
                     <span
                       className=" font-oswaldBold text-4xl"
                       style={{
