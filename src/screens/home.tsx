@@ -6,7 +6,7 @@ import { Footer } from '@/components/footer'
 import { Sidebar } from '@/components/sidebar'
 import { useGameStore } from '@/lib/game-store'
 import { useConfigStore } from '@/lib/config-store'
-import { Button } from '@/components/ui/button'
+import { GameCompletedModal } from '@/components/game-completed-modal'
 
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -30,8 +30,8 @@ export default function Home() {
       >
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
 
+        
         {gameCompleted && <GameCompletedModal />}
-
         <Wheel />
         {selectedCategory && <LastSelectedCategory />}
         <Footer />
@@ -44,33 +44,38 @@ export default function Home() {
   )
 }
 
-function GameCompletedModal() {
-  const { resetGame } = useGameStore()
-  function handleReset() {
-    resetGame()
-  }
-  return (
-    <motion.div
-      key="game-completed-modal"
-      initial={{ opacity: 0, y: -1000, scale: 0 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: -1000, scale: 0 }}
-      className=" absolute z-50 top-0 left-0 bg-black/50 backdrop-blur-sm w-full h-full flex items-center justify-center"
-    >
-      <motion.div
-        initial={{ opacity: 0, y: -500, scale: 0 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        className=" max-w-lg mx-auto bg-white rounded-lg p-6 shadow-lg text-neutral-800 flex flex-col items-center justify-center"
-      >
-        <h2 className="text-2xl font-bold text-center mb-2">
-          Juego Finalizado
-        </h2>
-        <p className=" mb-4">Has completado todas las categorias</p>
-        <Button onClick={handleReset}>Resetear Juego</Button>
-      </motion.div>
-    </motion.div>
-  )
-}
+// function GameCompletedModal() {
+//   const { resetGame } = useGameStore()
+//   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+//   function handleReset() {
+//     resetGame()
+//   }
+//   return (
+//     <motion.div
+//       key="game-completed-modal"
+//       initial={{ opacity: 0, y: -1000, scale: 0 }}
+//       animate={{ opacity: 1, y: 0, scale: 1 }}
+//       exit={{ opacity: 0, y: -1000, scale: 0 }}
+//       className=" fixed top-0 z-50  w-full h-full flex flex-col items-center justify-center bg-black/50 backdrop-blur-sm rounded-xl "
+//     >
+//       <div className=" absolute top-0 w-full">
+//         <Header onMenuClick={() => setIsSidebarOpen(true)} />
+//       </div>
+//       <motion.div
+//         initial={{ opacity: 0, y: -500, scale: 0 }}
+//         animate={{ opacity: 1, y: 0, scale: 1 }}
+//         className=" max-w-lg mx-auto bg-white rounded-lg p-6 shadow-lg text-neutral-800 flex flex-col items-center justify-center"
+//       >
+//         <h2 className="text-2xl font-bold text-center mb-2">
+//           Juego Finalizado
+//         </h2>
+//         <p className=" mb-4">Has completado todas las categorias</p>
+//         <Button onClick={handleReset}>Resetear Juego</Button>
+//       </motion.div>
+//       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+//     </motion.div>
+//   )
+// }
 
 function LastSelectedCategory() {
   const { colors } = useConfigStore()
@@ -90,11 +95,13 @@ function LastSelectedCategory() {
         stiffness: 60,
       }}
       exit={{ opacity: 0, y: 1000 }}
-      className="z-0 py-2 text-center font-semibold text-white mb-4"
+      className="z-0 py-1 text-center font-oswaldRegular text-white mb-0"
       style={{ backgroundColor: colors.primaryLight }}
     >
       Última categoría jugada:{' '}
-      <span className=" ">{selectedCategory.name}</span>
+      <span className=" font-oswaldHeavyItalic text-xl ">
+        {selectedCategory.name}
+      </span>
     </motion.div>
   )
 }

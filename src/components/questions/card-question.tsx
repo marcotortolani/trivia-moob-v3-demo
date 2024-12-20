@@ -6,6 +6,7 @@ import { useQuestionStore } from '@/lib/questions/questions-store'
 import { Timer } from '../timer'
 import BadgeGlow from '../ui/badge-glow'
 import { Question, Answer } from '@/types/game-types'
+import TimeUp from './time-up'
 
 export function CardQuestion({
   question,
@@ -120,7 +121,7 @@ export function CardQuestion({
         )}
         <motion.div style={{ scale }}>
           <h2
-            className="text-xl font-oswaldMedium text-center mb-8"
+            className="text-xl font-oswaldMedium leading-6 text-center mb-6"
             style={{
               color: colors.text,
             }}
@@ -146,21 +147,7 @@ export function CardQuestion({
           </div>
         </motion.div>
       </motion.div>
-      <motion.div
-        initial={{ opacity: 0, scale: 0, y: 200 }}
-        animate={
-          timeUp
-            ? { opacity: 1, scale: 1, y: 0 }
-            : { opacity: 0, scale: 0, y: 200 }
-        }
-        transition={{ duration: 0.2 }}
-        exit={{ opacity: 0, scale: 0, y: 200 }}
-        className="z-50 absolute bottom-0 left-0 flex items-center justify-center w-full h-full bg-black/50 backdrop-blur-sm"
-      >
-        <p className="bg-white text-red-700  font-semibold text-xl text-center px-6 py-4 rounded-lg">
-          Se agotó el tiempo!!!
-        </p>
-      </motion.div>
+      <TimeUp timeUp={timeUp} />
     </div>
   )
 }

@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { Question } from '@/types/game-types'
 
 export interface GameState {
-  currentState: 'START' | 'PLAYING' | 'PAUSE' | 'CAT_FINISHED'
+  currentState: 'START' | 'PLAYING' | 'PAUSE' | 'CAT_COMPLETED'
   message?: string
   dontAskAgain?: boolean
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useConfigStore } from '@/lib/config-store'
 import { Menu, VolumeX, Volume2 } from 'lucide-react'
@@ -10,14 +10,19 @@ interface HeaderProps {
 }
 
 export function Header({ onMenuClick }: HeaderProps) {
+  const location = useLocation()
   const { images, colors } = useConfigStore()
   const [isMuted, setIsMuted] = useState(false)
+
+  console.log(location.pathname)
 
   return (
     <motion.header
       initial={{ y: -200 }}
       animate={{ y: 0, transition: { duration: 0.5 } }}
-      className=" w-full px-4 my-2 flex justify-between items-center"
+      className={`${
+        location.pathname === '/' && ' z-[100] '
+      } z-0 w-full px-4 my-2 flex justify-between items-center`}
     >
       <Button
         variant="ghost"

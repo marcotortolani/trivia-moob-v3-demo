@@ -44,7 +44,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent
         side="left"
-        className=" w-[95vw] h-[100dvh] overflow-y-scroll px-0 border-none  rounded-r-2xl flex flex-col justify-between "
+        className=" z-[200] w-[95vw] h-[100dvh] overflow-y-scroll px-0 border-none  rounded-r-2xl flex flex-col justify-between "
         style={{
           background: `linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(${hexToRgb(
             colors.secondary

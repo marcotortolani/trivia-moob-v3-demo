@@ -6,7 +6,8 @@ import { MEDAL_THRESHOLDS } from '@/lib/questions/questions-constants'
 import goldMedal from '@/assets/lotties/gold-medal.json'
 import silverMedal from '@/assets/lotties/silver-medal.json'
 import copperMedal from '@/assets/lotties/copper-medal.json'
-import podium3D from '/img/default/3d-cylinder-podium-white.webp'
+
+import podium3D from '/img/default/base-podio.webp'
 
 export default function ModalGoalAchievement({
   medal = '',
@@ -46,17 +47,17 @@ export default function ModalGoalAchievement({
     <motion.div
       initial={{ opacity: 0, y: 1000 }}
       animate={{ opacity: 1, y: 0 }}
-      className="absolute top-0 z-50 w-screen h-[100dvh] bg-gradient-to-b from-black/30 to-black/90 backdrop-blur-sm px-2 flex flex-col items-center justify-center pb-2"
+      className="absolute top-0 z-[200] w-screen min-h-[100dvh] bg-gradient-to-b from-black/10 via-black/30 to-black backdrop-blur-sm px-2 flex flex-col items-center justify-center pb-10"
     >
-      <div className="relative z-0 flex items-center justify-center -mb-10 -mt-10 ">
-        <div className=" absolute bottom-0 w-4/5 mb-10 md:mb-28 ">{View}</div>
+      <div className="relative z-0 h-fit flex flex-col items-center justify-center mb-2  ">
+        <div className="  w-4/5 -mb-20 -mt-10 ">{View}</div>
         <img
           src={podium3D}
           alt="3D Cylinder Podium image"
-          className=" w-5/6 mx-auto "
+          className=" w-2/3 mx-auto"
         />
       </div>
-      <div className=" relative w-4/6 mb-8 mx-auto  ">
+      <div className=" relative w-4/6 mb-10 mx-auto  ">
         <img src={images.backgroundPointsMenu} alt="medal" />
         <span className="absolute ml-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-oswaldBold">
           {(

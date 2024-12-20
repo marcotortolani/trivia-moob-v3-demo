@@ -102,9 +102,9 @@ export function Wheel() {
           damping: 10,
         },
       }}
-      className=" h-80 flex-1 flex items-center justify-center p-4"
+      className=" h-full flex-1 flex items-center justify-center bg-red-600/0"
     >
-      <div className="relative w-80 h-80 mx-auto my-8  scale-100  md:scale-125 lg:scale-150 ">
+      <div className="relative w-80 h-80 mx-auto my-8 scale-100  md:scale-125 ">
         <img
           src={ringWheel}
           alt="Ring wheel"

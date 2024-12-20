@@ -55,11 +55,13 @@ export function PlayingScreen() {
   const [direction, setDirection] = useState(0)
 
   const {
-    seconds: secondsLeft,
+  //  seconds: secondsLeft,
     reset: timerReset,
     pause: timerPause,
     isActive: timerIsActive,
   } = useCountdown(countdownSeconds, () => {})
+
+  const secondsLeft = 0
 
   const categoryHasBonus = selectedCategory?.bonus
 
@@ -70,7 +72,7 @@ export function PlayingScreen() {
 
     setTimeout(() => {
       nextQuestion()
-    }, 2000)
+    }, 2500)
   }
 
   useEffect(() => {
@@ -152,75 +154,82 @@ export function PlayingScreen() {
       send('SHOW_NEXT_QUESTION')
       timerReset()
     } else {
-      setGameState({ currentState: 'CAT_FINISHED' })
+      setGameState({ currentState: 'CAT_COMPLETED' })
     }
   }
 
   return (
-    <AnimatePresence mode="wait" custom={direction}>
-      {state === 'answering' && (
-        <>
-          <motion.div
-            key="category-selected"
-            initial={{ opacity: 0, scale: 0.5, y: 1000 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: 0,
-              transition: {
-                duration: 0.5,
-                ease: 'easeInOut',
-                delay: 0,
-                type: 'spring',
-                stiffness: 40,
-              },
-            }}
-            className=" flex items-center justify-center gap-2 "
-          >
-            <div className=" relative w-1/6 max-w-[100px] aspect-square">
-              <img
-                src={goldenRing}
-                alt="Ring wheel"
-                className=" absolute z-50 w-full h-full p-1  "
-              />
-              <img
-                className="w-full h-full"
-                src={selectedCategory?.image}
-                alt={selectedCategory?.name}
-              />
-            </div>
-            <span
-              className=" font-oswaldBold italic tracking-wider text-lg "
-              style={{ color: colors.text }}
+    <motion.div
+      key="playing-screen"
+      initial={{ opacity: 0, y: 500 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 500 }}
+    >
+      <AnimatePresence mode="wait" custom={direction}>
+        {state !== 'answering' && (
+          <>
+            <motion.div
+              key="category-selected"
+              initial={{ opacity: 0, scale: 0.5, y: 1000 }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                transition: {
+                  duration: 0.5,
+                  ease: 'easeInOut',
+                  delay: 0,
+                  type: 'spring',
+                  stiffness: 40,
+                },
+              }}
+              className=" flex items-center justify-center gap-2 "
             >
-              {selectedCategory.name}
-            </span>
-          </motion.div>
-          <CardQuestion
-            question={currentQuestion}
-            onAnswer={handleAnswerSelected}
-            secondsLeft={secondsLeft}
-            timerIsActive={timerIsActive}
-            direction={direction}
+              <div className=" relative w-1/6 max-w-[100px] aspect-square">
+                <img
+                  src={goldenRing}
+                  alt="Ring wheel"
+                  className=" absolute z-50 w-full h-full p-1  "
+                />
+                <img
+                  className="w-full h-full"
+                  src={selectedCategory?.image}
+                  alt={selectedCategory?.name}
+                />
+              </div>
+              <span
+                className=" font-oswaldBold italic tracking-wider text-lg "
+                style={{ color: colors.text }}
+              >
+                {selectedCategory.name}
+              </span>
+            </motion.div>
+            <CardQuestion
+              question={currentQuestion}
+              onAnswer={handleAnswerSelected}
+              secondsLeft={secondsLeft}
+              timerIsActive={timerIsActive}
+              direction={direction}
+            />
+          </>
+        )}
+        {state === 'changeCategoryModal' && (
+          <ModalChangeCategory
+            onRoulette={() => navigate('/')}
+            onCloseModal={() => send('STAY')}
+            onDontAskAgain={() => send('DONT_ASK_AGAIN')}
           />
-        </>
-      )}
-      {state === 'changeCategoryModal' && (
-        <ModalChangeCategory
-          onRoulette={() => navigate('/')}
-          onCloseModal={() => send('STAY')}
-          onDontAskAgain={() => send('DONT_ASK_AGAIN')}
-        />
-      )}
-      {state === 'motivationalMessage' && (
-        <ModalMotivationalMessage
-          encouragingMessage={context?.motivationalMessage}
-        />
-      )}
+        )}
+        {state === 'motivationalMessage' && (
+          <ModalMotivationalMessage
+            encouragingMessage={context?.motivationalMessage}
+          />
+        )}
 
-      {state === 'goalAchieved' && (
-        <ModalGoalAchievement medal={context?.currentMedal} />
-      )}
-    </AnimatePresence>
+        {state === 'goalAchieved' && (
+          <ModalGoalAchievement medal={context?.currentMedal} />
+        )}
+      </AnimatePresence>
+    </motion.div>
   )
 }
