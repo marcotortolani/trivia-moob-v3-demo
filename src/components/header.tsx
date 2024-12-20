@@ -14,8 +14,6 @@ export function Header({ onMenuClick }: HeaderProps) {
   const { images, colors } = useConfigStore()
   const [isMuted, setIsMuted] = useState(false)
 
-  console.log(location.pathname)
-
   return (
     <motion.header
       initial={{ y: -200 }}

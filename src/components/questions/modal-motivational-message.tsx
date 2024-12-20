@@ -1,43 +1,112 @@
 import { motion } from 'framer-motion'
-import ENCOURAGING_MESSAGES from '@/data/encouraging-messages.json'
+import { useLottie } from 'lottie-react'
+import { useConfigStore } from '@/lib/config-store'
+import { MotivationalMessage } from '@/hooks/useStateMachine'
 
-type ValidSizes = keyof (typeof ENCOURAGING_MESSAGES)['correct' | 'incorrect']
-export type EncouragingMessage = (typeof ENCOURAGING_MESSAGES)[
-  | 'correct'
-  | 'incorrect'][ValidSizes]
+import confetti from '../../assets/lotties/motivational-correct/confetti.json'
+import rocket from '../../assets/lotties/motivational-correct/notificacion-cohete.json'
+import fire from '../../assets/lotties/motivational-correct/notificacion-fuego.json'
+import star from '../../assets/lotties/motivational-correct/notificacion-estrella.json'
+import sunglasses from '../../assets/lotties/motivational-correct/notificacion-emoticon-lentes-sol.json'
 
-interface ModalEncouragingMessageProps {
-  encouragingMessage: EncouragingMessage | null
-}
+import muscle from '../../assets/lotties/motivational-incorrect/notificacion-musculo.json'
+import fist from '../../assets/lotties/motivational-incorrect/notificacion-puno.json'
+import sadFace from '../../assets/lotties/motivational-incorrect/notificacion-triste.json'
+import ungryFace from '../../assets/lotties/motivational-incorrect/enojado.json'
+import cryFace from '../../assets/lotties/motivational-incorrect/llorando.json'
 
-const ModalMotivationalMessage: React.FC<ModalEncouragingMessageProps> = ({
-  encouragingMessage,
+const ModalMotivationalMessage = ({
+  motivationalMessage,
+}: {
+  motivationalMessage: MotivationalMessage
 }) => {
-  if (!encouragingMessage) return null
+  const { colors } = useConfigStore()
+  let lottie = undefined
+
+  switch (motivationalMessage?.lottieName) {
+    case 'confetti':
+      lottie = confetti
+      break
+    case 'rocket':
+      lottie = rocket
+      break
+    case 'fire':
+      lottie = fire
+      break
+    case 'star':
+      lottie = star
+      break
+    case 'sunglasses':
+      lottie = sunglasses
+      break
+
+    case 'muscle':
+      lottie = muscle
+      break
+    case 'fist':
+      lottie = fist
+      break
+    case 'sadFace':
+      lottie = sadFace
+      break
+    case 'ungryFace':
+      lottie = ungryFace
+      break
+    case 'cryFace':
+      lottie = cryFace
+      break
+  }
+
+  const options = {
+    animationData: lottie,
+    loop: true,
+    autoplay: true,
+  }
+  const { View } = useLottie(options)
 
   return (
     <motion.div
-      initial={{ opacity: 0, scaleY: 0 }}
-      animate={{ opacity: 1, scaleY: 1 }}
-      exit={{ opacity: 0, scaleY: 0 }}
-      className="fixed inset-0 z-[200] flex items-center justify-center bg-black bg-opacity-50"
+      initial={{ opacity: 0, y: 500 }}
+      animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+      exit={{ opacity: 0, y: 500 }}
+      className="absolute top-0 left-0 z-[200] w-full min-h-[100dvh] flex items-center justify-center bg-gradient-to-b from-black/20 via-black/40 to-black backdrop-blur-sm"
     >
-      <motion.div
-        initial={{ scale: 0.9 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 0.9 }}
-        className="bg-white rounded-lg p-6 max-w-md w-full text-center"
-      >
-        <h2 className="text-2xl text-black font-bold mb-4">
-          {encouragingMessage?.title}
+      <div className=" p-6 max-w-md w-full text-center bg-sky-500/0">
+        <h2
+          className=" w-fit mx-auto px-4 py-2 mb-4 text-3xl font-tekoMedium tracking-wide uppercase rounded-lg"
+          style={{
+            color: colors.text,
+            background: `linear-gradient(180deg, ${colors.primary} 60%, rgba(0, 0, 0, 1) 160%)`,
+          }}
+        >
+          {motivationalMessage?.title}
         </h2>
-        <p className="text-lg mb-6 text-black">
-          {encouragingMessage?.longMessage}
+        {lottie !== undefined && <div className=" w-2/3 mx-auto">{View}</div>}
+        <p
+          className="mb-6 font-oswaldHeavyItalic uppercase text-5xl "
+          style={{ color: colors.text }}
+        >
+          {motivationalMessage?.longMessage}
         </p>
-        <p className="text-sm font-medium mb-6 text-black">
-          {encouragingMessage?.shortMessage}
-        </p>
-      </motion.div>
+        <div>
+          <p
+            className=" font-tekoRegular text-3xl "
+            style={{ color: colors.text }}
+          >
+            Llevas {motivationalMessage?.number}{' '}
+            {motivationalMessage?.type === 'correct'
+              ? 'correctas'
+              : 'incorrectas'}{' '}
+            consecutivas.
+          </p>
+          <p
+            className=" font-tekoMedium uppercase text-3xl "
+            style={{ color: 'rgb(10, 255, 10)' }}
+          >
+            {motivationalMessage?.shortMessage}
+          </p>
+        </div>
+      </div>
     </motion.div>
   )
 }

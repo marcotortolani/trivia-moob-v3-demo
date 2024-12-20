@@ -150,7 +150,7 @@ export function Wheel() {
                   key={category.name}
                   className={` ${
                     questionsAnswered >= totalQuestions &&
-                    ' brightness-50 grayscale-[0%]'
+                    ' brightness-[25%] grayscale-[0%]'
                   } absolute w-1/2 h-1/2 origin-bottom-right bg-gradient-to-br from-transparent to-black/20`}
                   style={{
                     transform: `rotate(-${index * angle}deg) skew(${skewY}deg)`,
@@ -158,9 +158,9 @@ export function Wheel() {
                     zIndex: totalCategories + 5 - index,
                   }}
                 >
-                  <span className=" absolute top-6 right-2 bg-white text-black z-50 ">
+                  {/* <span className=" absolute top-6 right-2 bg-white text-black z-50 ">
                     {questionsAnswered}/{totalQuestions}
-                  </span>
+                  </span> */}
                   <div
                     className=" z-50 absolute w-1/2 h-1/2 bg-red-600/0 aspect-square -translate-x-1/2 -translate-y-1/2 "
                     style={{

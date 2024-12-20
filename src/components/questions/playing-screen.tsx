@@ -1,28 +1,20 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
+import { useStateMachine } from '@/hooks/useStateMachine'
+import { useScoreManager } from '@/hooks/useScoreManager'
 import { CardQuestion } from './card-question'
 import { useGameStore } from '@/lib/game-store'
 import { useConfigStore } from '@/lib/config-store'
 import { useQuestionStore } from '@/lib/questions/questions-store'
-import { useScoreManager } from '@/hooks/useScoreManager'
 import { useCountdown } from '@/hooks/useCountDown'
 import { useQuestionsAnswered } from '@/hooks/useQuestionsAnswered'
 import ModalChangeCategory from './modal-change-category'
 import ModalMotivationalMessage from './modal-motivational-message'
-
-// import { gameMachine } from '@/lib/questions/game-machine'
-import ENCOURAGING_MESSAGES from '@/data/encouraging-messages.json'
-
-import { useStateMachine } from '@/hooks/useStateMachine'
 import ModalGoalAchievement from './modal-goal-achievement'
 
 import goldenRing from '/img/default/anillo-ruleta.webp'
 
-type ValidSizes = keyof (typeof ENCOURAGING_MESSAGES)['correct' | 'incorrect']
-export type EncouragingMessage = (typeof ENCOURAGING_MESSAGES)[
-  | 'correct'
-  | 'incorrect'][ValidSizes]
 
 export function PlayingScreen() {
   const navigate = useNavigate()
@@ -55,13 +47,13 @@ export function PlayingScreen() {
   const [direction, setDirection] = useState(0)
 
   const {
-  //  seconds: secondsLeft,
+     seconds: secondsLeft,
     reset: timerReset,
     pause: timerPause,
     isActive: timerIsActive,
   } = useCountdown(countdownSeconds, () => {})
 
-  const secondsLeft = 0
+  //const secondsLeft = 0
 
   const categoryHasBonus = selectedCategory?.bonus
 
@@ -164,9 +156,10 @@ export function PlayingScreen() {
       initial={{ opacity: 0, y: 500 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 500 }}
+      className=" z-0"
     >
       <AnimatePresence mode="wait" custom={direction}>
-        {state !== 'answering' && (
+        {state === 'answering' && (
           <>
             <motion.div
               key="category-selected"
@@ -222,7 +215,7 @@ export function PlayingScreen() {
         )}
         {state === 'motivationalMessage' && (
           <ModalMotivationalMessage
-            encouragingMessage={context?.motivationalMessage}
+            motivationalMessage={context?.motivationalMessage}
           />
         )}
 

@@ -28,8 +28,8 @@ export function QuestionDisplay() {
   return (
     <div className="w-full max-w-2xl mx-auto px-0 overflow-hidden2 ">
       <AnimatePresence mode="wait">
-        {gameState.currentState !== 'START' && <StartScreen />}
-        {gameState.currentState !== 'PLAYING' && <PlayingScreen />}
+        {gameState.currentState === 'START' && <StartScreen />}
+        {gameState.currentState === 'PLAYING' && <PlayingScreen />}
         {gameState.currentState === 'CAT_COMPLETED' && <CategoryCompleted />}
 
         {gameState.currentState === 'PAUSE' && (

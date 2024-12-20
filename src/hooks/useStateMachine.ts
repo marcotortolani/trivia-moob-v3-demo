@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { useConfigStore } from '@/lib/config-store'
-import MOTIVATIONAL_MESSAGES from '@/data/encouraging-messages.json'
+import MOTIVATIONAL_MESSAGES from '@/data/motivational-messages.json'
 import {
   MEDAL_THRESHOLDS,
   MedalType,
@@ -41,10 +41,13 @@ type TEvent =
 type ValidSizes = keyof (typeof MOTIVATIONAL_MESSAGES)['correct' | 'incorrect']
 export type MotivationalMessage = {
   title: string
-  image: string
+  lottieName: string
   longMessage: string
   shortMessage: string
+  type: string
+  number: number
 }
+
 
 type PendingState = TState[]
 
@@ -52,7 +55,7 @@ type RecentAnswer = 'correct' | 'incorrect'
 interface Context {
   recentAnswers: RecentAnswer[]
   dontAskAgain?: boolean
-  motivationalMessage: MotivationalMessage | null
+  motivationalMessage: MotivationalMessage
   pendingStates: PendingState
   goalAchieved?: boolean
   questionsAnswered: number
@@ -266,9 +269,11 @@ export function useStateMachine(initialState = 'answering') {
     pendingStates: [],
     motivationalMessage: {
       title: '',
-      image: '',
+      lottieName: '',
       longMessage: '',
       shortMessage: '',
+      type: '',
+      number: 0,
     },
     goalAchieved: false,
     currentMedal: null,
