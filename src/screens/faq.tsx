@@ -4,7 +4,7 @@ import { useConfigStore } from '@/lib/config-store'
 import { Header } from '@/components/header'
 import { Sidebar } from '@/components/sidebar'
 
-export default function About() {
+export default function FAQ() {
   const { colors } = useConfigStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
@@ -26,7 +26,7 @@ export default function About() {
           className=" mx-auto text-2xl font-bold text-center mb-2"
           style={{ color: colors.text }}
         >
-          Acerca de...
+          Preguntas Frecuentes
         </h2>
 
         <Sidebar

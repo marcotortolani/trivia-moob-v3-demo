@@ -129,7 +129,7 @@ export default function Ranking() {
           </h2>
           <div className=" w-full px-4 py-4 space-y-1">
             {medalsToAchieve.map((medal) => (
-              <div className={` w-full mx-auto flex items-center gap-2 `}>
+              <div key={medal.name} className={` w-full mx-auto flex items-center gap-2 `}>
                 <img
                   src={medal.image}
                   alt="Medal with Black Podium"

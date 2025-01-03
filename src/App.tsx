@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
+//import TermsExample from './screens/terms/terms-example'
 
 // import Upcoming from './components/Upcoming'
 // import Ended from './components/Ended'
@@ -10,9 +11,9 @@ const Home = lazy(() => import('./screens/home'))
 const Questions = lazy(() => import('./screens/questions'))
 const Ranking = lazy(() => import('./screens/ranking'))
 const Profile = lazy(() => import('./screens/profile'))
-const Terms = lazy(() => import('./screens/terms'))
+//const Terms = lazy(() => import('./screens/terms/terms'))
 const Tutorial = lazy(() => import('./screens/tutorial'))
-const About = lazy(() => import('./screens/about'))
+const FAQ = lazy(() => import('./screens/faq'))
 const Rewards = lazy(() => import('./screens/rewards'))
 
 export function App() {
@@ -41,8 +42,9 @@ export function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/tutorial" element={<Tutorial />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/terms" element={<Terms />} />
+          <Route path="/faq" element={<FAQ />} />
+          {/* <Route path="/terms" element={<Terms />} />
+          <Route path="/terms-example" element={<TermsExample />} /> */}
           <Route path="/rewards" element={<Rewards />} />
         </Routes>
       </Router>

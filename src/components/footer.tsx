@@ -14,7 +14,7 @@ import { Trophy } from 'lucide-react'
 
 export function Footer() {
   const { score } = useGameStore()
-  const { colors, images } = useConfigStore()
+  const { colors, images, links } = useConfigStore()
 
   return (
     <motion.footer
@@ -23,7 +23,7 @@ export function Footer() {
       className="z-20 px-4 py-2"
     >
       <div className="flex justify-between items-end gap-4 max-w-3xl mx-auto ">
-        <Link to="/terms">
+        <Link to={links.termsURL} target="_blank">
           <Button
             variant="ghost"
             className=" w-16 h-fit p-0 flex flex-col items-center uppercase font-oswaldBold text-sm focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-150 ease-in-out"

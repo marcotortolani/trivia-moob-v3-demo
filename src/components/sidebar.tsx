@@ -29,7 +29,7 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
-  const { colors, images, user } = useConfigStore()
+  const { colors, images, user, links } = useConfigStore()
   const { score } = useGameStore()
   const navigate = useNavigate()
 
@@ -77,7 +77,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                 <img
                   className="w-full h-full p-2"
                   src={images.avatars[0]}
-                  alt=""
+                  alt="Image User Avatar"
                 />
               </div>
               <span
@@ -89,7 +89,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             </div>
             <div className=" ml-1 mr-3 w-[1px] h-16 bg-neutral-400 content-normal"></div>
             <div className=" relative w-2/3 mx-auto  ">
-              <img src={images.backgroundPointsMenu} alt="medal" />
+              <img src={images.backgroundPointsMenu} alt="background points" />
               <span
                 className="absolute ml-5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-oswaldBold"
                 style={{ color: colors.text }}
@@ -121,11 +121,16 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               <TutorialIcon width={24} height={24} fill={colors.primary} />
               ¿Cómo Jugar?
             </NavLinkStyled>
-            <NavLinkStyled to="/about" onNavLink={handleNavLink}>
+            <NavLinkStyled to="/faq" onNavLink={handleNavLink}>
               <AboutIcon width={24} height={24} fill={colors.primary} />
-              Acerca de...
+              Preguntas Frecuentes
             </NavLinkStyled>
-            <NavLinkStyled to="/terms" onNavLink={handleNavLink}>
+            <NavLinkStyled
+              to={links.termsURL}
+              onNavLink={() => {
+                window.open(links.termsURL, '_blank')
+              }}
+            >
               <TermsIcon width={24} height={24} fill={colors.primary} />
               Bases y Condiciones
             </NavLinkStyled>

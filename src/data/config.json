@@ -103,7 +103,7 @@
     "wrongAnswerSound": "/sound/wrong_answer.mp3"
   },
   "links": {
-    "termsURL": "/"
+    "termsURL": "https://google.com"
   },
   "textsByLang": {
     "es": {
@@ -127,7 +127,7 @@
       "pointsPerAnswer": "Puntos por Respuesta",
       "timeSpentTitle": "Tiempo Dedicado",
       "totalTime": "Total",
-      "averageTime": "Promedio",
+      "averageTime": "Promedio por pregunta",
       "seconds": "segundos"
     },
     "en": {
