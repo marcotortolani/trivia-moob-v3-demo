@@ -99,7 +99,7 @@ export default function HowToPlay() {
   }
 
   const handleDragEnd = (
-    event: MouseEvent | TouchEvent | PointerEvent,
+    _event: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo
   ) => {
     const swipeThreshold = 50 // Minimum distance to trigger a swipe
@@ -239,9 +239,7 @@ export default function HowToPlay() {
             <motion.div
               key={'lottie'}
               initial={{ opacity: 0, y: 1000, scale: 0 }}
-              animate={
-                page >= STEPS.length && { opacity: 1, y: 0, scale: 1 }
-              }
+              animate={page >= STEPS.length && { opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 1000, scale: 0 }}
               transition={{
                 x: { type: 'spring', stiffness: 300, damping: 30 },
