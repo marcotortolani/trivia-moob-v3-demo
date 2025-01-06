@@ -34,6 +34,26 @@
     format('opentype');
 }
 
+@font-face {
+  font-family: 'PoppinsLight';
+  src: url('../src/assets/fonts/Poppins/Poppins-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PoppinsRegular';
+  src: url('../src/assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PoppinsMedium';
+  src: url('../src/assets/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PoppinsBold';
+  src: url('../src/assets/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

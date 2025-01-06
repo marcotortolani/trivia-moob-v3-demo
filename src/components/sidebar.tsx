@@ -117,7 +117,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               <RankingIcon width={24} height={24} fill={colors.primary} />
               Objetivos - Ranking
             </NavLinkStyled>
-            <NavLinkStyled to="/tutorial" onNavLink={handleNavLink}>
+            <NavLinkStyled to="/how-to-play" onNavLink={handleNavLink}>
               <TutorialIcon width={24} height={24} fill={colors.primary} />
               ¿Cómo Jugar?
             </NavLinkStyled>

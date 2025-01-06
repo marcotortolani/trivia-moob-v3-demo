@@ -12,7 +12,8 @@ const Questions = lazy(() => import('./screens/questions'))
 const Ranking = lazy(() => import('./screens/ranking'))
 const Profile = lazy(() => import('./screens/profile'))
 //const Terms = lazy(() => import('./screens/terms/terms'))
-const Tutorial = lazy(() => import('./screens/tutorial'))
+
+const HowToPlay = lazy(() => import('./screens/how-to-play'))
 const FAQ = lazy(() => import('./screens/faq'))
 const Rewards = lazy(() => import('./screens/rewards'))
 
@@ -41,7 +42,7 @@ export function App() {
           <Route path="/questions/" element={<Questions />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/ranking" element={<Ranking />} />
-          <Route path="/tutorial" element={<Tutorial />} />
+          <Route path="/how-to-play" element={<HowToPlay />} />
           <Route path="/faq" element={<FAQ />} />
           {/* <Route path="/terms" element={<Terms />} />
           <Route path="/terms-example" element={<TermsExample />} /> */}

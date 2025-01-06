@@ -20,6 +20,10 @@ export default {
         oswaldMedium: ['OswaldMedium', 'sans-serif'],
         oswaldBold: ['OswaldBold', 'sans-serif'],
         oswaldHeavyItalic: ['OswaldHeavyItalic', 'sans-serif'],
+        poppinsLight: ['PoppinsLight', 'sans-serif'],
+        poppinsRegular: ['PoppinsRegular', 'sans-serif'],
+        poppinsMedium: ['PoppinsMedium', 'sans-serif'],
+        poppinsBold: ['PoppinsBold', 'sans-serif'],
       },
       screens: {
         xs: '320px',
