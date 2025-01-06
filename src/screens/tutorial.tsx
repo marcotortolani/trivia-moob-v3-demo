@@ -24,9 +24,9 @@ export default function Tutorial() {
       >
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
 
-        <section className=" w-full px-6 flex flex-col items-center gap-3">
+        <section className=" w-full px-4 flex flex-col items-center gap-3">
           <h2
-            className=" w-full text-2xl font-oswaldRegular text-left mb-2 pb-3  "
+            className=" w-full text-2xl font-oswaldBold uppercase text-left pb-2"
             style={{
               color: colors.text,
               borderBottom: `1.5px solid ${colors.primary}`,

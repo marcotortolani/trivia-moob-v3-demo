@@ -1,93 +1,65 @@
-import { useMemo, useState, useEffect } from 'react'
-import * as d3 from 'd3'
+import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { useConfigStore } from '@/lib/config-store'
+import { useGameStore } from '@/lib/game-store'
+import { AnimateProgressive } from './animated-number'
 
-const MARGIN = 1
+export function DonutChart() {
+  const { colors } = useConfigStore()
+  const { answeredQuestions } = useGameStore()
+  const [percentage, setPercentage] = useState(0)
 
-const dataInitial = [
-  { name: 'correct', value: 80, color: '' },
-  { name: 'incorrect', value: 20, color: '' },
-]
-
-export const DonutChart = ({
-  answers,
-  colorCorrect,
-  colorWrong,
-  width = 170,
-  height = 170,
-}: {
-  answers: { correct: number; incorrect: number; bonus: number }
-  colorCorrect: string
-  colorWrong: string
-  width?: number
-  height?: number
-}) => {
-  const [data, setData] = useState(dataInitial)
-
-  const valuePercentage = Math.round(
-    ((answers.correct + answers.bonus) /
-      (answers.correct + answers.incorrect + answers.bonus)) *
-      100
-  )
-
-  const radius = Math.min(width, height) / 2 - MARGIN
-
-  const pie = useMemo(() => {
-    const pieGenerator = d3.pie().value((d: { value: number }) => d.value)
-    return pieGenerator(data)
-  }, [data])
-
-  const arcs = useMemo(() => {
-    const arcPathGenerator = d3.arc()
-    return pie.map((p: { startAngle: number; endAngle: number }) =>
-      arcPathGenerator({
-        innerRadius: 70,
-        outerRadius: radius,
-        startAngle: p.startAngle,
-        endAngle: p.endAngle,
-      })
-    )
-  }, [radius, pie])
+  const total =
+    answeredQuestions.correct +
+    answeredQuestions.incorrect +
+    answeredQuestions.bonus
 
   useEffect(() => {
-    setData((prevData) =>
-      prevData.map((d) => {
-        if (d.name === 'correct') {
-          return {
-            ...d,
-            value: answers.correct + answers.bonus,
-            color: colorCorrect,
-          }
-        }
-        if (d.name === 'incorrect') {
-          return { ...d, value: answers.incorrect, color: colorWrong }
-        }
-        return d
-      })
-    )
-  }, [answers, colorCorrect, colorWrong])
+    const value =
+      total > 0
+        ? Math.round(
+            ((answeredQuestions.correct + answeredQuestions.bonus) / total) *
+              100
+          )
+        : 0
 
+    setPercentage(value)
+  }, [])
   return (
-    <div
-      className=" relative flex justify-center items-center scale-75"
-      style={{ width: width / 2, height: height / 2 }}
-    >
-      <svg
-        width={width}
-        height={height}
-        style={{
-          position: 'absolute',
-          transform: 'scale(0.5) translateX(0px)',
-        }}
-      >
-        <g transform={`translate(${width / 2}, ${height / 2})`}>
-          {arcs.map((arc: string, i: number) => {
-            return <path key={i} d={arc} fill={data[i].color} />
-          })}
-        </g>
+    <div className="relative w-20 h-20">
+      {/* Background circle */}
+      <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
+        <circle
+          cx="50"
+          cy="50"
+          r="40"
+          fill="none"
+          stroke={colors.wrong}
+          strokeWidth="8"
+          style={{ opacity: (130 - percentage) / 100 }}
+        />
+        {/* Animated progress circle */}
+        <motion.circle
+          cx="50"
+          cy="50"
+          r="40"
+          fill="none"
+          stroke={colors.correct}
+          style={{ opacity: 0.75 + (percentage / 100) * 0.25 }}
+          strokeWidth="8"
+          strokeDasharray={`${percentage * 2.51327} ${251.327}`}
+          initial={{ strokeDasharray: '0 251.327' }}
+          animate={{
+            strokeDasharray: `${percentage * 2.51327} ${251.327}`,
+          }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
+        />
       </svg>
-      <span className=" relative z-[500] text-white font-oswaldMedium text-2xl">
-        {valuePercentage}%
-      </span>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span className="text-xl font-bold text-white">
+          <AnimateProgressive value={percentage} />%
+        </span>
+      </div>
     </div>
   )
 }

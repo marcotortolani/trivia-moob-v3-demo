@@ -119,17 +119,20 @@ export default function Ranking() {
 
         <section className="px-4">
           <h2
-            className=" pl-3 text-2xl font-oswaldBold uppercase text-left"
+            className=" text-2xl font-oswaldBold uppercase text-left pb-2"
             style={{
               color: colors.text,
-              borderBottom: `1px solid ${colors.primary}`,
+              borderBottom: `1.5px solid ${colors.primary}`,
             }}
           >
             Objetivos
           </h2>
           <div className=" w-full px-4 py-4 space-y-1">
             {medalsToAchieve.map((medal) => (
-              <div key={medal.name} className={` w-full mx-auto flex items-center gap-2 `}>
+              <div
+                key={medal.name}
+                className={` w-full mx-auto flex items-center gap-2 `}
+              >
                 <img
                   src={medal.image}
                   alt="Medal with Black Podium"
@@ -187,10 +190,10 @@ export default function Ranking() {
         {isRankingData && (
           <section className="px-4">
             <h2
-              className=" pl-3 text-2xl font-oswaldBold uppercase text-left"
+              className=" text-2xl font-oswaldBold uppercase text-left pb-2"
               style={{
                 color: colors.text,
-                borderBottom: `1px solid ${colors.primary}`,
+                borderBottom: `1.5px solid ${colors.primary}`,
               }}
             >
               Ranking

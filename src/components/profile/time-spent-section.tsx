@@ -1,8 +1,8 @@
+import { motion } from 'framer-motion'
 import { useConfigStore } from '@/lib/config-store'
-
 import SectionTitle from './section-title'
 
-export default function TimeSection({
+export default function TimeSpent({
   answeredQuestionsProgress,
 }: {
   answeredQuestionsProgress: number
@@ -33,7 +33,22 @@ export default function TimeSection({
   }
 
   return (
-    <section className=" w-full h-fit p-4 relative flex flex-col items-start justify-center gap-2">
+    <motion.section
+      initial={{ opacity: 0, x: -500 }}
+      animate={{
+        opacity: 1,
+        x: 0,
+        transition: {
+          duration: 0.25,
+          delay: 0,
+          ease: 'easeInOut',
+          type: 'spring',
+          stiffness: 120,
+          damping: 20,
+        },
+      }}
+      className=" w-full max-w-lg h-fit p-4 relative flex flex-col items-start justify-center gap-2"
+    >
       <SectionTitle title={texts.timeSpentTitle} />
 
       <div className=" w-full h-full flex items-center gap-2">
@@ -174,6 +189,6 @@ export default function TimeSection({
           {texts?.seconds}
         </p>
       </div>
-    </section>
+    </motion.section>
   )
 }
