@@ -151,7 +151,14 @@ export default function HowToPlay() {
       >
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
 
-        <section className=" w-full max-w-2xl mx-auto pb-10 px-4 h-full flex flex-col items-center gap-3  ">
+        <motion.section
+          layout
+          id="how-to-play"
+          key="how-to-play"
+          initial={{ opacity: 0, y: 1000 }}
+          animate={{ opacity: 1, y: 0 }}
+          className=" w-full max-w-2xl mx-auto pb-10 px-4 h-full flex flex-col items-center gap-3  "
+        >
           <div className=" flex items-center justify-center gap-2">
             <img src={iconTitle} alt="Icon title" className=" w-10 h-10" />
             <h2
@@ -189,6 +196,7 @@ export default function HowToPlay() {
             >
               {page + 1}º
             </span>
+
             <Button
               onClick={() => paginate(1)}
               variant="default"
@@ -277,7 +285,7 @@ export default function HowToPlay() {
               </Button>
             </motion.div>
           </div>
-        </section>
+        </motion.section>
 
         <Sidebar
           isOpen={isSidebarOpen}

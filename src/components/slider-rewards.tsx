@@ -112,14 +112,7 @@ export default function SliderRewards() {
           <ChevronLeft style={{ color: colors.text, width: 30, height: 30 }} />
         </Button>
         {REWARDS_ITEMS.length > 1 && (
-          <span
-            className=" font-oswaldRegular tracking-widest"
-            style={{
-              color: colors.text,
-            }}
-          >
-            {item + 1}/{REWARDS_ITEMS.length}
-          </span>
+          <PaginationBullets items={REWARDS_ITEMS} item={item} />
         )}
         <Button
           onClick={() => paginate(1)}
@@ -133,6 +126,32 @@ export default function SliderRewards() {
           <ChevronRight style={{ color: colors.text, width: 30, height: 30 }} />
         </Button>
       </div>
+    </div>
+  )
+}
+
+const PaginationBullets = ({
+  items,
+  item,
+}: {
+  items: { src: string }[]
+  item: number
+}) => {
+  const { colors } = useConfigStore()
+  return (
+    <div className=" flex gap-2 justify-center items-center">
+      {items.map((_, index) => (
+        <div
+          key={index}
+          className={` ${
+            index === item ? ' scale-100 ' : ' scale-[0.6] '
+          } w-4 h-4 rounded-full transition-all duration-200 ease-in-out`}
+          style={{
+            backgroundColor: index === item ? colors.primary : colors.text,
+            border: `1px solid ${colors.text}`,
+          }}
+        />
+      ))}
     </div>
   )
 }

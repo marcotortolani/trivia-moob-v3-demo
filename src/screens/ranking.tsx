@@ -118,7 +118,11 @@ export default function Ranking() {
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
 
         <section className="px-4">
-          <h2
+          <motion.h2
+            key="achieve-title"
+            initial={{ opacity: 0, y: -200 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -200 }}
             className=" text-2xl font-oswaldBold uppercase text-left pb-2"
             style={{
               color: colors.text,
@@ -126,11 +130,19 @@ export default function Ranking() {
             }}
           >
             Objetivos
-          </h2>
+          </motion.h2>
           <div className=" w-full px-4 py-4 space-y-1">
-            {medalsToAchieve.map((medal) => (
-              <div
+            {medalsToAchieve.map((medal, index) => (
+              <motion.div
                 key={medal.name}
+                layout
+                initial={{ opacity: 0, y: -200 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.35, delay: (3 - index) * 0.25 },
+                }}
+                exit={{ opacity: 0, y: -200 }}
                 className={` w-full mx-auto flex items-center gap-2 `}
               >
                 <img
@@ -182,14 +194,18 @@ export default function Ranking() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
 
         {isRankingData && (
           <section className="px-4">
-            <h2
+            <motion.h2
+              key="ranking-title"
+              initial={{ opacity: 0, y: -200 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -200 }}
               className=" text-2xl font-oswaldBold uppercase text-left pb-2"
               style={{
                 color: colors.text,
@@ -197,15 +213,23 @@ export default function Ranking() {
               }}
             >
               Ranking
-            </h2>
+            </motion.h2>
 
             <div
               className=" w-full py-4 space-y-4"
               style={{ color: colors.text }}
             >
               {rankingData.map((player, index) => (
-                <div
+                <motion.div
                   key={index}
+                  layout
+                  initial={{ opacity: 0, x: 200 * (index % 2 === 0 ? 1 : -1) }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                    transition: { duration: 0.25, delay: index * 0.25 },
+                  }}
+                  
                   className={`${
                     index % 2 === 0 && 'bg-gray-500'
                   } px-2 py-2 flex items-center justify-between rounded-xl`}
@@ -236,7 +260,7 @@ export default function Ranking() {
                     </span>{' '}
                     puntos
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </section>

@@ -24,18 +24,20 @@ export default function FAQ() {
 
   const itemVariants = {
     hidden: (index: number) => ({
-      x: index % 2 === 0 ? -100 : 100, // Alterna entre izquierda y derecha
+      x: index % 2 === 0 ? -200 : 200, // Alterna entre izquierda y derecha
       opacity: 0,
     }),
-    visible: {
+    visible: (index: number) => ({
       x: 0,
       opacity: 1,
       transition: {
         type: 'spring',
-        bounce: 0.4,
-        duration: 0.8,
+        bounce: 0.2,
+        stiffness: 40,
+        duration: 0.5,
+        delay: (index + 1.5) * 0.3,
       },
-    },
+    }),
   }
 
   return (
