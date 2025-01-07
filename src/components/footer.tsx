@@ -10,7 +10,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { Trophy } from 'lucide-react'
+import { XIcon } from 'lucide-react'
+import SliderRewards from './slider-rewards'
+import { DialogClose } from '@radix-ui/react-dialog'
 
 export function Footer() {
   const { score } = useGameStore()
@@ -72,33 +74,29 @@ export function Footer() {
               PREMIOS
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-gray-800 text-white">
-            <DialogHeader>
-              <DialogTitle>Premios Disponibles</DialogTitle>
+          <DialogContent
+            className="z-[500000] w-[95%] h-4/5 min-h-[400px] overflow-x-hidden  overflow-y-scroll md:max-w-[800px] md:overflow-hidden px-4 border-none outline-none rounded-xl "
+            style={{
+              color: '#0000',
+              background: `linear-gradient(180deg, ${colors.primary} 50%, rgba(0,0,0,1) 150%)`,
+            }}
+          >
+            <DialogHeader className=" ">
+              <DialogClose
+                className=" absolute top-4 right-4 "
+                style={{ color: colors.text }}
+              >
+                <XIcon className=" w-6 h-6" />
+              </DialogClose>
+              <DialogTitle
+                className=" font-oswaldMedium uppercase"
+                style={{ color: colors.text }}
+              >
+                Premios Disponibles
+              </DialogTitle>
             </DialogHeader>
-            <div className="grid gap-4 py-4">
-              <div className="flex items-center gap-4 p-4 border  border-gray-700 rounded-lg dark:border-neutral-800">
-                <Trophy className="h-8 w-8 text-yellow-500" />
-                <div>
-                  <h3 className="font-bold">Premio 1</h3>
-                  <p className="text-sm text-gray-400">100,000 puntos</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 p-4 border  border-gray-700 rounded-lg dark:border-neutral-800">
-                <Trophy className="h-8 w-8 text-gray-400" />
-                <div>
-                  <h3 className="font-bold">Premio 2</h3>
-                  <p className="text-sm text-gray-400">50,000 puntos</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 p-4 border  border-gray-700 rounded-lg dark:border-neutral-800">
-                <Trophy className="h-8 w-8 text-amber-700" />
-                <div>
-                  <h3 className="font-bold">Premio 3</h3>
-                  <p className="text-sm text-gray-400">25,000 puntos</p>
-                </div>
-              </div>
-            </div>
+
+            <SliderRewards />
           </DialogContent>
         </Dialog>
       </div>

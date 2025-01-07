@@ -4,6 +4,8 @@ import { useConfigStore } from '@/lib/config-store'
 import { Header } from '@/components/header'
 import { Sidebar } from '@/components/sidebar'
 
+import SliderRewards from '@/components/slider-rewards'
+
 export default function Rewards() {
   const { colors } = useConfigStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -11,23 +13,29 @@ export default function Rewards() {
   return (
     <AnimatePresence mode="wait">
       <motion.main
-        key="home-page"
+        key="rewards-page"
         layout
         initial={{ scale: 1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1, transition: { duration: 0.5 } }}
-        className={` relative min-h-[100dvh] flex flex-col overflow-hidden `}
+        className={` relative min-h-[100dvh] flex flex-col items-center overflow-hidden `}
         style={{
           background: `linear-gradient(to bottom, ${colors.secondary}, #000)`,
         }}
       >
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
 
-        <h2
-          className=" mx-auto text-2xl font-bold text-center mb-2"
-          style={{ color: colors.text }}
-        >
-          Premios
-        </h2>
+        <section className="w-full max-w-2xl px-4 space-y-4">
+          <h2
+            className=" text-2xl font-oswaldBold uppercase text-left pb-2"
+            style={{
+              color: colors.text,
+              borderBottom: `1.5px solid ${colors.primary}`,
+            }}
+          >
+            Premios
+          </h2>
+          <SliderRewards />
+        </section>
 
         <Sidebar
           isOpen={isSidebarOpen}

@@ -3,6 +3,7 @@ import {
   SheetContent,
   SheetFooter,
   SheetHeader,
+  SheetOverlay,
   SheetTitle,
 } from '@/components/ui/sheet'
 import { useLocation, Link, useNavigate } from 'react-router-dom'
@@ -41,10 +42,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
   }
 
   return (
-    <Sheet open={isOpen} onOpenChange={onClose}>
+    <Sheet open={isOpen} onOpenChange={onClose} >
+      <SheetOverlay className=" backdrop-blur-sm bg-black/20" />
       <SheetContent
         side="left"
-        className=" z-[200] w-[95vw] h-[100dvh] overflow-y-scroll px-0 border-none  rounded-r-2xl flex flex-col justify-between "
+        className=" z-[200] w-[95vw] h-[100dvh] overflow-y-scroll md:overflow-auto px-0 border-r-2 border-gray-200/30  rounded-r-2xl md:rounded-r-3xl flex flex-col justify-between "
         style={{
           background: `linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(${hexToRgb(
             colors.secondary
@@ -65,7 +67,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           </SheetTitle>
         </SheetHeader>
 
-        <div className="w-full px-2 flex flex-col items-center justify-center">
+        <div className="w-full px-2 flex flex-col items-center justify-center lg:gap-16">
           <div className="w-full px-2 flex items-center justify-center ">
             <div className=" w-1/3  flex flex-col items-center justify-center ">
               <div className=" relative w-4/6 max-w-[100px] aspect-square">
@@ -100,7 +102,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           </div>
 
           <div
-            className="w-full px-2 min-h-fit grid gap-5 py-8"
+            className="w-full px-2 min-h-fit grid gap-5 lg:gap-8 py-8"
             style={{
               color: colors.text,
             }}
@@ -182,7 +184,9 @@ function NavLinkStyled({
     <Link
       to={''}
       onClick={() => onNavLink(to)}
-      className={` flex items-center gap-5 font-oswaldRegular text-xl text-left px-4  `}
+      className={`${
+        isActive ? ' font-oswaldBold text-2xl ' : ' font-oswaldRegular text-xl '
+      } flex items-center gap-5 text-left tracking-wider px-4  `}
       style={{
         color: isActive ? colors.primary : colors.text,
       }}

@@ -19,7 +19,7 @@ export function Header({ onMenuClick }: HeaderProps) {
       initial={{ y: -200 }}
       animate={{ y: 0, transition: { duration: 0.5 } }}
       className={`${
-        location.pathname === '/' && ' z-[100] '
+        location.pathname === '/' && ' z-[50] '
       } z-0 w-full px-4 my-2 flex justify-between items-center`}
     >
       <Button

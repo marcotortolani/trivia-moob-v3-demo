@@ -106,7 +106,7 @@ export default function Ranking() {
   return (
     <AnimatePresence mode="wait">
       <motion.main
-        key="home-page"
+        key="ranking-page"
         layout
         initial={{ scale: 1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1, transition: { duration: 0.5 } }}
