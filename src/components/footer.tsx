@@ -7,27 +7,38 @@ import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
+  DialogClose,
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { XIcon } from 'lucide-react'
 import SliderRewards from './slider-rewards'
-import { DialogClose } from '@radix-ui/react-dialog'
 
-import swooshSound from '../assets/sound/swoosh.mp3'
+import blopSound from '../assets/sound/blop.mp3'
 import closeSound from '../assets/sound/popup-close-minimize.mp3'
-import plasticSound from '../assets/sound/plastic-trash.mp3'
 
 export function Footer() {
   const { score } = useGameStore()
   const { colors, images, links, soundActive } = useConfigStore()
 
-  const [playSwoosh] = useSound(swooshSound, { interrupt: true })
-  const [playClose] = useSound(closeSound, {
+  const [playBlop, { stop: stopBlop }] = useSound(blopSound, {
     interrupt: true,
+    playbackRate: 1,
   })
-  const [playPlastic] = useSound(plasticSound, { interrupt: true })
+  const [playClose] = useSound(closeSound)
+
+  const onOpen = () => {
+    if (soundActive) playBlop()
+  }
+
+  const onClose = () => {
+    stopBlop()
+    if (soundActive) {
+      playClose()
+    }
+  }
 
   return (
     <motion.footer
@@ -41,7 +52,7 @@ export function Footer() {
             variant="ghost"
             className=" w-16 h-fit p-0 flex flex-col items-center uppercase font-oswaldBold text-sm focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-150 ease-in-out"
             style={{ color: colors.text }}
-            onClick={soundActive ? () => playPlastic() : () => {}}
+            onClick={onOpen}
           >
             <img
               src={images.termsButton}
@@ -77,7 +88,7 @@ export function Footer() {
               variant="ghost"
               className=" w-16 h-fit p-0 flex flex-col items-center uppercase font-oswaldBold text-sm focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-150 ease-in-out"
               style={{ color: colors.text }}
-              onClick={soundActive ? () => playSwoosh() : () => {}}
+              onClick={onOpen}
             >
               <img
                 src={images.rewardsButton}
@@ -89,6 +100,7 @@ export function Footer() {
           </DialogTrigger>
           <DialogContent
             aria-describedby="content"
+            aria-description="content"
             className="z-[500000] w-[95%] h-4/5 min-h-[400px] overflow-x-hidden  overflow-y-scroll md:max-w-[800px] md:overflow-hidden px-4 border-none outline-none rounded-xl "
             style={{
               color: '#0000',
@@ -97,11 +109,11 @@ export function Footer() {
           >
             <DialogHeader className=" ">
               <DialogClose
-                className=" absolute top-4 right-4 "
+                className=" absolute top-4 right-4 p-2 w-10 h-10 "
                 style={{ color: colors.text }}
-                onClick={soundActive ? () => playClose() : () => {}}
+                onClick={onClose}
               >
-                <XIcon className=" w-6 h-6" />
+                <XIcon className=" w-6 h-6" style={{ color: colors.text }} />
               </DialogClose>
               <DialogTitle
                 className=" font-oswaldMedium uppercase"
@@ -109,6 +121,9 @@ export function Footer() {
               >
                 Premios Disponibles
               </DialogTitle>
+              <DialogDescription
+                style={{ color: 'transparent' }}
+              ></DialogDescription>
             </DialogHeader>
 
             <SliderRewards />

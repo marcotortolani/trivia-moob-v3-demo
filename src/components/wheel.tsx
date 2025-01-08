@@ -12,7 +12,7 @@ import plasticSound from '../assets/sound/plastic-trash.mp3'
 import rouletteSound from '../assets/sound/roulette_wheel.mp3'
 import watterAttack from '../assets/sound/watter-attack.mp3'
 
-const SPINS = 5
+const SPINS = 10
 const TIME_SPINNING = 3000 // miliseconds
 export function Wheel() {
   const navigate = useNavigate()
@@ -108,7 +108,7 @@ export function Wheel() {
           ease: 'easeInOut',
           type: 'spring',
           stiffness: 100,
-          damping: 10,
+          damping: 14,
         },
       }}
       className=" h-full flex-1 flex items-center justify-center bg-red-600/0"
@@ -126,6 +126,10 @@ export function Wheel() {
           transition={{
             duration: TIME_SPINNING / 1000,
             ease: 'easeInOut',
+            type: 'tween',
+            delay: 0,
+            stiffness: 50,
+            damping: 10,
           }}
         >
           <div
@@ -253,7 +257,7 @@ const SpinButton = ({
   imageSpin: string
 }) => {
   const { soundActive } = useConfigStore()
-  const [playButton] = useSound(plasticSound, { playbackRate: 1.05 })
+  const [playButton] = useSound(plasticSound, { playbackRate: 2 })
 
   const onSpin = () => {
     if (soundActive) playButton()

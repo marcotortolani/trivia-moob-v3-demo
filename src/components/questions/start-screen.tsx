@@ -7,14 +7,14 @@ import { useQuestionStore } from '@/lib/questions/questions-store'
 
 import goldenRing from '/img/default/anillo-ruleta.webp'
 
-import buttonSound from '../../assets/sound/button_sound.mp3'
+import blopSound from '../../assets/sound/blop.mp3'
 
 export const StartScreen = () => {
   const { colors, soundActive } = useConfigStore()
   const { selectedCategory } = useGameStore()
   const { setGameState } = useQuestionStore()
 
-  const [playButton] = useSound(buttonSound)
+  const [playButton] = useSound(blopSound)
 
   return (
     <motion.div

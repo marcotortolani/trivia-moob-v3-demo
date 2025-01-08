@@ -21,7 +21,7 @@ import lottieGlasses from '../../src/assets/lotties/motivational-correct/notific
 
 import fingerSnap from '../assets/sound/finger-snap.mp3'
 import swoosh from '../assets/sound/swoosh.mp3'
-import buttonSound from '../assets/sound/plastic-trash.mp3'
+import blopSound from '../assets/sound/blop.mp3'
 
 export default function HowToPlay() {
   const { colors, config, soundActive } = useConfigStore()
@@ -31,7 +31,7 @@ export default function HowToPlay() {
 
   const [playSnap] = useSound(fingerSnap)
   const [playSwoosh] = useSound(swoosh)
-  const [playButton] = useSound(buttonSound)
+  const [playButton] = useSound(blopSound)
 
   const optionsLottie = {
     animationData: lottieGlasses,

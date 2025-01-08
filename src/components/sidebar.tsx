@@ -26,6 +26,7 @@ import {
 } from '@/lib/icons'
 
 import swoosh from '../assets/sound/swoosh.mp3'
+import blopSound from '../assets/sound/blop.mp3'
 
 interface SidebarProps {
   isOpen: boolean
@@ -40,7 +41,9 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const [playSwoosh] = useSound(swoosh)
 
   const handleNavLink = (href: string) => {
-    onCloseSidebar()
+    setTimeout(() => {
+      onCloseSidebar()
+    }, 50)
     setTimeout(() => {
       navigate(href)
     }, 300)
@@ -188,12 +191,17 @@ function NavLinkStyled({
   const location = useLocation()
   const { colors } = useConfigStore()
 
+  const [playBlop] = useSound(blopSound)
+
   const isActive = location.pathname === to
 
   return (
     <Link
       to={''}
-      onClick={() => onNavLink(to)}
+      onClick={() => {
+        playBlop()
+        onNavLink(to)
+      }}
       className={`${
         isActive ? ' font-oswaldBold text-2xl ' : ' font-oswaldRegular text-xl '
       } flex items-center gap-5 text-left tracking-wider px-4  `}

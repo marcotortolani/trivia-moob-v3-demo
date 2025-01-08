@@ -17,8 +17,8 @@ export default function FAQ() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
-  const [playRackingOpen] = useSound(rackingOpen, {})
-  const [playRackingClose] = useSound(rackingClose, {})
+  const [playRackingOpen] = useSound(rackingOpen, { playbackRate: 1.35 })
+  const [playRackingClose] = useSound(rackingClose, { playbackRate: 1.2 })
 
   const containerVariants = {
     hidden: {},
@@ -49,10 +49,10 @@ export default function FAQ() {
 
   const handleToggle = (index: number) => {
     if (openIndex === index) {
-      if (soundActive) playRackingOpen()
+      if (soundActive) playRackingClose()
       setOpenIndex(null)
     } else {
-      if (soundActive) playRackingClose()
+      if (soundActive) playRackingOpen()
       setOpenIndex(index)
     }
   }
