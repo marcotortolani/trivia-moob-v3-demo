@@ -12,7 +12,6 @@ import { useConfigStore } from '@/lib/config-store'
 import { useGameStore } from '@/lib/game-store'
 import { hexToRgb } from '@/lib/utils'
 
-import goldenRing from '/img/default/anillo-ruleta.webp'
 import mediaMoob from '/img/default/logo-media-moob.svg'
 
 import {
@@ -27,6 +26,7 @@ import {
 
 import swoosh from '../assets/sound/swoosh.mp3'
 import blopSound from '../assets/sound/blop.mp3'
+import UserAvatar from './profile/user-avatar'
 
 interface SidebarProps {
   isOpen: boolean
@@ -39,6 +39,8 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const navigate = useNavigate()
 
   const [playSwoosh] = useSound(swoosh)
+
+  const currentYear = new Date().getFullYear()
 
   const handleNavLink = (href: string) => {
     setTimeout(() => {
@@ -83,18 +85,8 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         <div className="w-full px-2 flex flex-col items-center justify-center lg:gap-16">
           <div className="w-full px-2 flex items-center justify-center ">
             <div className=" w-1/3  flex flex-col items-center justify-center ">
-              <div className=" relative w-4/6 max-w-[100px] aspect-square">
-                <img
-                  src={goldenRing}
-                  alt="Ring wheel"
-                  className=" absolute z-50 w-full h-full p-1  "
-                />
-                <img
-                  className="w-full h-full p-2"
-                  src={images.avatars[0]}
-                  alt="Image User Avatar"
-                />
-              </div>
+              <UserAvatar />
+
               <span
                 className=" font-oswaldMedium uppercase tracking-wider "
                 style={{ color: colors.text }}
@@ -157,21 +149,29 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         </div>
 
         <SheetFooter
-          className="  w-full py-5 flex items-center justify-center gap-4"
+          className="  w-full py-5 flex flex-col items-center justify-center gap-1"
           style={{
             borderTop: `1px solid ${colors.primary}`,
           }}
         >
-          <img
-            src={mediaMoob}
-            alt="Media Moob Logo white"
-            className="w-1/4 invert  "
-          />
+          <div className=" w-full flex items-center justify-center gap-4">
+            <img
+              src={mediaMoob}
+              alt="Media Moob Logo white"
+              className="w-1/3 invert  "
+            />
+            <p
+              className=" font-oswaldLight tracking-wider"
+              style={{ color: colors.text }}
+            >
+              Otra solución de Media Moob
+            </p>
+          </div>
           <p
-            className=" font-oswaldLight 2tracking-wide "
+            className=" text-xs font-oswaldLight tracking-wider uppercase"
             style={{ color: colors.text }}
           >
-            Otra solución de Media Moob
+            Todos los derechos reservados - {currentYear}
           </p>
         </SheetFooter>
       </SheetContent>

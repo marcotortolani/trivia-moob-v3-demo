@@ -40,9 +40,10 @@ export default function FAQ() {
       transition: {
         type: 'spring',
         bounce: 0.2,
-        stiffness: 40,
+        stiffness: 350,
+        damping: 20,
         duration: 0.3,
-        delay: (index + 1) * 0.3,
+        delay: (index + 1) * 0.1,
       },
     }),
   }

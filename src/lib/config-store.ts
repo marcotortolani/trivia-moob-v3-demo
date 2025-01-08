@@ -58,7 +58,10 @@ export const useConfigStore = create<ConfigState>()(
     }),
     {
       name: 'config-sound-storage',
-      partialize: (state) => ({ soundActive: state.soundActive }),
+      partialize: (state) => ({
+        user: state.user,
+        soundActive: state.soundActive,
+      }),
     }
   )
 )
