@@ -22,7 +22,7 @@ export default function UserAvatar() {
         <User
           size={50}
           stroke={colors.text}
-          className="w-full h-full p-4 rounded-full"
+          className="w-full h-full aspect-square p-4 rounded-full"
           style={{ background: colors.primary, color: colors.text }}
         />
       )}
