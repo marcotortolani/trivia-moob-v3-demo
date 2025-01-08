@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import useSound from 'use-sound'
 import { Link } from 'react-router-dom'
 import { useGameStore } from '@/lib/game-store'
 import { useConfigStore } from '@/lib/config-store'
@@ -14,9 +15,19 @@ import { XIcon } from 'lucide-react'
 import SliderRewards from './slider-rewards'
 import { DialogClose } from '@radix-ui/react-dialog'
 
+import swooshSound from '../assets/sound/swoosh.mp3'
+import closeSound from '../assets/sound/popup-close-minimize.mp3'
+import plasticSound from '../assets/sound/plastic-trash.mp3'
+
 export function Footer() {
   const { score } = useGameStore()
-  const { colors, images, links } = useConfigStore()
+  const { colors, images, links, soundActive } = useConfigStore()
+
+  const [playSwoosh] = useSound(swooshSound, { interrupt: true })
+  const [playClose] = useSound(closeSound, {
+    interrupt: true,
+  })
+  const [playPlastic] = useSound(plasticSound, { interrupt: true })
 
   return (
     <motion.footer
@@ -30,6 +41,7 @@ export function Footer() {
             variant="ghost"
             className=" w-16 h-fit p-0 flex flex-col items-center uppercase font-oswaldBold text-sm focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-150 ease-in-out"
             style={{ color: colors.text }}
+            onClick={soundActive ? () => playPlastic() : () => {}}
           >
             <img
               src={images.termsButton}
@@ -65,6 +77,7 @@ export function Footer() {
               variant="ghost"
               className=" w-16 h-fit p-0 flex flex-col items-center uppercase font-oswaldBold text-sm focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-150 ease-in-out"
               style={{ color: colors.text }}
+              onClick={soundActive ? () => playSwoosh() : () => {}}
             >
               <img
                 src={images.rewardsButton}
@@ -75,6 +88,7 @@ export function Footer() {
             </Button>
           </DialogTrigger>
           <DialogContent
+            aria-describedby="content"
             className="z-[500000] w-[95%] h-4/5 min-h-[400px] overflow-x-hidden  overflow-y-scroll md:max-w-[800px] md:overflow-hidden px-4 border-none outline-none rounded-xl "
             style={{
               color: '#0000',
@@ -85,6 +99,7 @@ export function Footer() {
               <DialogClose
                 className=" absolute top-4 right-4 "
                 style={{ color: colors.text }}
+                onClick={soundActive ? () => playClose() : () => {}}
               >
                 <XIcon className=" w-6 h-6" />
               </DialogClose>

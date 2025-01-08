@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+
 import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useGameStore } from '@/lib/game-store'
@@ -13,7 +14,7 @@ export default function QuestionsPage() {
   const navigate = useNavigate()
   const { colors } = useConfigStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const { selectedCategory, questions } = useGameStore()
+  const { selectedCategory, questions } = useGameStore()  
 
   useEffect(() => {
     if (!selectedCategory || questions?.length === 0) {

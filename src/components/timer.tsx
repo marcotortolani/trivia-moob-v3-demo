@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
+import useSound from 'use-sound'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Clock } from 'lucide-react'
 import { AnimateSwitch } from './animated-number'
 import { useConfigStore } from '@/lib/config-store'
+
+import ticTac from '../assets/sound/tic-1sec.mp3'
 
 interface TimerProps {
   secondsLeft: number
@@ -15,13 +18,16 @@ export function Timer({
   isActive,
   showExtraPoints = false,
 }: TimerProps) {
-  const { colors } = useConfigStore()
+  const { colors, soundActive } = useConfigStore()
   const [extraPoints, setExtraPoints] = useState(0)
+
+  const [playTic] = useSound(ticTac)
 
   useEffect(() => {
     if (showExtraPoints && secondsLeft > 0) {
       setExtraPoints(secondsLeft * 10)
     }
+    if (soundActive) playTic()
   }, [showExtraPoints, secondsLeft])
 
   return (

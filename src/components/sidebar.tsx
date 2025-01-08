@@ -1,3 +1,4 @@
+import useSound from 'use-sound'
 import {
   Sheet,
   SheetContent,
@@ -24,25 +25,34 @@ import {
   RewardsIcon,
 } from '@/lib/icons'
 
+import swoosh from '../assets/sound/swoosh.mp3'
+
 interface SidebarProps {
   isOpen: boolean
   onClose: () => void
 }
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
-  const { colors, images, user, links } = useConfigStore()
+  const { colors, images, user, links, soundActive } = useConfigStore()
   const { score } = useGameStore()
   const navigate = useNavigate()
 
+  const [playSwoosh] = useSound(swoosh)
+
   const handleNavLink = (href: string) => {
-    onClose()
+    onCloseSidebar()
     setTimeout(() => {
       navigate(href)
     }, 300)
   }
 
+  const onCloseSidebar = () => {
+    if (soundActive) playSwoosh()
+    onClose()
+  }
+
   return (
-    <Sheet open={isOpen} onOpenChange={onClose} >
+    <Sheet open={isOpen} onOpenChange={onCloseSidebar}>
       <SheetOverlay className=" backdrop-blur-sm bg-black/20" />
       <SheetContent
         side="left"
@@ -57,7 +67,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           <SheetTitle className="w-full px-2 flex items-center justify-evenly">
             <button
               type="button"
-              onClick={onClose}
+              onClick={onCloseSidebar}
               className=" w-8 h-8 font-mono text-xl rounded-full"
               style={{ backgroundColor: colors.primary, color: colors.text }}
             >

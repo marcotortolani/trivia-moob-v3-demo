@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import useSound from 'use-sound'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useGameStore } from '@/lib/game-store'
@@ -7,18 +8,24 @@ import { useConfigStore } from '@/lib/config-store'
 import ringWheel from '/img/default/anillo-ruleta.webp'
 import indicatorCategory from '/img/default/senalador-categoria-anillo.webp'
 
+import plasticSound from '../assets/sound/plastic-trash.mp3'
+import rouletteSound from '../assets/sound/roulette_wheel.mp3'
+import watterAttack from '../assets/sound/watter-attack.mp3'
+
 const SPINS = 5
 const TIME_SPINNING = 3000 // miliseconds
 export function Wheel() {
   const navigate = useNavigate()
   const [rotation, setRotation] = useState(0)
   const [isSpinning, setIsSpinning] = useState(false)
-
   const { setSelectedCategory, setQuestions, categoriesState } = useGameStore()
   const gameCompleted = useGameStore((state) =>
     state.categoriesState.every((category) => category.completed)
   )
-  const { categories, colors, images } = useConfigStore()
+  const { categories, colors, images, soundActive } = useConfigStore()
+
+  const [playRoulette] = useSound(rouletteSound, { playbackRate: 1.1 })
+  const [playLoad] = useSound(watterAttack, { playbackRate: 1.15 })
 
   function categoryCompleted(categoryID: number) {
     const totalQuestions =
@@ -34,6 +41,7 @@ export function Wheel() {
   const spinWheel = () => {
     if (isSpinning || gameCompleted) return
     setIsSpinning(true)
+    if (soundActive) playRoulette()
     const degrees = 360 * SPINS + Math.floor(Math.random() * (360 - 1) + 1)
     const selectedIndex = Math.floor(
       ((rotation + degrees) % 360) / (360 / categories.length)
@@ -63,6 +71,7 @@ export function Wheel() {
       setQuestions(selectedCategory?.questions)
 
       setTimeout(() => {
+        if (soundActive) playLoad()
         navigate('/questions')
       }, 500)
     }, TIME_SPINNING)
@@ -243,9 +252,19 @@ const SpinButton = ({
   bgColor?: string
   imageSpin: string
 }) => {
+  const { soundActive } = useConfigStore()
+  const [playButton] = useSound(plasticSound, { playbackRate: 1.05 })
+
+  const onSpin = () => {
+    if (soundActive) playButton()
+    setTimeout(() => {
+      spinWheel()
+    }, 100)
+  }
+
   return (
     <button
-      onClick={gameCompleted ? () => {} : spinWheel}
+      onClick={gameCompleted ? () => {} : onSpin}
       disabled={isSpinning || gameCompleted}
       className={` ${
         isSpinning ? ' shadow-inner' : 'shadow-md'

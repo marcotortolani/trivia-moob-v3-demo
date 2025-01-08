@@ -1,3 +1,4 @@
+import useSound from 'use-sound'
 import { motion } from 'framer-motion'
 import { Button } from '../ui/button'
 import { useGameStore } from '@/lib/game-store'
@@ -6,10 +7,14 @@ import { useQuestionStore } from '@/lib/questions/questions-store'
 
 import goldenRing from '/img/default/anillo-ruleta.webp'
 
+import buttonSound from '../../assets/sound/button_sound.mp3'
+
 export const StartScreen = () => {
-  const { colors } = useConfigStore()
+  const { colors, soundActive } = useConfigStore()
   const { selectedCategory } = useGameStore()
   const { setGameState } = useQuestionStore()
+
+  const [playButton] = useSound(buttonSound)
 
   return (
     <motion.div
@@ -64,7 +69,10 @@ export const StartScreen = () => {
       </motion.div>
 
       <Button
-        onClick={() => setGameState({ currentState: 'PLAYING' })}
+        onClick={() => {
+          if (soundActive) playButton()
+          setGameState({ currentState: 'PLAYING' })
+        }}
         className=" px-10 py-8 shadow-md shadow-black/60 uppercase text-4xl font-oswaldMedium tracking-wide rounded-full"
         style={{
           background: colors.nextBtnGradient,

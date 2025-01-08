@@ -24,7 +24,8 @@ export function DonutChart() {
         : 0
 
     setPercentage(value)
-  }, [])
+  }, [answeredQuestions.correct, answeredQuestions.bonus, total])
+
   return (
     <div className="relative w-20 h-20">
       {/* Background circle */}

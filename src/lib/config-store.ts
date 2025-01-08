@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 import configData from '@/data/config.json'
 
 const {
@@ -33,19 +34,31 @@ interface ConfigState {
   categories: typeof categories
   categoriesImages: typeof categoriesImages
 
+  soundActive: boolean
+  setSoundActive: (active: boolean) => void
   setUserData: (user: UserData) => void
 }
 
-export const useConfigStore = create<ConfigState>()((set) => ({
-  user: userData,
-  validPeriod,
-  config,
-  colors,
-  images,
-  sounds,
-  links,
-  textsByLang,
-  categories,
-  categoriesImages,
-  setUserData: (user) => set({ user }),
-}))
+export const useConfigStore = create<ConfigState>()(
+  persist(
+    (set) => ({
+      user: userData,
+      validPeriod,
+      config,
+      colors,
+      images,
+      sounds,
+      links,
+      textsByLang,
+      categories,
+      categoriesImages,
+      soundActive: false,
+      setSoundActive: (active) => set({ soundActive: active }),
+      setUserData: (user) => set({ user }),
+    }),
+    {
+      name: 'config-sound-storage',
+      partialize: (state) => ({ soundActive: state.soundActive }),
+    }
+  )
+)

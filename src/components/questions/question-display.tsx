@@ -1,13 +1,18 @@
 import { useEffect } from 'react'
+import useSound from 'use-sound'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useQuestionStore } from '@/lib/questions/questions-store'
+import { useGameStore } from '@/lib/game-store'
+import { useConfigStore } from '@/lib/config-store'
 import { StartScreen } from './start-screen'
 import { PlayingScreen } from './playing-screen'
 
-import { useGameStore } from '@/lib/game-store'
 import CategoryCompleted from './category-completed'
 
+import confettiSound from '../../assets/sound/confetti-sound.mp3'
+
 export function QuestionDisplay() {
+  const { soundActive } = useConfigStore()
   const { gameState, setGameState, resetGameState } = useQuestionStore()
   const { selectedCategory } = useGameStore()
   const categoryCompleted = useGameStore(
@@ -17,9 +22,12 @@ export function QuestionDisplay() {
       )?.completed
   )
 
+  const [playConfetti] = useSound(confettiSound)
+
   useEffect(() => {
     resetGameState()
     if (categoryCompleted) {
+      if (soundActive) playConfetti()
       setGameState({ currentState: 'CAT_COMPLETED' })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

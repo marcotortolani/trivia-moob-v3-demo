@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
+import useSound from 'use-sound'
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 import { useGameStore } from '@/lib/game-store'
 import { useConfigStore } from '@/lib/config-store'
@@ -7,6 +8,9 @@ import { Timer } from '../timer'
 import BadgeGlow from '../ui/badge-glow'
 import { Question, Answer } from '@/types/game-types'
 import TimeUp from './time-up'
+
+import correctAnswer from '../../assets/sound/correct-answer.mp3'
+import wrongAnswer from '../../assets/sound/wrong-answer.mp3'
 
 export function CardQuestion({
   question,
@@ -27,6 +31,9 @@ export function CardQuestion({
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
   const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null)
 
+  const [playCorrect] = useSound(correctAnswer)
+  const [playWrong] = useSound(wrongAnswer)
+
   const categoryHasBonus = selectedCategory?.bonus
   const questionHasBonus = currentQuestion?.bonus
 
@@ -46,6 +53,12 @@ export function CardQuestion({
     isCorrect: boolean
   }) => {
     setSelectedAnswer(index)
+    if (isCorrect) {
+      playCorrect()
+    } else {
+      playWrong()
+    }
+    
     // set delay time
     setTimeout(() => {
       onAnswer(index, isCorrect)

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import useSound from 'use-sound'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useConfigStore } from '@/lib/config-store'
 import { Header } from '@/components/header'
@@ -8,10 +9,16 @@ import { FAQS, FaqType } from '@/lib/constants'
 import { ChevronDown } from 'lucide-react'
 import { hexToRgb } from '@/lib/utils'
 
+import rackingOpen from '../assets/sound/racking-open.mp3'
+import rackingClose from '../assets/sound/racking-close.mp3'
+
 export default function FAQ() {
-  const { colors } = useConfigStore()
+  const { colors, soundActive } = useConfigStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const [playRackingOpen] = useSound(rackingOpen, {})
+  const [playRackingClose] = useSound(rackingClose, {})
 
   const containerVariants = {
     hidden: {},
@@ -34,10 +41,20 @@ export default function FAQ() {
         type: 'spring',
         bounce: 0.2,
         stiffness: 40,
-        duration: 0.5,
-        delay: (index + 1.5) * 0.3,
+        duration: 0.3,
+        delay: (index + 1) * 0.3,
       },
     }),
+  }
+
+  const handleToggle = (index: number) => {
+    if (openIndex === index) {
+      if (soundActive) playRackingOpen()
+      setOpenIndex(null)
+    } else {
+      if (soundActive) playRackingClose()
+      setOpenIndex(index)
+    }
   }
 
   return (
@@ -88,9 +105,7 @@ export default function FAQ() {
                 }}
               >
                 <button
-                  onClick={() =>
-                    setOpenIndex(openIndex === index ? null : index)
-                  }
+                  onClick={() => handleToggle(index)}
                   className="w-full p-4 flex justify-between items-center text-left transition-colors"
                 >
                   <span

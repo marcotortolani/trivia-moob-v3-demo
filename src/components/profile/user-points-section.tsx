@@ -12,7 +12,7 @@ export default function UserPoints() {
 
   useEffect(() => {
     setPoints(score)
-  }, [])
+  }, [score])
 
   return (
     <motion.section

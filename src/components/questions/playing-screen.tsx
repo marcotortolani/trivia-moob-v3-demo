@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import useSound from 'use-sound'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useStateMachine } from '@/hooks/useStateMachine'
@@ -15,6 +16,7 @@ import ModalGoalAchievement from './modal-goal-achievement'
 
 import goldenRing from '/img/default/anillo-ruleta.webp'
 
+import failureTimeup from '../../assets/sound/failure-defeat.mp3'
 
 export function PlayingScreen() {
   const navigate = useNavigate()
@@ -47,17 +49,18 @@ export function PlayingScreen() {
   const [direction, setDirection] = useState(0)
 
   const {
-     seconds: secondsLeft,
+    seconds: secondsLeft,
     reset: timerReset,
     pause: timerPause,
     isActive: timerIsActive,
   } = useCountdown(countdownSeconds, () => {})
 
-  //const secondsLeft = 0
+  const [playTimeup] = useSound(failureTimeup, { playbackRate: 0.9 })
 
   const categoryHasBonus = selectedCategory?.bonus
 
   const handleTimeUp = () => {
+    playTimeup()
     updateCategoriesState(selectedCategory?.id, currentQuestion?.id ?? 0)
     updateAnsweredQuestions('incorrect')
     send('TIME_UP')

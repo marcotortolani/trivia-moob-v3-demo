@@ -1,14 +1,18 @@
 import { useState } from 'react'
+import useSound from 'use-sound'
 import { motion, AnimatePresence, PanInfo } from 'framer-motion'
 import { useConfigStore } from '@/lib/config-store'
 
 import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-export default function SliderRewards() {
-  const { colors, images } = useConfigStore()
+import fingerSnap from '../assets/sound/finger-snap.mp3'
 
+export default function SliderRewards() {
+  const { colors, images, soundActive } = useConfigStore()
   const [[item, direction], setPage] = useState([0, 0])
+
+  const [playSnap] = useSound(fingerSnap)
 
   const REWARDS_ITEMS = images['es'].rewardsImages
 
@@ -17,6 +21,7 @@ export default function SliderRewards() {
       item + newDirection >= 0 &&
       item + newDirection < REWARDS_ITEMS.length + 1
     ) {
+      if (soundActive) playSnap()
       setPage([item + newDirection, newDirection])
     }
   }

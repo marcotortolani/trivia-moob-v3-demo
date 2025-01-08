@@ -1,3 +1,4 @@
+import useSound from 'use-sound'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useQuestionStore } from '@/lib/questions/questions-store'
@@ -5,10 +6,14 @@ import { useConfigStore } from '@/lib/config-store'
 import Confetti from 'react-confetti'
 import { Button } from '../ui/button'
 
+import buttonSound from '../../assets/sound/button_sound.mp3'
+
 export default function CategoryCompleted() {
   const navigate = useNavigate()
   const { resetGameState } = useQuestionStore()
-  const { colors } = useConfigStore()
+  const { colors, soundActive } = useConfigStore()
+
+  const [playButton] = useSound(buttonSound)
 
   return (
     <motion.div
@@ -45,6 +50,7 @@ export default function CategoryCompleted() {
             color: colors.text,
           }}
           onClick={() => {
+            if (soundActive) playButton()
             resetGameState()
             navigate('/')
           }}

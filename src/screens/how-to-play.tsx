@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import useSound from 'use-sound'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence, PanInfo } from 'framer-motion'
 import { useLottie } from 'lottie-react'
@@ -14,16 +15,23 @@ import imageStep02 from '/img/default/seccion-como-jugar/grafico2.webp'
 import imageStep03 from '/img/default/seccion-como-jugar/grafico3.webp'
 import imageStep04 from '/img/default/seccion-como-jugar/grafico4.webp'
 import imageStep05 from '/img/default/seccion-como-jugar/grafico5.webp'
+import iconTitle from '/img/default/seccion-como-jugar/icono-titulo.webp'
 
 import lottieGlasses from '../../src/assets/lotties/motivational-correct/notificacion-emoticon-lentes-sol.json'
 
-import iconTitle from '/img/default/seccion-como-jugar/icono-titulo.webp'
+import fingerSnap from '../assets/sound/finger-snap.mp3'
+import swoosh from '../assets/sound/swoosh.mp3'
+import buttonSound from '../assets/sound/plastic-trash.mp3'
 
 export default function HowToPlay() {
-  const { colors, config } = useConfigStore()
+  const { colors, config, soundActive } = useConfigStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [[page, direction], setPage] = useState([0, 0])
   const navigate = useNavigate()
+
+  const [playSnap] = useSound(fingerSnap)
+  const [playSwoosh] = useSound(swoosh)
+  const [playButton] = useSound(buttonSound)
 
   const optionsLottie = {
     animationData: lottieGlasses,
@@ -94,6 +102,10 @@ export default function HowToPlay() {
 
   const paginate = (newDirection: number) => {
     if (page + newDirection >= 0 && page + newDirection < STEPS.length + 1) {
+      if (soundActive)
+        if (page + newDirection === 5) {
+          playSwoosh()
+        } else playSnap()
       setPage([page + newDirection, newDirection])
     }
   }
@@ -108,6 +120,13 @@ export default function HowToPlay() {
     } else if (info.offset.x < -swipeThreshold) {
       paginate(1)
     }
+  }
+
+  const onPlayStart = () => {
+    if (soundActive) playButton()
+    setTimeout(() => {
+      navigate('/')
+    }, 100)
   }
 
   const variants = {
@@ -274,7 +293,7 @@ export default function HowToPlay() {
               </p>
               <Button
                 variant="default"
-                onClick={() => navigate('/')}
+                onClick={onPlayStart}
                 className=" z-50 mt-4 px-8 py-2 h-fit text-3xl font-poppinsBold uppercase rounded-full flex items-center cursor-pointer transition-all duration-150 ease-in-out"
                 style={{
                   background: `linear-gradient(to bottom, ${colors.primary} 60%, #000 150%)`,
