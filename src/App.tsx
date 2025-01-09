@@ -3,8 +3,7 @@ import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
 import { useConfigStore } from './lib/config-store'
 
 const Loading = lazy(() => import('./components/loading'))
-const Upcoming = lazy(() => import('./components/game-upcoming'))
-const Ended = lazy(() => import('./components/game-ended'))
+const ValidPeriod = lazy(() => import('./components/game-valid-period'))
 
 const Home = lazy(() => import('./screens/home'))
 const Questions = lazy(() => import('./screens/questions'))
@@ -23,10 +22,10 @@ export function App() {
   const endDate = new Date(validPeriod.endDate).getTime()
 
   if (actualDate < startDate) {
-    return <Upcoming />
+    return <ValidPeriod type="upcoming" />
   }
   if (actualDate > endDate) {
-    return <Ended />
+    return <ValidPeriod type="ended" />
   }
 
   return (

@@ -84,8 +84,6 @@
     "backgroundPointsMenu": "/img/puntaje-perfil.webp",
     "rouletteSpinAgain": "/img/volveratirar.webp",
     "circleQuestionsCounter": "/img/circulo-preguntas.webp",
-    "triviaUpcoming": "/img/trivia-proximamente.webp",
-    "triviaEnded": "/img/trivia-finalizada.webp",
     "avatars": [
       "/img/avatars/avatar-1.webp",
       "/img/avatars/avatar-2.webp",
