@@ -5,20 +5,25 @@ import { useConfigStore } from '@/lib/config-store'
 import { Header } from '@/components/header'
 import { Sidebar } from '@/components/sidebar'
 
-import { FAQS, FaqType } from '@/lib/constants'
+import { faqs } from '../data/faqs.json'
 import { ChevronDown } from 'lucide-react'
 import { hexToRgb } from '@/lib/utils'
 
-import rackingOpen from '../assets/sound/racking-open.mp3'
-import rackingClose from '../assets/sound/racking-close.mp3'
+import swooshShort from "../assets/sound/swoosh-2.mp3"
+
+type FaqType = {
+  id: number
+  question: string
+  answer: string
+}
 
 export default function FAQ() {
   const { colors, soundActive } = useConfigStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
-  const [playRackingOpen] = useSound(rackingOpen, { playbackRate: 1.35 })
-  const [playRackingClose] = useSound(rackingClose, { playbackRate: 1.2 })
+  const [playSwooshOpen] = useSound(swooshShort, { playbackRate: 1.35 })
+  const [playSwooshClose] = useSound(swooshShort, { playbackRate: 1.2 })
 
   const containerVariants = {
     hidden: {},
@@ -50,10 +55,10 @@ export default function FAQ() {
 
   const handleToggle = (index: number) => {
     if (openIndex === index) {
-      if (soundActive) playRackingClose()
+      if (soundActive) playSwooshClose()
       setOpenIndex(null)
     } else {
-      if (soundActive) playRackingOpen()
+      if (soundActive) playSwooshOpen()
       setOpenIndex(index)
     }
   }
@@ -92,7 +97,7 @@ export default function FAQ() {
             animate="visible"
             className="mt-4 space-y-4"
           >
-            {FAQS.map((faq: FaqType, index) => (
+            {faqs.map((faq: FaqType, index) => (
               <motion.li
                 key={index}
                 custom={index}

@@ -194,9 +194,11 @@ const UserData = ({
                   formData.userAvatar || '/placeholder.svg?height=96&width=96'
                 }
               />
-              <AvatarFallback>
-                {formData.userName?.charAt(0) || 'U'}
-              </AvatarFallback>
+              {!formData.userAvatar && (
+                <AvatarFallback>
+                  {formData.userName?.charAt(0) || 'U'}
+                </AvatarFallback>
+              )}
             </Avatar>
             <Button
               type="button"
