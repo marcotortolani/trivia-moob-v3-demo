@@ -3,17 +3,24 @@ import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useQuestionStore } from '@/lib/questions/questions-store'
 import { useConfigStore } from '@/lib/config-store'
+import { useGameStore } from '@/lib/game-store'
 import Confetti from 'react-confetti'
 import { Button } from '../ui/button'
 
-import buttonSound from '../../assets/sound/button_sound.mp3'
+import blopSound from '../../assets/sound/blop.mp3'
+import successTrumpets from '../../assets/sound/success-trumpets.mp3'
 
 export default function CategoryCompleted() {
   const navigate = useNavigate()
   const { resetGameState } = useQuestionStore()
   const { colors, soundActive } = useConfigStore()
 
-  const [playButton] = useSound(buttonSound)
+  const gameCompleted = useGameStore((state) =>
+    state.categoriesState.every((category) => category.completed)
+  )
+
+  const [playButton] = useSound(blopSound)
+  const [playSuccess] = useSound(successTrumpets)
 
   return (
     <motion.div
@@ -50,7 +57,14 @@ export default function CategoryCompleted() {
             color: colors.text,
           }}
           onClick={() => {
-            if (soundActive) playButton()
+            if (soundActive) {
+              playButton()
+              if (gameCompleted) {
+                setTimeout(() => {
+                  playSuccess()
+                }, 200)
+              }
+            }
             resetGameState()
             navigate('/')
           }}

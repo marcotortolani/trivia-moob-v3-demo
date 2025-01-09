@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import useSound from 'use-sound'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { useQuestionStore } from '@/lib/questions/questions-store'
 import { useGameStore } from '@/lib/game-store'
 import { useConfigStore } from '@/lib/config-store'
@@ -40,21 +40,24 @@ export function QuestionDisplay() {
         {gameState.currentState === 'PLAYING' && <PlayingScreen />}
         {gameState.currentState === 'CAT_COMPLETED' && <CategoryCompleted />}
 
-        {gameState.currentState === 'PAUSE' && (
+        {/* {gameState.currentState !== 'PAUSE' && (
           <motion.div
             key="pause-screen"
             initial={{ opacity: 0, y: 500 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 500 }}
           >
-            <div>
+            <div className="w-full max-w-2xl mx-auto px-0 flex flex-col items-center justify-center gap-10 overflow-hidden2 ">
               <h2>Juego en pausa</h2>
-              <button onClick={() => setGameState({ currentState: 'PLAYING' })}>
+              <button
+                className=" px-6 py-2 bg-slate-400 font-bold text-black uppercase rounded-lg"
+                onClick={() => setGameState({ currentState: 'PLAYING' })}
+              >
                 Reanudar
               </button>
             </div>
           </motion.div>
-        )}
+        )} */}
       </AnimatePresence>
     </div>
   )

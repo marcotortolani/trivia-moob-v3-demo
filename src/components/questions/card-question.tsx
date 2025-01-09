@@ -10,7 +10,6 @@ import { Question, Answer } from '@/types/game-types'
 import TimeUp from './time-up'
 
 import correctAnswer from '../../assets/sound/correct-answer.mp3'
-
 import wrongAnswer from '../../assets/sound/wrong-answer.mp3'
 
 export function CardQuestion({

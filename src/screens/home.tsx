@@ -16,6 +16,7 @@ export default function Home() {
     state.categoriesState.every((category) => category.completed)
   )
 
+
   return (
     <AnimatePresence mode="wait">
       <motion.main
@@ -30,7 +31,6 @@ export default function Home() {
       >
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
 
-        
         {gameCompleted && <GameCompletedModal />}
         <Wheel />
         {selectedCategory && <LastSelectedCategory />}

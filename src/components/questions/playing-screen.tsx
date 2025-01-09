@@ -16,7 +16,11 @@ import ModalGoalAchievement from './modal-goal-achievement'
 
 import goldenRing from '/img/default/anillo-ruleta.webp'
 
+import swooshLong from '../../assets/sound/swoosh.mp3'
+import swooshShort from '../../assets/sound/swoosh-2.mp3'
 import failureTimeup from '../../assets/sound/failure-defeat.mp3'
+import positiveSound from '../../assets/sound/button_sound.mp3'
+import victorySound from '../../assets/sound/tada-result.mp3'
 
 export function PlayingScreen() {
   const navigate = useNavigate()
@@ -27,17 +31,14 @@ export function PlayingScreen() {
     questions,
     categoriesState,
   } = useGameStore()
-  const { config, colors } = useConfigStore()
+  const { config, colors, soundActive } = useConfigStore()
   const {
-    // gameState,
     setGameState,
     currentQuestion,
     setCurrentQuestion,
     answerSelected,
     setAnswerSelected,
     setShowExtraPoints,
-    // amountQuestionsAnswered,
-    // setAmountQuestionsAnswered,
   } = useQuestionStore()
 
   const { state, send, context } = useStateMachine('answering')
@@ -55,12 +56,16 @@ export function PlayingScreen() {
     isActive: timerIsActive,
   } = useCountdown(countdownSeconds, () => {})
 
+  const [playSwooshShort] = useSound(swooshShort, { playbackRate: 1.1 })
+  const [playSwooshLong] = useSound(swooshLong, { playbackRate: 1.1 })
   const [playTimeup] = useSound(failureTimeup, { playbackRate: 0.9 })
+  const [playPositive] = useSound(positiveSound)
+  const [playVictory] = useSound(victorySound, { playbackRate: 1.2 })
 
   const categoryHasBonus = selectedCategory?.bonus
 
   const handleTimeUp = () => {
-    playTimeup()
+    if (soundActive) playTimeup()
     updateCategoriesState(selectedCategory?.id, currentQuestion?.id ?? 0)
     updateAnsweredQuestions('incorrect')
     send('TIME_UP')
@@ -125,11 +130,18 @@ export function PlayingScreen() {
       timerPause()
       nextQuestion()
     }
-    if (state === 'answering') {
-      //handlePlaying()
-      console.log(' ---- ---- ----- --> PLAYING')
+    if (state === 'goalAchieved') {
+      // play victory sound
+      if (soundActive) playVictory()
     }
+    if (state === 'changeCategoryModal') {
+      if (soundActive) playSwooshLong()
+    }
+    // if (state === 'answering') {
+    //   //handlePlaying()
+    // }
     if (state === 'motivationalMessage') {
+      if (soundActive) playPositive()
       setTimeout(() => {
         send('SHOW_NEXT_QUESTION')
       }, 50)
@@ -148,6 +160,7 @@ export function PlayingScreen() {
       setShowExtraPoints(false)
       send('SHOW_NEXT_QUESTION')
       timerReset()
+      if (soundActive) playSwooshShort()
     } else {
       setGameState({ currentState: 'CAT_COMPLETED' })
     }

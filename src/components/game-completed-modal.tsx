@@ -1,18 +1,21 @@
+import useSound from 'use-sound'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { useGameStore } from '@/lib/game-store'
 import { useConfigStore } from '@/lib/config-store'
 import { useLottie } from 'lottie-react'
 import { Button } from './ui/button'
-
 import { Sidebar } from './sidebar'
 
 import gameFinished from '../assets/lotties/game-finished.json'
+import blopSound from '../assets/sound/blop.mp3'
 
 export function GameCompletedModal() {
   const { resetGame } = useGameStore()
-  const { colors } = useConfigStore()
+  const { colors, soundActive } = useConfigStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
+  const [playButton] = useSound(blopSound)
 
   const options = {
     animationData: gameFinished,
@@ -70,7 +73,10 @@ export function GameCompletedModal() {
           ¿Te gustaría jugar nuevamente?
         </p>
         <Button
-          onClick={handleReset}
+          onClick={() => {
+            if (soundActive) playButton()
+            handleReset()
+          }}
           className=" h-fit px-8 pt-1 pb-0 font-tekoRegular text-3xl uppercase rounded-full"
           style={{
             background: `linear-gradient(180deg, ${colors.primary} 60%, rgb(0, 0, 0,1) 150%)`,

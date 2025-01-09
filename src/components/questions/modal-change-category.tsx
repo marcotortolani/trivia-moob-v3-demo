@@ -1,9 +1,12 @@
+import useSound from 'use-sound'
 import { motion } from 'framer-motion'
 import { useLottie } from 'lottie-react'
 import { useConfigStore } from '@/lib/config-store'
 
 import rouletteLottie from '../../assets/lotties/roulette-spin-again.json'
 import { Checkbox } from '../ui/checkbox'
+
+import blopSound from '../../assets/sound/blop.mp3'
 
 interface ModalChangeCategoryProps {
   onRoulette: () => void
@@ -16,7 +19,10 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
   onCloseModal,
   onDontAskAgain,
 }) => {
-  const { config, colors } = useConfigStore()
+  const { config, colors, soundActive } = useConfigStore()
+
+  const [playButton] = useSound(blopSound)
+
   const options = {
     animationData: rouletteLottie,
     loop: true,
@@ -57,7 +63,10 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
         <div className=" w-3/5 max-w-[250px]">{View}</div>
 
         <button
-          onClick={onRoulette}
+          onClick={() => {
+            if (soundActive) playButton()
+            onRoulette()
+          }}
           className=" px-10 pt-3 pb-1 uppercase font-tekoMedium text-5xl text-nowrap shadow-md shadow-black/50 rounded-full "
           style={{
             color: colors.text,
@@ -68,7 +77,10 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
         </button>
 
         <button
-          onClick={onCloseModal}
+          onClick={() => {
+            if (soundActive) playButton()
+            onCloseModal()
+          }}
           className="mt-2 px-6 py-0.5 bg-neutral-400 uppercase font-tekoRegular text-2xl shadow-md shadow-black/50 rounded-full "
           style={{ color: colors.text }}
         >
@@ -79,6 +91,7 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
           <Checkbox
             id="dont-ask-again"
             onCheckedChange={() => {
+              if (soundActive) playButton()
               setTimeout(() => {
                 onDontAskAgain()
               }, 100)
