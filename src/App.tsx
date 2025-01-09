@@ -1,11 +1,10 @@
 import { lazy, Suspense } from 'react'
-
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
-//import TermsExample from './screens/terms/terms-example'
+import { useConfigStore } from './lib/config-store'
 
-// import Upcoming from './components/Upcoming'
-// import Ended from './components/Ended'
 const Loading = lazy(() => import('./components/loading'))
+const Upcoming = lazy(() => import('./components/game-upcoming'))
+const Ended = lazy(() => import('./components/game-ended'))
 
 const Home = lazy(() => import('./screens/home'))
 const Questions = lazy(() => import('./screens/questions'))
@@ -17,21 +16,18 @@ const Rewards = lazy(() => import('./screens/rewards'))
 //const Terms = lazy(() => import('./screens/terms/terms'))
 
 export function App() {
-  //tomar datos desde el store
-  //  const { selectedCategory } = useGameStore()
+  const { validPeriod } = useConfigStore()
 
-  //  const { validPeriod } = useContext(ConfigContext) --> store
-  //const actualDate = new Date().getTime()
-  // const startDate = new Date(validPeriod.startDate).getTime()
-  // const endDate = new Date(validPeriod.endDate).getTime()
+  const actualDate = new Date().getTime()
+  const startDate = new Date(validPeriod.startDate).getTime()
+  const endDate = new Date(validPeriod.endDate).getTime()
 
-  // if (actualDate < startDate) {
-  //   return <Upcoming />
-  // }
-
-  // if (actualDate > endDate) {
-  //   return <Ended />
-  // }
+  if (actualDate < startDate) {
+    return <Upcoming />
+  }
+  if (actualDate > endDate) {
+    return <Ended />
+  }
 
   return (
     <Suspense fallback={<Loading />}>
@@ -43,9 +39,10 @@ export function App() {
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/how-to-play" element={<HowToPlay />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/rewards" element={<Rewards />} />
+
           {/* <Route path="/terms" element={<Terms />} />
           <Route path="/terms-example" element={<TermsExample />} /> */}
-          <Route path="/rewards" element={<Rewards />} />
         </Routes>
       </Router>
     </Suspense>

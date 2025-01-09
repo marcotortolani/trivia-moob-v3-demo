@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Header } from '@/components/header'
 import { Wheel } from '@/components/wheel'
@@ -16,6 +17,23 @@ export default function Home() {
     state.categoriesState.every((category) => category.completed)
   )
 
+  const navigate = useNavigate()
+  //tomar datos desde el store
+  // const { selectedCategory } = useGameStore()
+  const { validPeriod } = useConfigStore()
+
+  //  const { validPeriod } = useContext(ConfigContext) --> store
+  const actualDate = new Date().getTime()
+  const startDate = new Date(validPeriod.startDate).getTime()
+  const endDate = new Date(validPeriod.endDate).getTime()
+
+  if (actualDate < startDate) {
+    navigate('/upcoming')
+  }
+
+  if (actualDate > endDate) {
+    navigate('/ended')
+  }
 
   return (
     <AnimatePresence mode="wait">

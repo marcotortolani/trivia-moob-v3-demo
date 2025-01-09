@@ -9,8 +9,8 @@
     "userAvatar": ""
   },
   "validPeriod": {
-    "startDate": "2024-10-20 12:00:00",
-    "endDate": "2030-11-20 23:59:00"
+    "startDate": "2025-10-20 12:00:00",
+    "endDate": "2025-11-20 23:59:00"
   },
   "config": {
     "triesAllowedPerDay": 20000000,
