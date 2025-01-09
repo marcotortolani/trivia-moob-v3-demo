@@ -21,7 +21,7 @@ import { XIcon, Edit, ChevronLeft, ChevronRight } from 'lucide-react'
 
 import closeSound from '../../assets/sound/popup-close-minimize.mp3'
 import blopSound from '../../assets/sound/blop.mp3'
-import successAction from '../../assets/sound/new-wav/success-action.wav'
+import successAction from '../../assets/sound/success-action.mp3'
 
 export default function UserPoints() {
   const { colors, images, user, soundActive } = useConfigStore()

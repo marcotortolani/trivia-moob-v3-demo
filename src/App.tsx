@@ -11,11 +11,10 @@ const Home = lazy(() => import('./screens/home'))
 const Questions = lazy(() => import('./screens/questions'))
 const Ranking = lazy(() => import('./screens/ranking'))
 const Profile = lazy(() => import('./screens/profile'))
-//const Terms = lazy(() => import('./screens/terms/terms'))
-
 const HowToPlay = lazy(() => import('./screens/how-to-play'))
 const FAQ = lazy(() => import('./screens/faq'))
 const Rewards = lazy(() => import('./screens/rewards'))
+//const Terms = lazy(() => import('./screens/terms/terms'))
 
 export function App() {
   //tomar datos desde el store
