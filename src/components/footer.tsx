@@ -35,22 +35,20 @@ export function Footer() {
 
   const onClose = () => {
     stopBlop()
-    if (soundActive) {
-      playClose()
-    }
+    if (soundActive) playClose()
   }
 
   return (
     <motion.footer
       initial={{ y: 200 }}
       animate={{ y: -5, transition: { duration: 0.5 } }}
-      className="z-20 px-4 py-2"
+      className="z-20 px-4 py-2 lg:pt-4 lg:pb-6"
     >
-      <div className="flex justify-between items-end gap-4 max-w-3xl mx-auto ">
+      <div className="flex justify-between items-end gap-4 max-w-screen-md xl:max-w-screen-lg mx-auto ">
         <Link to={links.termsURL} target="_blank">
           <Button
             variant="ghost"
-            className=" w-16 h-fit p-0 flex flex-col items-center uppercase font-oswaldBold text-sm focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-150 ease-in-out"
+            className=" w-10 xs:w-16 h-fit p-0 flex flex-col items-center uppercase font-oswaldBold text-xs xs:text-sm focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-150 ease-in-out"
             style={{ color: colors.text }}
             onClick={onOpen}
           >
@@ -65,7 +63,7 @@ export function Footer() {
 
         <div className="relative w-4/6 flex flex-col items-center text-center bg-red-500/0">
           <div
-            className="w-full max-w-[400px] aspect-[600/246] flex items-end justify-center text-4xl font-bold text-center text-white mb-1"
+            className="w-full max-w-[200px] md:max-w-[250px] aspect-[600/246] flex items-end justify-center  mb-0.5 xs:mb-1"
             style={{
               backgroundImage: `url(${images.backgroundPoints})`,
               backgroundSize: 'contain',
@@ -73,11 +71,17 @@ export function Footer() {
               backgroundRepeat: 'no-repeat',
             }}
           >
-            <span className=" h-full font-oswaldMedium flex items-center pt-3 ">
+            <span
+              className=" w-full h-full font-oswaldMedium flex items-center justify-center text-center text-2xl xs:text-3xl md:text-4xl pt-2 xs:pt-3 "
+              style={{ color: colors.text }}
+            >
               {score}
             </span>
           </div>
-          <div className=" font-oswaldMedium tracking-widest text-white text-sm">
+          <div
+            className=" font-oswaldMedium tracking-widest text-xs xs:text-base "
+            style={{ color: colors.text }}
+          >
             PUNTAJE
           </div>
         </div>
@@ -86,7 +90,7 @@ export function Footer() {
           <DialogTrigger asChild className=" p-0">
             <Button
               variant="ghost"
-              className=" w-16 h-fit p-0 flex flex-col items-center uppercase font-oswaldBold text-sm focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-150 ease-in-out"
+              className=" w-10 xs:w-16 h-fit p-0 flex flex-col items-center uppercase font-oswaldBold text-xs xs:text-sm focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-150 ease-in-out"
               style={{ color: colors.text }}
               onClick={onOpen}
             >
@@ -95,7 +99,7 @@ export function Footer() {
                 alt="Logo"
                 className=" w-full h-auto"
               />
-              PREMIOS
+              Premios
             </Button>
           </DialogTrigger>
           <DialogContent

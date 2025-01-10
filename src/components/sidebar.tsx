@@ -61,7 +61,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       <SheetOverlay className=" backdrop-blur-sm bg-black/20" />
       <SheetContent
         side="left"
-        className=" z-[200] w-[95vw] h-[100dvh] overflow-y-scroll md:overflow-auto px-0 border-r-2 border-gray-200/30  rounded-r-2xl md:rounded-r-3xl flex flex-col justify-between "
+        className=" z-[200] lg:w-1/4 lg:max-w-80 h-[100dvh] overflow-y-scroll md:overflow-hidden px-0 border-r-2 border-gray-200/30  rounded-r-2xl md:rounded-r-3xl flex flex-col justify-between "
         style={{
           background: `linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(${hexToRgb(
             colors.secondary
@@ -69,7 +69,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         }}
       >
         <SheetHeader>
-          <SheetTitle className="w-full px-2 flex items-center justify-evenly">
+          <SheetTitle className="w-full px-1 flex items-center justify-evenly">
             <button
               type="button"
               onClick={onCloseSidebar}
@@ -98,7 +98,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             <div className=" relative w-2/3 mx-auto  ">
               <img src={images.backgroundPointsMenu} alt="background points" />
               <span
-                className="absolute ml-5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-oswaldBold"
+                className="absolute ml-2 xs:ml-4 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl xs:text-2xl md:text-3xl font-oswaldBold"
                 style={{ color: colors.text }}
               >
                 {score}
@@ -107,7 +107,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           </div>
 
           <div
-            className="w-full px-2 min-h-fit grid gap-5 lg:gap-8 py-8"
+            className="w-full xs:px-2 min-h-fit grid gap-5 lg:gap-8 py-8"
             style={{
               color: colors.text,
             }}
@@ -149,19 +149,19 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         </div>
 
         <SheetFooter
-          className="  w-full py-5 flex flex-col items-center justify-center gap-1"
+          className="  w-full py-5 flex flex-col items-center justify-center gap-2 xs:gap-1"
           style={{
             borderTop: `1px solid ${colors.primary}`,
           }}
         >
-          <div className=" w-full flex items-center justify-center gap-4">
+          <div className=" w-full flex flex-col xs:flex-row items-center justify-center gap-1 xs:gap-4">
             <img
               src={mediaMoob}
               alt="Media Moob Logo white"
               className="w-1/3 invert  "
             />
             <p
-              className=" font-oswaldLight tracking-wider"
+              className=" text-sm md:text-base font-oswaldLight tracking-wider"
               style={{ color: colors.text }}
             >
               Otra solución de Media Moob
@@ -189,7 +189,7 @@ function NavLinkStyled({
   children: React.ReactNode
 }) {
   const location = useLocation()
-  const { colors } = useConfigStore()
+  const { colors, soundActive } = useConfigStore()
 
   const [playBlop] = useSound(blopSound)
 
@@ -199,11 +199,13 @@ function NavLinkStyled({
     <Link
       to={''}
       onClick={() => {
-        playBlop()
+        if (soundActive) playBlop()
         onNavLink(to)
       }}
       className={`${
-        isActive ? ' font-oswaldBold text-2xl ' : ' font-oswaldRegular text-xl '
+        isActive
+          ? ' font-oswaldBold text-lg xs:text-2xl '
+          : ' font-oswaldRegular text-base xs:text-xl '
       } flex items-center gap-5 text-left tracking-wider px-4  `}
       style={{
         color: isActive ? colors.primary : colors.text,

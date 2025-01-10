@@ -111,16 +111,16 @@ export function Wheel() {
           damping: 14,
         },
       }}
-      className=" h-full flex-1 flex items-center justify-center bg-red-600/0"
+      className=" z-0 w-full h-full flex-1 flex items-center justify-center"
     >
-      <div className="relative w-80 h-80 mx-auto my-8 scale-100  md:scale-125 ">
+      <div className="relative w-64 h-64 xs:w-72 xs:h-72 mx-auto my-8 md:scale-125 lg:scale-150 xl:scale-125">
         <img
           src={ringWheel}
           alt="Ring wheel"
           className=" absolute z-50 w-full scale-110 p-0.5 "
         />
         <motion.div
-          className="w-full h-full rounded-full overflow-hidden scale-75"
+          className="w-full h-full rounded-full overflow-hidden "
           initial={{ rotate: rotation }}
           animate={{ rotate: rotation }}
           transition={{
@@ -150,10 +150,8 @@ export function Wheel() {
                 7: [-60, -60, -60, -60, -60, -60, -60],
                 8: [-70, -70, -70, -70, -70, -70, -70, -70],
               }
-
               const bgColor =
                 colors?.rouletteSection[index % colors?.rouletteSection.length]
-
               const { questionsAnswered, totalQuestions } = categoryCompleted(
                 category?.id
               )
@@ -166,14 +164,13 @@ export function Wheel() {
                     ' brightness-[25%] grayscale-[0%]'
                   } absolute w-1/2 h-1/2 origin-bottom-right bg-gradient-to-br from-transparent to-black/20`}
                   style={{
-                    transform: `rotate(-${index * angle}deg) skew(${skewY}deg)`,
+                    transform: `rotate(-${
+                      index * angle
+                    }deg) skew(${skewY}deg) `,
                     backgroundColor: bgColor,
                     zIndex: totalCategories + 5 - index,
                   }}
                 >
-                  {/* <span className=" absolute top-6 right-2 bg-white text-black z-50 ">
-                    {questionsAnswered}/{totalQuestions}
-                  </span> */}
                   <div
                     className=" z-50 absolute w-1/2 h-1/2 bg-red-600/0 aspect-square -translate-x-1/2 -translate-y-1/2 "
                     style={{
@@ -182,10 +179,7 @@ export function Wheel() {
                       left: `calc(75% - ${3 - 0.1 * totalCategories + 1.4}rem)`,
                     }}
                   >
-                    <p className="hidden -rotate-[60deg] bg-white">
-                      {category.name}
-                    </p>
-                    <div className=" relative w-full h-full ">
+                    <div className=" relative w-full h-full">
                       <img
                         src={category?.imgURL}
                         alt={category.name}
@@ -272,7 +266,7 @@ const SpinButton = ({
       disabled={isSpinning || gameCompleted}
       className={` ${
         isSpinning ? ' shadow-inner' : 'shadow-md'
-      } z-[1000]  disabled:cursor-not-allowed disabled:grayscale-[50%] disabled:scale-95 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full  flex items-center justify-center text-2xl border-2 border-black shadow-black/60 transition-all duration-200 ease-in-out`}
+      } z-[100]  disabled:cursor-not-allowed disabled:grayscale-[50%] disabled:scale-95 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full  flex items-center justify-center text-2xl border-2 border-black shadow-black/60 transition-all duration-200 ease-in-out`}
       style={{
         backgroundColor: bgColor,
       }}

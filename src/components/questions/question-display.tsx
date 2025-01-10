@@ -22,7 +22,7 @@ export function QuestionDisplay() {
       )?.completed
   )
 
-  const [playConfetti] = useSound(confettiSound)
+  const [playConfetti] = useSound(confettiSound, { volume: 0.5 })
 
   useEffect(() => {
     resetGameState()

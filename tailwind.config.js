@@ -5,13 +5,15 @@ export default {
   darkMode: ['class'],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    screens: {
+      xs: '320px',
+    },
     extend: {
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
-      colors: {},
       fontFamily: {
         tekoRegular: ['TekoRegular', 'sans-serif'],
         tekoMedium: ['TekoMedium', 'sans-serif'],
@@ -25,11 +27,9 @@ export default {
         poppinsMedium: ['PoppinsMedium', 'sans-serif'],
         poppinsBold: ['PoppinsBold', 'sans-serif'],
       },
-      screens: {
-        xs: '320px',
-        'h-sm': { raw: '(max-height: 500px)' },
-        'h-md': { raw: '(min-height: 650px)' },
-      },
+      // screens: {
+      //   xs: '320px',
+      // },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',

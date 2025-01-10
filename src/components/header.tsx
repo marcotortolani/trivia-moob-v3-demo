@@ -37,12 +37,12 @@ export function Header({ onMenuClick }: HeaderProps) {
       animate={{ y: 0, transition: { duration: 0.5 } }}
       className={`${location.pathname === '/' && ' z-[50] '} z-0  w-full`}
     >
-      <div className=" w-full max-w-screen-lg mx-auto px-4 my-2 flex justify-between items-center">
+      <div className=" w-full max-w-screen-md xl:max-w-screen-lg mx-auto px-2 xs:px-4 my-2 flex justify-between items-center">
         <Button
           variant="ghost"
           size="default"
           onClick={onMenu}
-          className=" p-2 focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-150 ease-in-out"
+          className=" p-2  focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-150 ease-in-out"
         >
           <Menu style={{ width: 28, height: 32, color: colors.text }} />
         </Button>
@@ -51,7 +51,7 @@ export function Header({ onMenuClick }: HeaderProps) {
           <img
             src={images.es.logoHeader}
             alt="Logo"
-            className="w-4/5 max-w-[400px] mx-auto"
+            className="w-5/6 xs:w-4/5 max-w-[300px] mx-auto"
           />
         </Link>
 
@@ -60,7 +60,7 @@ export function Header({ onMenuClick }: HeaderProps) {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9, rotate: -60 }}
           type="button"
-          className=" p-1 focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-100 ease-in-out"
+          className=" p-2 focus:bg-transparent hover:bg-transparent active:bg-transparent dark:focus:bg-transparent dark:hover:bg-transparent active:scale-110 transition-all duration-100 ease-in-out"
           onClick={onSoundClick}
         >
           {soundActive ? (
