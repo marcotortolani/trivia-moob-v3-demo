@@ -70,14 +70,14 @@ export default function FAQ() {
         layout
         initial={{ scale: 1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1, transition: { duration: 0.5 } }}
-        className={` relative min-h-[100dvh] mb-10 flex flex-col overflow-hidden `}
+        className={` relative min-h-[100dvh] flex flex-col overflow-hidden `}
         style={{
           background: `linear-gradient(to bottom, ${colors.secondary}, #000)`,
         }}
       >
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
 
-        <section className=" w-full max-w-xl mx-auto px-4 ">
+        <section className=" w-full max-w-xl lg:max-w-3xl mx-auto px-4 ">
           <motion.h2
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -95,7 +95,7 @@ export default function FAQ() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="mt-4 space-y-4"
+            className="mt-4 mb-10 space-y-4"
           >
             {faqs.map((faq: FaqType, index) => (
               <motion.li
@@ -112,10 +112,10 @@ export default function FAQ() {
               >
                 <button
                   onClick={() => handleToggle(index)}
-                  className="w-full p-4 flex justify-between items-center text-left transition-colors"
+                  className="w-full p-4 flex justify-between items-start gap-2 text-left transition-colors"
                 >
                   <span
-                    className="text-lg font-medium"
+                    className="xs:text-lg font-medium"
                     style={{ color: colors.text }}
                   >
                     {faq.question}

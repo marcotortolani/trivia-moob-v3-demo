@@ -24,7 +24,7 @@ export function Wheel() {
   )
   const { categories, colors, images, soundActive } = useConfigStore()
 
-  const [playRoulette] = useSound(rouletteSound, { playbackRate: 1.1 })
+  const [playRoulette] = useSound(rouletteSound, { playbackRate: 1.1, volume: 0.5 })
   const [playLoad] = useSound(watterAttack, { playbackRate: 1.15 })
 
   function categoryCompleted(categoryID: number) {

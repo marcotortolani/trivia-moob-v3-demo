@@ -294,7 +294,7 @@ export default function HowToPlay() {
               <Button
                 variant="default"
                 onClick={onPlayStart}
-                className=" z-50 mt-4 px-8 py-2 h-fit text-3xl font-poppinsBold uppercase rounded-full flex items-center cursor-pointer transition-all duration-150 ease-in-out"
+                className=" z-50 mt-4 px-8 py-2 h-fit hover:scale-105 active:scale-100 text-3xl font-poppinsBold uppercase rounded-full flex items-center cursor-pointer transition-all duration-150 ease-in-out"
                 style={{
                   background: `linear-gradient(to bottom, ${colors.primary} 60%, #000 150%)`,
                   color: colors.text,

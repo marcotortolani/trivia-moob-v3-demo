@@ -10,7 +10,7 @@ export default function UserAvatar() {
           <img
             src={goldenRing}
             alt="Ring wheel"
-            className=" absolute z-50 w-full h-full p-1   "
+            className=" absolute z-20 w-full h-full p-1   "
           />
           <img
             className="w-full h-full p-2 bg-black/0 backdrop-brightness-150 rounded-full "

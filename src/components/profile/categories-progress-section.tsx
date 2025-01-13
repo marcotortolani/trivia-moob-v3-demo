@@ -15,7 +15,18 @@ export default function CategoriesProgress({
   return (
     <motion.section
       initial={{ opacity: 0, x: -500 }}
-      animate={{ opacity: 1, x: 0, transition: { duration: 0.25, delay: 0, ease: 'easeInOut', type: 'spring', stiffness: 120, damping: 20 } }}
+      animate={{
+        opacity: 1,
+        x: 0,
+        transition: {
+          duration: 0.25,
+          delay: 0,
+          ease: 'easeInOut',
+          type: 'spring',
+          stiffness: 120,
+          damping: 20,
+        },
+      }}
       className=" w-full max-w-lg h-fit px-4 my-2"
     >
       <SectionTitle title="Progreso por categoría" />
@@ -27,7 +38,7 @@ export default function CategoriesProgress({
             className=" w-full flex items-center justify-between"
           >
             <span
-              className=" text-xs font-oswaldBold uppercase "
+              className=" text-[0.65rem] xs:text-xs font-oswaldRegular xs:font-oswaldBold uppercase "
               style={{ color: colors?.text }}
             >
               {cat.name}
@@ -47,7 +58,7 @@ export default function CategoriesProgress({
       </ul>
       <div className=" w-full m-0 flex justify-between">
         <h5
-          className=" text-xs uppercase font-oswaldBold"
+          className=" text-[0.65rem] xs:text-xs font-oswaldRegular xs:font-oswaldBold uppercase "
           style={{ color: colors?.correct }}
         >
           Progreso Total

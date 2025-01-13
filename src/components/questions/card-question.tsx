@@ -27,7 +27,7 @@ export function CardQuestion({
 }) {
   const { selectedCategory } = useGameStore()
   const { showExtraPoints } = useQuestionStore()
-  const { colors } = useConfigStore()
+  const { colors, soundActive } = useConfigStore()
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
   const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null)
 
@@ -53,10 +53,12 @@ export function CardQuestion({
     isCorrect: boolean
   }) => {
     setSelectedAnswer(index)
-    if (isCorrect) {
-      playCorrect()
-    } else {
-      playWrong()
+    if (soundActive) {
+      if (isCorrect) {
+        playCorrect()
+      } else {
+        playWrong()
+      }
     }
 
     // set delay time
@@ -96,7 +98,7 @@ export function CardQuestion({
   }
 
   return (
-    <div className=" px-8 mt-5 mb-2">
+    <div className="w-full max-w-xl mx-auto px-4 xs:px-8 mt-5 mb-2 ">
       <motion.div
         key={`card-question-${currentQuestion?.id}`}
         custom={direction}
@@ -116,7 +118,7 @@ export function CardQuestion({
             : `linear-gradient(to bottom, ${colors.primary} 70%, #000 220%)`,
           outlineColor: timeUp ? colors.wrong : colors.primary,
         }}
-        className={`relative rounded-3xl p-6 outline-[6px] outline 
+        className={`relative rounded-3xl px-2 py-4 xs:p-6 lg:p-8 outline-[6px] outline 
         ${timeUp ? 'animate-shake ' : ''}
       `}
       >
@@ -134,7 +136,7 @@ export function CardQuestion({
         )}
         <motion.div style={{ scale }}>
           <h2
-            className="text-xl font-oswaldMedium leading-6 text-center mb-6"
+            className="text-xl leading-6 lg:text-2xl lg:leading-7 font-oswaldMedium  text-center mb-6"
             style={{
               color: colors.text,
             }}
@@ -142,7 +144,7 @@ export function CardQuestion({
             {currentQuestion?.title}
           </h2>
 
-          <div className="grid gap-4">
+          <div className="grid gap-4 lg:gap-6">
             {currentQuestion?.answers.map((answer, index) => (
               <ButtonAnswer
                 key={index}
@@ -201,7 +203,7 @@ function ButtonAnswer({
     <motion.button
       onClick={onSelectAnswer}
       disabled={selectedAnswer !== null || timeUp}
-      className={` h-14 shadow-md shadow-black/50 text-xl font-oswaldMedium italic tracking-wide transition-all duration-100 ease-in-out rounded-full `}
+      className={` h-14 shadow-md shadow-black/50 text-lg xs:text-xl lg:text-2xl lg:w-3/4 lg:mx-auto font-oswaldMedium italic tracking-wide transition-all duration-100 ease-in-out rounded-full `}
       style={{
         color: colors.text,
         ...(selectedAnswer === index

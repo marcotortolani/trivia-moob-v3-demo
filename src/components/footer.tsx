@@ -44,7 +44,7 @@ export function Footer() {
       animate={{ y: -5, transition: { duration: 0.5 } }}
       className="z-20 px-4 py-2 lg:pt-4 lg:pb-6"
     >
-      <div className="flex justify-between items-end gap-4 max-w-screen-md xl:max-w-screen-lg mx-auto ">
+      <div className=" max-w-screen-md xl:max-w-screen-lg mx-auto xl:px-6 flex justify-between items-end gap-4 ">
         <Link to={links.termsURL} target="_blank">
           <Button
             variant="ghost"
@@ -105,7 +105,7 @@ export function Footer() {
           <DialogContent
             aria-describedby="content"
             aria-description="content"
-            className="z-[500000] w-[95%] h-4/5 min-h-[400px] overflow-x-hidden  overflow-y-scroll md:max-w-[800px] md:overflow-hidden px-4 border-none outline-none rounded-xl "
+            className="z-[500000] w-[95%]  min-h-[400px] overflow-x-hidden  overflow-y-scroll md:max-w-[800px] md:overflow-hidden px-4 border-none outline-none rounded-xl "
             style={{
               color: '#0000',
               background: `linear-gradient(180deg, ${colors.primary} 50%, rgba(0,0,0,1) 150%)`,

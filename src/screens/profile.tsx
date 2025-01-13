@@ -31,7 +31,7 @@ export default function Profile() {
         layout
         initial={{ scale: 1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1, transition: { duration: 0.5 } }}
-        className={` relative min-h-[100dvh] flex flex-col items-center gap-4 overflow-hidden mb-10 `}
+        className={` relative min-h-[100dvh] flex flex-col items-center gap-4 overflow-hidden mb-10 md:mb-0 `}
         style={{
           background: `linear-gradient(to bottom, ${colors.secondary}, #000)`,
         }}

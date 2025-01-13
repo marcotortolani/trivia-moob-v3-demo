@@ -39,19 +39,19 @@ export default function CategoryCompleted() {
       />
       <div className=" z-50 w-full h-full p-4 flex flex-col items-center justify-center gap-4  ">
         <h1
-          className=" font-oswaldHeavyItalic text-[3.5rem] uppercase"
+          className=" font-oswaldHeavyItalic text-5xl xs:text-[3.5rem] lg:text-[4.5rem] uppercase"
           style={{ color: colors.primary }}
         >
           Felicidades
         </h1>
         <p
-          className=" w-5/6 font-tekoMedium text-4xl leading-8 uppercase text-center"
+          className=" w-5/6 font-tekoMedium text-3xl xs:text-4xl lg:text-[3.5rem] leading-8 uppercase text-center"
           style={{ color: colors.text }}
         >
           ¡Has completado toda la categoría!
         </p>
         <Button
-          className="mt-10 px-8 py-6  font-oswaldMedium text-2xl uppercase rounded-full"
+          className="mt-10 px-8 py-6 lg:py-8 font-oswaldMedium text-2xl lg:text-3xl hover:scale-105 active:scale-100 transition-all duration-200 ease-in-out uppercase rounded-full"
           style={{
             background: `linear-gradient(180deg, ${colors.primary} 60%, rgba(0, 0, 0, 1) 150%)`,
             color: colors.text,

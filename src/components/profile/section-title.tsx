@@ -4,7 +4,7 @@ const SectionTitle = ({ title }: { title: string }) => {
   const { colors } = useConfigStore()
   return (
     <h3
-      className=" text-base uppercase font-oswaldBold"
+      className=" text-sm xs:text-base uppercase font-oswaldBold"
       style={{ color: colors?.text || '#FFF' }}
     >
       {title}

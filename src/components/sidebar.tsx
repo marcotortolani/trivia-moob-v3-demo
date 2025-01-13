@@ -61,7 +61,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       <SheetOverlay className=" backdrop-blur-sm bg-black/20" />
       <SheetContent
         side="left"
-        className=" z-[200] lg:w-1/4 lg:max-w-80 h-[100dvh] overflow-y-scroll md:overflow-hidden px-0 border-r-2 border-gray-200/30  rounded-r-2xl md:rounded-r-3xl flex flex-col justify-between "
+        className=" z-[200] w-[94%] md:max-w-[450px] lg:w-1/2 lg:max-w-[450px] h-[100dvh] overflow-y-scroll md:overflow-hidden px-0 border-r-2 border-gray-200/30  rounded-r-2xl md:rounded-r-3xl flex flex-col justify-between "
         style={{
           background: `linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(${hexToRgb(
             colors.secondary

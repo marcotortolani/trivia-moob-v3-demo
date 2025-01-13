@@ -41,9 +41,9 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
       exit={{ y: -500, scale: 0.25, opacity: 0 }}
       className="absolute top-0 left-0 z-[2000] w-full min-h-[100dvh] flex items-center justify-center bg-gradient-to-b from-black/20 to-black/90 backdrop-blur-sm "
     >
-      <div className=" w-full max-w-md h-full px-4 py-8 flex flex-col items-center justify-center gap-4 rounded-lg ">
+      <div className=" w-full max-w-md h-full px-4 py-8 flex flex-col items-center justify-center gap-4 lg:gap-6 rounded-lg ">
         <p
-          className=" mx-4 px-5 pt-5 py-3.5 font-tekoMedium uppercase text-2xl leading-6 text-center rounded-xl"
+          className=" mx-4 px-2 xs:px-5 pt-5 py-3.5 font-tekoMedium uppercase text-xl xs:text-2xl leading-6 text-center rounded-xl"
           style={{
             background: `linear-gradient(180deg, ${colors.primary} 60%, rgba(0,0,0,1) 150%`,
             color: colors.text,
@@ -53,7 +53,7 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
           esta categoría
         </p>
         <h2
-          className=" w-5/6 mt-3 uppercase text-3xl font-oswaldHeavyItalic leading-7 text-center "
+          className=" w-5/6 mt-3 uppercase text-2xl xs:text-3xl font-oswaldHeavyItalic leading-7 text-center "
           style={{
             color: colors.text,
           }}
@@ -67,7 +67,7 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
             if (soundActive) playButton()
             onRoulette()
           }}
-          className=" px-10 pt-3 pb-1 uppercase font-tekoMedium text-5xl text-nowrap shadow-md shadow-black/50 rounded-full "
+          className=" px-6 xs:px-10 pt-2 xs:pt-3 pb-1 uppercase font-tekoMedium text-2xl xs:text-5xl text-nowrap shadow-md shadow-black/50 rounded-full "
           style={{
             color: colors.text,
             background: `linear-gradient(180deg, ${colors.primary} 60%, rgba(0,0,0,1) 160%`,
@@ -81,7 +81,7 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
             if (soundActive) playButton()
             onCloseModal()
           }}
-          className="mt-2 px-6 py-0.5 bg-neutral-400 uppercase font-tekoRegular text-2xl shadow-md shadow-black/50 rounded-full "
+          className="mt-2 px-6 py-0.5 bg-neutral-400 uppercase font-tekoRegular text-lg xs:text-2xl shadow-md shadow-black/50 rounded-full "
           style={{ color: colors.text }}
         >
           Continuar en Categoría actual
@@ -96,9 +96,9 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
                 onDontAskAgain()
               }, 100)
             }}
-            className=" w-6 h-6  bg-transparent border-2 border-white rounded-lg accent-rose-500 text-rose-400"
+            className=" w-5 h-5 xs:w-6 xs:h-6  bg-transparent border-2 border-white rounded-lg accent-rose-500 text-rose-400"
           />
-          <p className=" font-tekoRegular uppercase text-2xl">
+          <p className=" font-tekoRegular uppercase text-lg xs:text-2xl">
             No volver a preguntarme
           </p>
         </div>

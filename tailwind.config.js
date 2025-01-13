@@ -5,9 +5,6 @@ export default {
   darkMode: ['class'],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    screens: {
-      xs: '320px',
-    },
     extend: {
       borderRadius: {
         lg: 'var(--radius)',
@@ -27,9 +24,9 @@ export default {
         poppinsMedium: ['PoppinsMedium', 'sans-serif'],
         poppinsBold: ['PoppinsBold', 'sans-serif'],
       },
-      // screens: {
-      //   xs: '320px',
-      // },
+      screens: {
+        xs: '320px',
+      },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',

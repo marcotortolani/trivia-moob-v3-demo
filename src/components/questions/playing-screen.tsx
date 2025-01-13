@@ -172,7 +172,7 @@ export function PlayingScreen() {
       initial={{ opacity: 0, y: 500 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 500 }}
-      className=" z-0"
+      className=" z-0 w-full"
     >
       <AnimatePresence mode="wait" custom={direction}>
         {state === 'answering' && (

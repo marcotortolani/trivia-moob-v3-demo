@@ -16,7 +16,18 @@ export default function AnswersType() {
   return (
     <motion.section
       initial={{ opacity: 0, x: 500 }}
-      animate={{ opacity: 1, x: 0, transition: { duration: 0.25, delay: 0, ease: 'easeInOut', type: 'spring', stiffness: 120, damping: 20 } }}
+      animate={{
+        opacity: 1,
+        x: 0,
+        transition: {
+          duration: 0.25,
+          delay: 0,
+          ease: 'easeInOut',
+          type: 'spring',
+          stiffness: 120,
+          damping: 20,
+        },
+      }}
       className=" w-full max-w-lg h-fit px-4 relative flex flex-col items-center justify-center gap-2 "
     >
       <div
@@ -35,7 +46,7 @@ export default function AnswersType() {
               alt="Image Correct Icon"
             />
             <span
-              className=" text-xs font-oswaldRegular uppercase "
+              className=" text-[0.6rem] xs:text-xs font-oswaldRegular uppercase "
               style={{ color: colors?.text }}
             >
               Correctas: {answeredQuestions.correct}
@@ -49,7 +60,7 @@ export default function AnswersType() {
               alt="Image Correct Icon"
             />
             <span
-              className=" text-xs font-oswaldRegular uppercase "
+              className=" text-[0.6rem] xs:text-xs font-oswaldRegular uppercase "
               style={{ color: colors?.text }}
             >
               Incorrectas: {answeredQuestions.incorrect}
@@ -63,7 +74,7 @@ export default function AnswersType() {
               alt="Image Correct Icon"
             />
             <span
-              className=" text-xs font-oswaldRegular uppercase "
+              className=" text-[0.6rem] xs:text-xs font-oswaldRegular uppercase "
               style={{ color: colors?.text }}
             >
               Bonus: {answeredQuestions.bonus}

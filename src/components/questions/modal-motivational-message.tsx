@@ -71,9 +71,9 @@ const ModalMotivationalMessage = ({
       exit={{ opacity: 0, y: 500 }}
       className="absolute top-0 left-0 z-[200] w-full min-h-[100dvh] flex items-center justify-center bg-gradient-to-b from-black/20 via-black/40 to-black backdrop-blur-sm"
     >
-      <div className=" p-6 max-w-md w-full text-center bg-sky-500/0">
+      <div className=" p-6 max-w-md w-full text-center lg:space-y-10 ">
         <h2
-          className=" w-fit mx-auto px-4 py-2 mb-4 text-3xl font-tekoMedium tracking-wide uppercase rounded-lg"
+          className=" w-fit mx-auto px-4 py-2 mb-4 text-2xl xs:text-3xl font-tekoMedium tracking-wide uppercase rounded-lg"
           style={{
             color: colors.text,
             background: `linear-gradient(180deg, ${colors.primary} 60%, rgba(0, 0, 0, 1) 160%)`,
@@ -83,14 +83,14 @@ const ModalMotivationalMessage = ({
         </h2>
         {lottie !== undefined && <div className=" w-2/3 mx-auto">{View}</div>}
         <p
-          className="mb-6 font-oswaldHeavyItalic uppercase text-5xl "
+          className="mb-6 font-oswaldHeavyItalic uppercase text-3xl xs:text-5xl "
           style={{ color: colors.text }}
         >
           {motivationalMessage?.longMessage}
         </p>
         <div>
           <p
-            className=" font-tekoRegular text-3xl "
+            className=" font-tekoRegular text-2xl xs:text-3xl "
             style={{ color: colors.text }}
           >
             Llevas {motivationalMessage?.number}{' '}
@@ -100,7 +100,7 @@ const ModalMotivationalMessage = ({
             consecutivas.
           </p>
           <p
-            className=" font-tekoMedium uppercase text-3xl "
+            className=" font-tekoMedium uppercase text-2xl xs:text-3xl "
             style={{ color: 'rgb(10, 255, 10)' }}
           >
             {motivationalMessage?.shortMessage}

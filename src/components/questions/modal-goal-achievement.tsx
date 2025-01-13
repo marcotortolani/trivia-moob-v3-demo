@@ -47,19 +47,19 @@ export default function ModalGoalAchievement({
     <motion.div
       initial={{ opacity: 0, y: 1000 }}
       animate={{ opacity: 1, y: 0 }}
-      className="absolute top-0 z-[200] w-screen min-h-[100dvh] bg-gradient-to-b from-black/10 via-black/30 to-black backdrop-blur-sm px-2 flex flex-col items-center justify-center pb-10"
+      className="absolute top-0 left-0 z-[200] w-screen min-h-[100dvh]  px-2 pb-10 flex flex-col items-center justify-center lg:gap-8 bg-gradient-to-b from-black/10 via-black/30 to-black backdrop-blur-sm"
     >
       <div className="relative z-0 h-fit flex flex-col items-center justify-center mb-2  ">
-        <div className="  w-4/5 -mb-20 -mt-10 ">{View}</div>
+        <div className="  w-4/5 lg:w-full lg:max-w-[400px] -mb-20 -mt-10 lg:-mb-28 lg:-mt-20 ">{View}</div>
         <img
           src={podium3D}
           alt="3D Cylinder Podium image"
           className=" w-2/3 mx-auto"
         />
       </div>
-      <div className=" relative w-4/6 mb-10 mx-auto  ">
+      <div className=" relative w-4/6 max-w-[300px] mb-10 mx-auto ">
         <img src={images.backgroundPointsMenu} alt="medal" />
-        <span className="absolute ml-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-oswaldBold">
+        <span className="absolute ml-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl xs:text-4xl lg:text-5xl font-oswaldBold">
           {(
             (MEDAL_THRESHOLDS[medal as keyof typeof MEDAL_THRESHOLDS]
               .percentageGoal *
@@ -69,15 +69,15 @@ export default function ModalGoalAchievement({
           ).toFixed(3)}
         </span>
       </div>
-      <div className="px-4 space-y-2">
+      <div className="px-4 space-y-2 lg:space-y-6">
         <p
-          className=" text-4xl leading-9 font-oswaldHeavyItalic uppercase text-center"
+          className=" text-2xl leading-7 xs:text-4xl xs:leading-9 lg:text-5xl font-oswaldHeavyItalic uppercase text-center"
           style={{ color: colors.text }}
         >
           ¡Cumpliste el objetivo {goalName}!
         </p>
         <p
-          className=" text-4xl leading-9 font-oswaldHeavyItalic uppercase text-center"
+          className=" text-2xl leading-7 xs:text-4xl xs:leading-9 lg:text-5xl font-oswaldHeavyItalic uppercase text-center"
           style={{
             color: colors.primary,
           }}
@@ -85,7 +85,7 @@ export default function ModalGoalAchievement({
           {MEDAL_THRESHOLDS[medal as keyof typeof MEDAL_THRESHOLDS].message}
         </p>
       </div>
-      <div className="mt-5 text-4xl">🎉 🌟 🔥 🚀 😎</div>
+      <div className="mt-5 text-4xl lg:text-5xl">🎉 🌟 🔥 🚀 😎</div>
     </motion.div>
   )
 }

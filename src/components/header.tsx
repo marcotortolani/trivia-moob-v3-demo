@@ -35,7 +35,9 @@ export function Header({ onMenuClick }: HeaderProps) {
     <motion.header
       initial={{ y: -200 }}
       animate={{ y: 0, transition: { duration: 0.5 } }}
-      className={`${location.pathname === '/' && ' z-[50] '} z-0  w-full`}
+      className={`${
+        location.pathname === '/' && ' z-[50] '
+      } z-0 relative w-full`}
     >
       <div className=" w-full max-w-screen-md xl:max-w-screen-lg mx-auto px-2 xs:px-4 my-2 flex justify-between items-center">
         <Button

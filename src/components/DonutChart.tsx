@@ -29,7 +29,10 @@ export function DonutChart() {
   return (
     <div className="relative w-20 h-20">
       {/* Background circle */}
-      <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
+      <svg
+        className="w-full h-full -rotate-90 scale-90 xs:scale-100"
+        viewBox="0 0 100 100"
+      >
         <circle
           cx="50"
           cy="50"
@@ -57,7 +60,7 @@ export function DonutChart() {
         />
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-xl font-bold text-white">
+        <span className="text-lg xs:text-xl font-bold text-white">
           <AnimateProgressive value={percentage} />%
         </span>
       </div>

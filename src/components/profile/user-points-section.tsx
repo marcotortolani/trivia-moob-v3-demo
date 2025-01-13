@@ -57,12 +57,12 @@ export default function UserPoints() {
           <Edit
             size={20}
             stroke="#000"
-            className="absolute z-50 bottom-0 right-0 -translate-x-1/4 -translate-y-1/4 w-6 h-6 p-1 rounded-full"
+            className="absolute z-30 bottom-0 right-0 -translate-x-1/4 -translate-y-1/4 w-5 h-5 xs:w-6 xs:h-6 p-0.5 xs:p-1 rounded-full"
             style={{ background: '#FFF', color: '#000' }}
           />
         </button>
         <span
-          className=" font-oswaldMedium uppercase tracking-wider "
+          className=" text-sm xs:text-base font-oswaldMedium uppercase tracking-wider "
           style={{ color: colors.text }}
         >
           {user.userName ? user.userName : 'UserName'}
@@ -74,14 +74,14 @@ export default function UserPoints() {
         <div className=" relative ">
           <img src={images.backgroundPointsMenu} alt="background points" />
           <span
-            className="absolute ml-5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[10vw] xs:text-3xl font-oswaldBold"
+            className="absolute ml-2 xs:ml-4 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl xs:text-3xl font-oswaldBold"
             style={{ color: colors.text }}
           >
             <AnimateProgressive value={points} />
           </span>
         </div>
         <span
-          className=" font-oswaldMedium uppercase tracking-wider "
+          className=" text-sm xs:text-base font-oswaldMedium uppercase tracking-wider "
           style={{ color: colors.text }}
         >
           Puntaje

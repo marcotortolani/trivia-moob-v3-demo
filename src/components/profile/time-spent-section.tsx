@@ -104,7 +104,7 @@ export default function TimeSpent({
           </g>
         </svg>
         <h5
-          className=" text-base font-oswaldRegular tracking-wider uppercase"
+          className=" text-sm xs:text-base font-oswaldRegular tracking-wider uppercase"
           style={{ color: colors?.text }}
         >
           {texts?.totalTime}:
@@ -113,7 +113,9 @@ export default function TimeSpent({
           className=" text-base font-oswaldRegular align-text-bottom"
           style={{ color: colors?.text }}
         >
-          <span className=" text-lg font-oswaldMedium">{totalAnswersTime}</span>{' '}
+          <span className=" text-lg font-oswaldMedium ">
+            {totalAnswersTime}
+          </span>{' '}
           {texts?.seconds} = {timeToText(totalAnswersTime)}
         </p>
       </div>
@@ -171,19 +173,16 @@ export default function TimeSpent({
           </g>
         </svg>
         <h5
-          className=" text-base font-oswaldRegular tracking-wider uppercase"
+          className=" text-sm xs:text-base font-oswaldRegular text-wrap tracking-wider uppercase "
           style={{ color: colors?.text }}
         >
           {texts?.averageTime}:
         </h5>
         <p
-          className=" text-base font-oswaldRegular align-text-bottom"
+          className=" min-w-fit text-nowrap text-sm xs:text-base font-oswaldRegular align-text-bottom "
           style={{ color: colors?.text }}
         >
-          <span className=" text-lg font-oswaldMedium">
-            {/* {totalAnswersTime
-                    ? (totalAnswersTime / totalProgress).toFixed(2)
-                    : 0} */}
+          <span className=" text-lg font-oswaldMedium ">
             {averageTime(totalAnswersTime, answeredQuestionsProgress)}
           </span>{' '}
           {texts?.seconds}
