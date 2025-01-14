@@ -20,31 +20,18 @@ import confettiSound from '../assets/sound/confetti-sound.mp3'
 export default function QuestionsPage() {
   const navigate = useNavigate()
   const { colors, soundActive } = useConfigStore()
-  const { gameState, setGameState, resetGameState } = useQuestionStore()
+  const { gameState } = useQuestionStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const { selectedCategory, questions } = useGameStore()
 
-  const categoryCompleted = useGameStore(
-    (state) =>
-      state.categoriesState.find(
-        (category) => category.id === selectedCategory?.id
-      )?.completed
-  )
-
   const [playConfetti] = useSound(confettiSound, { volume: 0.5 })
 
-  console.log('state game', gameState.currentState)
-
-  // useEffect(() => {
-  //   if (categoryCompleted) {
-  //     // setTimeout(() => {
-  //     //   // resetGameState()
-  //     // }, 1000)
-  //     if (soundActive) playConfetti()
-  //     setGameState({ currentState: 'CAT_COMPLETED' })
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [categoryCompleted])
+  useEffect(() => {
+    if (gameState.currentState === 'CAT_COMPLETED') {
+      if (soundActive) playConfetti()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gameState.currentState])
 
   useEffect(() => {
     if (!selectedCategory || questions?.length === 0) {
