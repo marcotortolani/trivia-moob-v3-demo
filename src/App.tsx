@@ -40,8 +40,7 @@ export function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/rewards" element={<Rewards />} />
 
-          {/* <Route path="/terms" element={<Terms />} />
-          <Route path="/terms-example" element={<TermsExample />} /> */}
+          {/* <Route path="/terms" element={<Terms />} /> */}
         </Routes>
       </Router>
     </Suspense>

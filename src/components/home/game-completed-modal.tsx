@@ -4,11 +4,11 @@ import { useState } from 'react'
 import { useGameStore } from '@/lib/game-store'
 import { useConfigStore } from '@/lib/config-store'
 import { useLottie } from 'lottie-react'
-import { Button } from './ui/button'
-import { Sidebar } from './sidebar'
+import { Button } from '../ui/button'
+import { Sidebar } from '../sidebar'
 
-import gameFinished from '../assets/lotties/game-finished.json'
-import blopSound from '../assets/sound/blop.mp3'
+import gameFinished from '@/assets/lotties/game-finished.json'
+import blopSound from '@/assets/sound/blop.mp3'
 
 export function GameCompletedModal() {
   const { resetGame } = useGameStore()

@@ -33,14 +33,18 @@ export default function QuestionsPage() {
 
   const [playConfetti] = useSound(confettiSound, { volume: 0.5 })
 
-  useEffect(() => {
-    resetGameState()
-    if (categoryCompleted) {
-      if (soundActive) playConfetti()
-      setGameState({ currentState: 'CAT_COMPLETED' })
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [categoryCompleted])
+  console.log('state game', gameState.currentState)
+
+  // useEffect(() => {
+  //   if (categoryCompleted) {
+  //     // setTimeout(() => {
+  //     //   // resetGameState()
+  //     // }, 1000)
+  //     if (soundActive) playConfetti()
+  //     setGameState({ currentState: 'CAT_COMPLETED' })
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [categoryCompleted])
 
   useEffect(() => {
     if (!selectedCategory || questions?.length === 0) {
@@ -68,29 +72,14 @@ export default function QuestionsPage() {
           className="z-50 w-full max-w-2xl mx-auto overflow-hidden2 flex-1 flex flex-col items-center justify-center p-0"
         >
           <AnimatePresence mode="wait">
-            {gameState.currentState !== 'START' && <StartScreen />}
-            {gameState.currentState !== 'PLAYING' && <PlayingScreen />}
+            {gameState.currentState === 'START' && <StartScreen />}
+            {gameState.currentState === 'PLAYING' && <PlayingScreen />}
             {gameState.currentState === 'CAT_COMPLETED' && (
               <CategoryCompleted />
             )}
 
             {/* {gameState.currentState !== 'PAUSE' && (
-                    <motion.div
-                      key="pause-screen"
-                      initial={{ opacity: 0, y: 500 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 500 }}
-                    >
-                      <div className="w-full max-w-2xl mx-auto px-0 flex flex-col items-center justify-center gap-10 overflow-hidden2 ">
-                        <h2>Juego en pausa</h2>
-                        <button
-                          className=" px-6 py-2 bg-slate-400 font-bold text-black uppercase rounded-lg"
-                          onClick={() => setGameState({ currentState: 'PLAYING' })}
-                        >
-                          Reanudar
-                        </button>
-                      </div>
-                    </motion.div>
+                <PauseScreen />
                   )} */}
           </AnimatePresence>
         </motion.main>
@@ -100,3 +89,25 @@ export default function QuestionsPage() {
     </div>
   )
 }
+
+// const PauseScreen = () => {
+//   const { setGameState } = useQuestionStore()
+//   return (
+//     <motion.div
+//       key="pause-screen"
+//       initial={{ opacity: 0, y: 500 }}
+//       animate={{ opacity: 1, y: 0 }}
+//       exit={{ opacity: 0, y: 500 }}
+//     >
+//       <div className="w-full max-w-2xl mx-auto px-0 flex flex-col items-center justify-center gap-10 overflow-hidden2 ">
+//         <h2>Juego en pausa</h2>
+//         <button
+//           className=" px-6 py-2 bg-slate-400 font-bold text-black uppercase rounded-lg"
+//           onClick={() => setGameState({ currentState: 'PLAYING' })}
+//         >
+//           Reanudar
+//         </button>
+//       </div>
+//     </motion.div>
+//   )
+// }

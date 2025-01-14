@@ -8,9 +8,9 @@ import { useConfigStore } from '@/lib/config-store'
 import ringWheel from '/img/default/anillo-ruleta.webp'
 import indicatorCategory from '/img/default/senalador-categoria-anillo.webp'
 
-import plasticSound from '../assets/sound/plastic-trash.mp3'
-import rouletteSound from '../assets/sound/roulette_wheel.mp3'
-import watterAttack from '../assets/sound/watter-attack.mp3'
+import plasticSound from '@/assets/sound/plastic-trash.mp3'
+import rouletteSound from '@/assets/sound/roulette_wheel.mp3'
+import watterAttack from '@/assets/sound/watter-attack.mp3'
 
 const SPINS = 10
 const TIME_SPINNING = 3000 // miliseconds
@@ -24,7 +24,10 @@ export function Wheel() {
   )
   const { categories, colors, images, soundActive } = useConfigStore()
 
-  const [playRoulette] = useSound(rouletteSound, { playbackRate: 1.1, volume: 0.5 })
+  const [playRoulette] = useSound(rouletteSound, {
+    playbackRate: 1.1,
+    volume: 0.5,
+  })
   const [playLoad] = useSound(watterAttack, { playbackRate: 1.15 })
 
   function categoryCompleted(categoryID: number) {

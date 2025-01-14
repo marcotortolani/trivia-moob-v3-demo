@@ -4,13 +4,13 @@ import { motion, useMotionValue, useTransform } from 'framer-motion'
 import { useGameStore } from '@/lib/game-store'
 import { useConfigStore } from '@/lib/config-store'
 import { useQuestionStore } from '@/lib/questions/questions-store'
-import { Timer } from '../timer'
+import { Timer } from './timer'
 import BadgeGlow from '../ui/badge-glow'
 import { Question, Answer } from '@/types/game-types'
 import TimeUp from './time-up'
 
-import correctAnswer from '../../assets/sound/correct-answer.mp3'
-import wrongAnswer from '../../assets/sound/wrong-answer.mp3'
+import correctAnswer from '@/assets/sound/correct-answer.mp3'
+import wrongAnswer from '@/assets/sound/wrong-answer.mp3'
 
 export function CardQuestion({
   question,
@@ -60,18 +60,13 @@ export function CardQuestion({
         playWrong()
       }
     }
-
-    // set delay time
-    setTimeout(() => {
-      onAnswer(index, isCorrect)
-    }, 1000)
+    onAnswer(index, isCorrect)
   }
 
   useEffect(() => {
     setSelectedAnswer(null)
     if (!question) return
     setCurrentQuestion(question)
-    //setShowExtraPoints(false)
   }, [question, question?.id])
 
   const variants = {
@@ -152,9 +147,11 @@ export function CardQuestion({
                 answer={answer}
                 selectedAnswer={selectedAnswer}
                 timeUp={timeUp}
-                onSelectAnswer={() =>
+                onSelectAnswer={() => {
+                  console.log(' click button answer')
+
                   handleAnswer({ index, isCorrect: answer.isCorrect })
-                }
+                }}
                 questionHasBonus={currentQuestion?.bonus ?? false}
                 categoryHasBonus={categoryHasBonus}
               />

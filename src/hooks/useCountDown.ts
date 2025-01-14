@@ -13,21 +13,23 @@ export function useCountdown(initialSeconds: number, onComplete: () => void) {
     setIsActive(false)
   }, [])
 
-
   useEffect(() => {
-    if (!isActive || seconds <= 0) return
+    if (!isActive) return
 
     const intervalId = setInterval(() => {
-      setSeconds((prevSeconds) => prevSeconds - 1)
+      setSeconds((prevSeconds) => {
+        if (prevSeconds <= 1) {
+          clearInterval(intervalId)
+          setIsActive(false)
+          setTimeout(() => onComplete(), 50) // Diferir la ejecución
+          return 0
+        }
+        return prevSeconds - 1
+      })
     }, 1000)
 
-    if (seconds === 0) {
-      setIsActive(false)
-      onComplete()
-    }
-
     return () => clearInterval(intervalId)
-  }, [isActive, seconds])
+  }, [isActive, onComplete])
 
   return { seconds, isActive, reset, pause }
 }

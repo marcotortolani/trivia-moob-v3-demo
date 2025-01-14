@@ -14,13 +14,12 @@ import ModalChangeCategory from './modal-change-category'
 import ModalMotivationalMessage from './modal-motivational-message'
 import ModalGoalAchievement from './modal-goal-achievement'
 
-import goldenRing from '/img/default/anillo-ruleta.webp'
-
-import swooshLong from '../../assets/sound/swoosh.mp3'
-import swooshShort from '../../assets/sound/swoosh-2.mp3'
-import failureTimeup from '../../assets/sound/failure-defeat.mp3'
-import positiveSound from '../../assets/sound/button_sound.mp3'
-import victorySound from '../../assets/sound/tada-result.mp3'
+import swooshLong from '@/assets/sound/swoosh.mp3'
+import swooshShort from '@/assets/sound/swoosh-2.mp3'
+import failureTimeup from '@/assets/sound/failure-defeat.mp3'
+import positiveSound from '@/assets/sound/button_sound.mp3'
+import victorySound from '@/assets/sound/tada-result.mp3'
+import CategorySelectedHeader from './category-selected-header'
 
 export function PlayingScreen() {
   const navigate = useNavigate()
@@ -31,7 +30,7 @@ export function PlayingScreen() {
     questions,
     categoriesState,
   } = useGameStore()
-  const { config, colors, soundActive } = useConfigStore()
+  const { config, soundActive } = useConfigStore()
   const {
     setGameState,
     currentQuestion,
@@ -54,7 +53,7 @@ export function PlayingScreen() {
     reset: timerReset,
     pause: timerPause,
     isActive: timerIsActive,
-  } = useCountdown(countdownSeconds, () => {})
+  } = useCountdown(countdownSeconds, handleTimeUp)
 
   const [playSwooshShort] = useSound(swooshShort, { playbackRate: 1.1 })
   const [playSwooshLong] = useSound(swooshLong, { playbackRate: 1.1 })
@@ -64,7 +63,7 @@ export function PlayingScreen() {
 
   const categoryHasBonus = selectedCategory?.bonus
 
-  const handleTimeUp = () => {
+  function handleTimeUp() {
     if (soundActive) playTimeup()
     updateCategoriesState(selectedCategory?.id, currentQuestion?.id ?? 0)
     updateAnsweredQuestions('incorrect')
@@ -74,13 +73,6 @@ export function PlayingScreen() {
       nextQuestion()
     }, 2500)
   }
-
-  useEffect(() => {
-    if (secondsLeft === 0) {
-      handleTimeUp()
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [secondsLeft])
 
   useEffect(() => {
     setShowExtraPoints(false)
@@ -162,7 +154,9 @@ export function PlayingScreen() {
       timerReset()
       if (soundActive) playSwooshShort()
     } else {
-      setGameState({ currentState: 'CAT_COMPLETED' })
+      setTimeout(() => {
+        setGameState({ currentState: 'CAT_COMPLETED' })
+      }, 500)
     }
   }
 
@@ -177,45 +171,12 @@ export function PlayingScreen() {
       <AnimatePresence mode="wait" custom={direction}>
         {state === 'answering' && (
           <>
-            <motion.div
-              key="category-selected"
-              initial={{ opacity: 0, scale: 0.5, y: 1000 }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                transition: {
-                  duration: 0.5,
-                  ease: 'easeInOut',
-                  delay: 0,
-                  type: 'spring',
-                  stiffness: 40,
-                },
-              }}
-              className=" flex items-center justify-center gap-2 "
-            >
-              <div className=" relative w-1/6 max-w-[100px] aspect-square">
-                <img
-                  src={goldenRing}
-                  alt="Ring wheel"
-                  className=" absolute z-50 w-full h-full p-1  "
-                />
-                <img
-                  className="w-full h-full"
-                  src={selectedCategory?.image}
-                  alt={selectedCategory?.name}
-                />
-              </div>
-              <span
-                className=" font-oswaldBold italic tracking-wider text-lg "
-                style={{ color: colors.text }}
-              >
-                {selectedCategory.name}
-              </span>
-            </motion.div>
+            <CategorySelectedHeader />
             <CardQuestion
               question={currentQuestion}
-              onAnswer={handleAnswerSelected}
+              onAnswer={(answerIndex, isCorrect) =>
+                handleAnswerSelected(answerIndex, isCorrect)
+              }
               secondsLeft={secondsLeft}
               timerIsActive={timerIsActive}
               direction={direction}

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useConfigStore } from '@/lib/config-store'
 import { useGameStore } from '@/lib/game-store'
 
-import { DonutChart } from '../DonutChart'
+import { DonutChart } from './donut-chart'
 import SectionTitle from './section-title'
 
 import correctIcon from '/img/default/correct-icon.webp'

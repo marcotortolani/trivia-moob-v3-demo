@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useConfigStore } from '@/lib/config-store'
 import { useGameStore } from '@/lib/game-store'
-import { AnimateProgressive } from './animated-number'
+import { AnimateProgressive } from '../animated-number'
 
 export function DonutChart() {
   const { colors } = useConfigStore()
