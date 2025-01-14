@@ -5,7 +5,6 @@ import { useGameStore } from '@/lib/game-store'
 import { Header } from '@/components/header'
 import { Sidebar } from '@/components/sidebar'
 import { MEDAL_THRESHOLDS } from '@/lib/questions/questions-constants'
-import UserAvatar from '@/components/profile/user-avatar'
 
 import goldMedalPodium from '/img/default/objetivo-oro.webp'
 import silverMedalPodium from '/img/default/objetivo-plata.webp'
