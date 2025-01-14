@@ -5,6 +5,7 @@ import { useGameStore } from '@/lib/game-store'
 import { Header } from '@/components/header'
 import { Sidebar } from '@/components/sidebar'
 import { MEDAL_THRESHOLDS } from '@/lib/questions/questions-constants'
+import UserAvatar from '@/components/profile/user-avatar'
 
 import goldMedalPodium from '/img/default/objetivo-oro.webp'
 import silverMedalPodium from '/img/default/objetivo-plata.webp'
@@ -291,11 +292,15 @@ const RankingSection = () => {
                 <span className=" mr-3 font-tekoMedium tracking-wide text-xl lg:text-2xl">
                   {index + 1}
                 </span>
-                <img
-                  src={player.image}
-                  alt=""
-                  className=" w-10 h-10 rounded-full"
-                />
+                {player.name === user.userName ? (
+                  <UserAvatar />
+                ) : (
+                  <img
+                    src={player.image}
+                    alt=""
+                    className=" w-10 h-10 rounded-full"
+                  />
+                )}
               </div>
               <div className=" w-4/6 xs:w-3/4 flex flex-col xs:flex-row items-center justify-between ">
                 <span className=" font-tekoRegular tracking-wider text-lg lg:text-xl ">
