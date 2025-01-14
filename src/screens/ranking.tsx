@@ -12,6 +12,7 @@ import silverMedalPodium from '/img/default/objetivo-plata.webp'
 import copperMedalPodium from '/img/default/objetivo-cobre.webp'
 import greenCheck from '/img/default/correct-icon.webp'
 import { hexToRgb } from '@/lib/utils'
+import { User } from 'lucide-react'
 
 export default function Ranking() {
   const { colors } = useConfigStore()
@@ -292,8 +293,15 @@ const RankingSection = () => {
                 <span className=" mr-3 font-tekoMedium tracking-wide text-xl lg:text-2xl">
                   {index + 1}
                 </span>
-                {player.name === user.userName ? (
-                  <UserAvatar />
+                {player.image === '' ? (
+                  <div className=" w-10 h-10">
+                    <User
+                      size={50}
+                      stroke={colors.text}
+                      className="w-auto h-full aspect-square p-2 rounded-full"
+                      style={{ background: colors.primary, color: colors.text }}
+                    />
+                  </div>
                 ) : (
                   <img
                     src={player.image}
