@@ -144,7 +144,7 @@ const UserData = ({
     onClose()
   }
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={onClose} key="edit-profile">
       <DialogContent
         className="z-[500000] w-[95%]  min-h-[400px] overflow-x-hidden  overflow-y-scroll md:overflow-hidden px-4 border-none outline-none rounded-xl "
         style={{
