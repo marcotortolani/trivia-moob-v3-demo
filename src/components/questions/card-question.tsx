@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import useSound from 'use-sound'
+
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 import { useGameStore } from '@/lib/game-store'
 import { useConfigStore } from '@/lib/config-store'
@@ -12,6 +13,7 @@ import TimeUp from './time-up'
 import correctAnswer from '@/assets/sound/correct-answer.mp3'
 import wrongAnswer from '@/assets/sound/wrong-answer.mp3'
 
+import NoQuestionsAvailable from './no-questions-available'
 export function CardQuestion({
   question,
   onAnswer,
@@ -88,9 +90,7 @@ export function CardQuestion({
     }),
   }
 
-  if (!currentQuestion) {
-    return <div>No hay preguntas disponibles</div>
-  }
+  if (!currentQuestion) return <NoQuestionsAvailable />
 
   return (
     <div className="w-full max-w-xl mx-auto px-4 xs:px-8 mt-5 mb-2 ">

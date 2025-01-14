@@ -7,8 +7,8 @@ import { useGameStore } from '@/lib/game-store'
 import Confetti from 'react-confetti'
 import { Button } from '../ui/button'
 
-import blopSound from '../../assets/sound/blop.mp3'
-import successTrumpets from '../../assets/sound/success-trumpets.mp3'
+import blopSound from '@/assets/sound/blop.mp3'
+import successTrumpets from '@/assets/sound/success-trumpets.mp3'
 
 export default function CategoryCompleted() {
   const navigate = useNavigate()
