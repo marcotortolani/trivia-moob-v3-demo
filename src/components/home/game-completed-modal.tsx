@@ -32,15 +32,15 @@ export function GameCompletedModal() {
       initial={{ opacity: 0, y: -1000, scale: 0 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: -1000, scale: 0 }}
-      className=" absolute top-0  z-50 w-full min-h-[100dvh] pt-14 pb-20 overflow-y-scroll md:overflow-hidden flex flex-col items-center justify-center  bg-gradient-to-b from-black/50 via-black/75 to-black backdrop-blur-sm  backdrop-brightness-75"
+      className=" absolute top-0  z-30 w-full min-h-[100dvh] pt-14 pb-20 overflow-y-scroll md:overflow-hidden flex flex-col items-center justify-center  bg-gradient-to-b from-black/50 via-black/75 to-black backdrop-blur-sm  backdrop-brightness-75"
     >
       <motion.div
         initial={{ opacity: 0, y: -500, scale: 0 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        className=" w-full mx-auto h-full px-6 pt-2 pb-10 flex flex-col items-center justify-center gap-2 md:gap-4"
+        className=" w-full mx-auto h-full px-6 pt-12 pb-10 flex flex-col items-center justify-center gap-0 md:gap-4"
       >
         <p
-          className="px-4 pt-1 text-2xl md:text-3xl uppercase font-tekoMedium text-center mb-2 rounded-lg"
+          className="px-4 pt-1 text-2xl md:text-3xl uppercase font-tekoMedium text-center mb-0 rounded-lg"
           style={{
             color: colors.text,
             background: `linear-gradient(180deg, ${colors.primary} 60%, rgb(0, 0, 0,1) 150%)`,
