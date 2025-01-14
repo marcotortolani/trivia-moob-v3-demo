@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useConfigStore } from '@/lib/config-store'
+import { useGameStore } from '@/lib/game-store'
 import SectionTitle from './section-title'
 
 export default function TimeSpent({
@@ -8,9 +9,8 @@ export default function TimeSpent({
   answeredQuestionsProgress: number
 }) {
   const { colors, textsByLang } = useConfigStore()
+  const { timeSpent } = useGameStore()
   const texts = textsByLang['es']
-
-  const totalAnswersTime = 10
 
   function timeToText(time: number) {
     if (time === 0) return '00m:00s'
@@ -25,11 +25,11 @@ export default function TimeSpent({
       .padStart(2, '0')}s`
   }
 
-  function averageTime(totalAnswersTime: number, totalProgress: number) {
-    if (totalAnswersTime === 0 || totalProgress === 0) return 0
-    if ((totalAnswersTime / totalProgress) % 2 === 0)
-      return (totalAnswersTime / totalProgress).toFixed(1)
-    return (totalAnswersTime / totalProgress).toFixed(2)
+  function averageTime(timeSpent: number, totalProgress: number) {
+    if (timeSpent === 0 || totalProgress === 0) return 0
+    if ((timeSpent / totalProgress) % 2 === 0)
+      return (timeSpent / totalProgress).toFixed(1)
+    return (timeSpent / totalProgress).toFixed(2)
   }
 
   return (
@@ -113,10 +113,8 @@ export default function TimeSpent({
           className=" text-base font-oswaldRegular align-text-bottom"
           style={{ color: colors?.text }}
         >
-          <span className=" text-lg font-oswaldMedium ">
-            {totalAnswersTime}
-          </span>{' '}
-          {texts?.seconds} = {timeToText(totalAnswersTime)}
+          <span className=" text-lg font-oswaldMedium ">{timeSpent}</span>{' '}
+          {texts?.seconds} = {timeToText(timeSpent)}
         </p>
       </div>
 
@@ -183,7 +181,7 @@ export default function TimeSpent({
           style={{ color: colors?.text }}
         >
           <span className=" text-lg font-oswaldMedium ">
-            {averageTime(totalAnswersTime, answeredQuestionsProgress)}
+            {averageTime(timeSpent, answeredQuestionsProgress)}
           </span>{' '}
           {texts?.seconds}
         </p>

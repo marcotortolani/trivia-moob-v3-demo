@@ -1,6 +1,11 @@
+import { useEffect } from 'react'
 import { lazy, Suspense } from 'react'
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
 import { useConfigStore } from './lib/config-store'
+import { useGameStore } from './lib/game-store'
+import { ConfigData } from "./data/type-config"
+
+//import configData from '@/data/config.json'
 
 const Loading = lazy(() => import('./components/loading'))
 const ValidPeriod = lazy(() => import('./components/game-valid-period'))
@@ -14,12 +19,19 @@ const FAQ = lazy(() => import('./screens/faq'))
 const Rewards = lazy(() => import('./screens/rewards'))
 //const Terms = lazy(() => import('./screens/terms/terms'))
 
-export function App() {
+export function App({ configData }:{ configData: ConfigData }) {
   const { validPeriod } = useConfigStore()
+  const { syncCategoriesState } = useGameStore()
 
   const actualDate = new Date().getTime()
   const startDate = new Date(validPeriod.startDate).getTime()
   const endDate = new Date(validPeriod.endDate).getTime()
+
+  useEffect(() => {
+    if (!configData.categories) return
+    syncCategoriesState(configData.categories)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [configData.categories])
 
   if (actualDate < startDate) {
     return <ValidPeriod type="upcoming" />

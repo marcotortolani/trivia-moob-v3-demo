@@ -29,6 +29,8 @@ export function PlayingScreen() {
     updateCategoriesState,
     questions,
     categoriesState,
+    timeSpent,
+    updateTimeSpent,
   } = useGameStore()
   const { config, soundActive } = useConfigStore()
   const {
@@ -92,8 +94,7 @@ export function PlayingScreen() {
     timerPause()
     setShowExtraPoints(true)
     setAnswerSelected(answerIndex)
-
-    //setAmountQuestionsAnswered(amountQuestionsAnswered + 1)
+    updateTimeSpent(timeSpent + (countdownSeconds - secondsLeft))
 
     const questionsHasBonus = currentQuestion?.bonus ?? false
     const pointsUpdated = calculateScore(

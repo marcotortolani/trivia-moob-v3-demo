@@ -8,7 +8,7 @@ const {
   config,
   colors,
   images,
-  sounds,
+
   links,
   textsByLang,
   categories,
@@ -28,7 +28,7 @@ interface ConfigState {
   config: typeof config
   colors: typeof colors
   images: typeof images
-  sounds: typeof sounds
+  // sounds: typeof sounds
   links: typeof links
   textsByLang: typeof textsByLang
   categories: typeof categories
@@ -47,7 +47,7 @@ export const useConfigStore = create<ConfigState>()(
       config,
       colors,
       images,
-      sounds,
+      // sounds,
       links,
       textsByLang,
       categories,

@@ -31,7 +31,7 @@ export default function QuestionsPage() {
       if (soundActive) playConfetti()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gameState.currentState])
+  }, [gameState])
 
   useEffect(() => {
     if (!selectedCategory || questions?.length === 0) {

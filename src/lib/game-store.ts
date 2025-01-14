@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { Question } from '@/types/game-types'
+import { Question, Category } from '@/data/type-config'
 
 import configData from '@/data/config.json'
 const { categories } = configData
@@ -39,6 +39,7 @@ interface GameState {
   score: number
   totalQuestions: number
   answeredQuestions: AnsweredQuestions
+  timeSpent: number
   questions: Question[]
   updateCategoriesState: (categoryID: number, questionID: number) => void
   setSelectedCategory: ({
@@ -54,7 +55,8 @@ interface GameState {
   setQuestions: (questions: Question[]) => void
   incrementScore: (points: number) => void
   updateAnsweredQuestions: (answerType: AnswerType) => void
-  syncCategoriesState: (updatedCategories: typeof categories) => void
+  updateTimeSpent: (time: number) => void
+  syncCategoriesState: (updatedCategories: Category[]) => void
   resetGame: () => void
 }
 
@@ -87,6 +89,7 @@ export const useGameStore = create<GameState>()(
       answeredQuestions:
         JSON.parse(localStorage.getItem('game-storage') || '{}')?.state
           ?.answeredQuestionsInitial || answeredQuestionsInitial,
+      timeSpent: 0,
       questions: [],
       updateCategoriesState: (categoryID, questionID) =>
         set((state) => ({
@@ -152,7 +155,8 @@ export const useGameStore = create<GameState>()(
               state.answeredQuestions.bonus + (answerType === 'bonus' ? 1 : 0),
           },
         })),
-      syncCategoriesState: (updatedCategories: typeof categories) =>
+      updateTimeSpent: (time) => set({ timeSpent: time }),
+      syncCategoriesState: (updatedCategories: Category[]) =>
         set((state) => ({
           categoriesState: updatedCategories.map((updatedCat) => {
             const existingCategory = state.categoriesState.find(

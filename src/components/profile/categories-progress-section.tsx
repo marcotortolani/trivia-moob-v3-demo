@@ -10,7 +10,12 @@ export default function CategoriesProgress({
   answeredQuestionsProgress: number
 }) {
   const { colors } = useConfigStore()
-  const { categoriesState, totalQuestions } = useGameStore()
+  const { categoriesState } = useGameStore()
+
+  const totalQuestions = categoriesState.reduce(
+    (acc, category) => acc + category.questions.length,
+    0
+  )
 
   return (
     <motion.section

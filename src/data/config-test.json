@@ -1,0 +1,325 @@
+{
+  "lastUpdated": "2024-11-13",
+  "userData": {
+    "userId": "user1",
+    "userName": "",
+    "userMSISDN": "123456",
+    "userEmail": "",
+    "userPoints": "0",
+    "userAvatar": ""
+  },
+  "validPeriod": {
+    "startDate": "2024-10-20 12:00:00",
+    "endDate": "2025-11-20 23:59:00"
+  },
+  "config": {
+    "triesAllowedPerDay": 20000000,
+    "countdownSeconds": 10,
+    "amountAnswersToChangeCategory": 3,
+    "pointsCorrect": 1000,
+    "pointsWrong": 500,
+    "pointsBonus": 1000
+  },
+  "URLImagesHost": "",
+  "colors": {
+    "background": "#000000",
+    "backgroundCongrats": "#07121BF2",
+    "backgroundRewards": "#FFF",
+    "disable": "#989898",
+    "wrong": "#ef1f1f",
+    "correct": "#5ac439",
+    "title": "#9d2b67",
+    "text": "#FAFAFA",
+    "text2": "",
+    "primary": "#9d2b67",
+    "primaryLight": "#c93c87",
+    "secondary": "#3d1c7c",
+    "rouletteSection": [
+      "#c93c87",
+      "#8daaa5",
+      "#c93c87",
+      "#000000",
+      "#8daaa5",
+      "#c93c87",
+      "#8daaa5",
+      "#000000"
+    ],
+    "wheel": "#325667",
+    "nextBtnGradient": "linear-gradient(180deg, #9d2b67 50%, #691c45 100%)",
+    "answerBtnGradient": "linear-gradient(180deg, #b6b6b6 60%, #646464 100%)"
+  },
+  "images": {
+    "es": {
+      "logoHeader": "/img/logo.webp",
+      "bubbleStartMessage": "",
+      "bubbleDailyLimit": "",
+      "rewardsImages": [
+        {
+          "src": "/img/premio01.webp",
+          "name": "prize"
+        },
+        {
+          "src": "/img/premio01.webp",
+          "name": "prize"
+        },
+        {
+          "src": "/img/premio01.webp",
+          "name": "prize"
+        }
+      ]
+    },
+    "madeBy": "/img/by-memoob.webp",
+    "backgroundApp": "",
+    "iconSoundActive": "/img/sound_active_icon.webp",
+    "iconSoundMute": "/img/sound_mute_icon.webp",
+    "spinButton": "/img/girar-icon.webp",
+    "pointerRoulette": "",
+    "rewardsButton": "/img/premios-icon.webp",
+    "termsButton": "/img/bases-icon.webp",
+    "arrowsSlider": {
+      "left": "/img/left-golden-arrow.webp",
+      "right": "/img/right-golden-arrow.webp"
+    },
+    "backgroundPoints": "/img/barra-puntos.webp",
+    "backgroundPointsMenu": "/img/puntaje-perfil.webp",
+    "rouletteSpinAgain": "/img/volveratirar.webp",
+    "circleQuestionsCounter": "/img/circulo-preguntas.webp",
+    "avatars": [
+      "/img/avatars/avatar-1.webp",
+      "/img/avatars/avatar-2.webp",
+      "/img/avatars/avatar-3.webp",
+      "/img/avatars/avatar-4.webp",
+      "/img/avatars/avatar-5.webp",
+      "/img/avatars/avatar-6.webp",
+      "/img/avatars/avatar-7.webp",
+      "/img/avatars/avatar-8.webp",
+      "/img/avatars/avatar-9.webp",
+      "/img/avatars/avatar-10.webp",
+      "/img/avatars/avatar-11.webp",
+      "/img/avatars/avatar-12.webp"
+    ]
+  },
+  "sounds": {
+    "muteButton": "/sound/pop-click.mp3",
+    "clickOpen": "/sound/arcade-pop.mp3",
+    "closePopup": "/sound/popup-close-minimize.mp3",
+    "startButton": "/sound/button_sound.mp3",
+    "rouletteWheel": "/sound/roulette_wheel.mp3",
+    "correctAnswerSound": "/sound/correct_answer.mp3",
+    "wrongAnswerSound": "/sound/wrong_answer.mp3"
+  },
+  "links": {
+    "termsURL": "https://google.com"
+  },
+  "textsByLang": {
+    "es": {
+      "terms": "Bases",
+      "rewards": "Premios",
+      "categoryTitle": "Categoría",
+      "buttonStart": "Comenzar",
+      "dailyLimit": "Alcanzaste el límite diario para esta categoría",
+      "categoryCompleted": "¡Felicidades! ¡Completaste toda esta categoría!",
+      "congratsTriviaCompleted": "¡Felicidades! ¡Completaste toda la trivia!",
+      "correctAnswer": "Correcta",
+      "wrongAnswer": "Incorrecta",
+      "points": "Puntos",
+      "userMenu": "Menú de usuario",
+      "progressByCategory": "Progreso por Categoría",
+      "totalProgress": "Progreso Total",
+      "hitRate": "Índice de Aciertos",
+      "correctAmount": "Correctas",
+      "wrongAmount": "Incorrectas",
+      "bonusAmount": "Bonus",
+      "pointsPerAnswer": "Puntos por Respuesta",
+      "timeSpentTitle": "Tiempo Dedicado",
+      "totalTime": "Total",
+      "averageTime": "Promedio por pregunta",
+      "seconds": "segundos"
+    },
+    "en": {
+      "terms": "T&C",
+      "rewards": "Prizes",
+      "categoryTitle": "Category",
+      "buttonStart": "Start",
+      "dailyLimit": "You reached the daily limit for this category",
+      "categoryCompleted": "Congratulations! You completed this entire category!",
+      "congratsTriviaCompleted": "Congratulations! You completed the Quiz!",
+      "correctAnswer": "Correct",
+      "wrongAnswer": "Incorrect",
+      "points": "Points",
+      "userMenu": "User Menu",
+      "progressByCategory": "Progress by Category",
+      "totalProgress": "Total Progress",
+      "hitRate": "Hit Rate",
+      "correctAmount": "Correct",
+      "incorrectAmount": "Incorrect",
+      "bonusAmount": "Bonus",
+      "pointsPerAnswer": "Points per Answer",
+      "timeSpentTitle": "Time Spent",
+      "totalTime": "Total",
+      "averageTime": "Average",
+      "seconds": "seconds"
+    },
+    "pt": {
+      "terms": "T&C",
+      "rewards": "Premios",
+      "categoryTitle": "Categoria",
+      "buttonStart": "Começar",
+      "dailyLimit": "Atingiste o limite diário de respostas nestas categorias",
+      "categoryCompleted": "Parabéns! Completaste toda nesta categoria!",
+      "congratsTriviaCompleted": "Parabéns! Completaste todo o desafio!",
+      "correctAnswer": "Correcta",
+      "wrongAnswer": "Incorrecta",
+      "points": "Pontos",
+      "userMenu": "Menu do Usuário",
+      "progressByCategory": "Progresso por Categoria",
+      "totalProgress": "Progresso Total",
+      "hitRate": "Índice de Acertos",
+      "correctAmount": "Correctas",
+      "wrongAmount": "Incorrectas",
+      "bonusAmount": "Bônus",
+      "pointsPerAnswer": "Pontos por Resposta",
+      "timeSpentTitle": "Tempo dedicado",
+      "totalTime": "Total",
+      "averageTime": "Média",
+      "seconds": "segundos"
+    }
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "PERSONAJES",
+      "imgURL": "/img/categoria-personajes.webp",
+      "bonus": true,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿Cuál es la vestimenta icónica de Mario?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Chaqueta Negra",
+              "isCorrect": false
+            },
+            {
+              "text": "Remera Verde",
+              "isCorrect": false
+            },
+            {
+              "text": "Overol Azul",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "JUEGOS",
+      "imgURL": "/img/categoria-juegos.webp",
+      "bonus": true,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿Cuáles son las monedas utilizadas en Stumble Guys?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Fichas y Gemas",
+              "isCorrect": true
+            },
+            {
+              "text": "Oro",
+              "isCorrect": false
+            },
+            {
+              "text": "Diamantes",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "TECNO",
+      "imgURL": "/img/categoria-tecno.webp",
+      "bonus": true,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿De dónde viene la empresa Huawei?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Taiwán",
+              "isCorrect": false
+            },
+            {
+              "text": "China",
+              "isCorrect": true
+            },
+            {
+              "text": "Japón",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "RETRO",
+      "imgURL": "/img/categoria-retro.webp",
+      "bonus": true,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿Qué año salió el Atari 2600?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "1982",
+              "isCorrect": true
+            },
+            {
+              "text": "1983",
+              "isCorrect": false
+            },
+            {
+              "text": "1984",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "GAMERS",
+      "imgURL": "/img/categoria-gamers.webp",
+      "bonus": true,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿A qué equipo de Esports pertenece el gamer Jeanki?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Krü",
+              "isCorrect": false
+            },
+            {
+              "text": "Leviatán",
+              "isCorrect": false
+            },
+            {
+              "text": "Naguará",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

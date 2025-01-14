@@ -6,6 +6,7 @@ import {
   SheetHeader,
   SheetOverlay,
   SheetTitle,
+  SheetDescription,
 } from '@/components/ui/sheet'
 import { useLocation, Link, useNavigate } from 'react-router-dom'
 import { useConfigStore } from '@/lib/config-store'
@@ -147,6 +148,9 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             </NavLinkStyled>
           </div>
         </div>
+        <SheetDescription
+          style={{ transform: 'scale(0)', display: 'none' }}
+        ></SheetDescription>
 
         <SheetFooter
           className="  w-full py-5 flex flex-col items-center justify-center gap-2 xs:gap-1"
