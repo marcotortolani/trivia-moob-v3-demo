@@ -9,12 +9,14 @@ type FetchState = {
   error: Error | null
 }
 
-export function useFetch(url: string, options?: RequestInit) {
+export function useFetch(url: string) {
   const [state, setState] = useState<FetchState>({
     data: null,
     loading: true,
     error: null,
   })
+
+  const options = {}
 
   useEffect(() => {
     let isMounted = true // Evita actualizar el estado si el componente se desmonta.
@@ -52,7 +54,7 @@ export function useFetch(url: string, options?: RequestInit) {
     return () => {
       isMounted = false
     }
-  }, [url, options])
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [url])
   return state
 }
