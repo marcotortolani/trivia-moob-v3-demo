@@ -37,7 +37,6 @@ interface GameState {
   categoriesState: CategoryState[]
   selectedCategory: SelectedCategory
   score: number
-  //totalQuestions: number
   answeredQuestions: AnsweredQuestions
   timeSpent: number
   questions: Question[]
@@ -82,10 +81,6 @@ export const useGameStore = create<GameState>()(
       score:
         JSON.parse(localStorage.getItem('game-storage') || '{}')?.state
           ?.score || 0,
-      // totalQuestions: categories.reduce(
-      //   (acc, category) => acc + category.questions.length,
-      //   0
-      // ),
       answeredQuestions:
         JSON.parse(localStorage.getItem('game-storage') || '{}')?.state
           ?.answeredQuestionsInitial || answeredQuestionsInitial,

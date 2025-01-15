@@ -24,9 +24,9 @@ import {
 
 import { XIcon } from 'lucide-react'
 
-import closeSound from '../assets/sound/popup-close-minimize.mp3'
-import blopSound from '../assets/sound/blop.mp3'
-import successAction from '../assets/sound/success-action.mp3'
+import closeSound from '@/assets/sound/popup-close-minimize.mp3'
+import blopSound from '@/assets/sound/blop.mp3'
+import successAction from '@/assets/sound/success-action.mp3'
 
 export default function Profile() {
   const { colors, soundActive } = useConfigStore()
