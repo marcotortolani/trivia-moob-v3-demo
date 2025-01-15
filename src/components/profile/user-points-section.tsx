@@ -112,8 +112,7 @@ const UserData = ({
     volume: 0.5,
     playbackRate: 1.8,
   })
-  console.log(images);
-  
+
   const avatars = images.avatars
 
   const updateAvatar = ({ direction }: { direction: 1 | -1 }) => {

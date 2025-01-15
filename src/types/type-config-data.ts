@@ -52,6 +52,7 @@ export interface ConfigData {
     backgroundPointsMenu: string
     rouletteSpinAgain: string
     circleQuestionsCounter: string
+    avatars: string[]
   }
   links: {
     termsURL: string

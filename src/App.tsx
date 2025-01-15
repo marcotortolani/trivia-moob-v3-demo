@@ -21,7 +21,7 @@ const configURL =
   'https://raw.githubusercontent.com/marcotortolani/trivia-moob-v3-demo/refs/heads/main/src/data/config.json'
 
 export function App() {
-  const { data: configData } = useFetch(configURL)
+  const { data: configData, loading } = useFetch(configURL)
   const { validPeriod, lastUpdated, updateConfigData, categories } =
     useConfigStore()
   const { syncCategoriesState } = useGameStore()
@@ -42,7 +42,7 @@ export function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categories])
 
-  if (configData === null) return <Loading />
+  if (loading) return <Loading />
   if (actualDate < startDate) {
     return <ValidPeriod type="upcoming" />
   }
