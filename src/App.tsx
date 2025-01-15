@@ -31,7 +31,8 @@ export function App() {
   const endDate = new Date(validPeriod.endDate).getTime()
 
   useEffect(() => {
-    if (!configData || configData?.lastUpdated === lastUpdated) return
+    if (!configData) return
+    if (configData?.lastUpdated === lastUpdated) return
     updateConfigData(configData)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [configData])
