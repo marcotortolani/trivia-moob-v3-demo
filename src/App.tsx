@@ -1,11 +1,9 @@
 import { useEffect } from 'react'
+import { useFetch } from './hooks/useFetch'
 import { lazy, Suspense } from 'react'
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
 import { useConfigStore } from './lib/config-store'
 import { useGameStore } from './lib/game-store'
-import { ConfigData } from "./data/type-config"
-
-//import configData from '@/data/config.json'
 
 const Loading = lazy(() => import('./components/loading'))
 const ValidPeriod = lazy(() => import('./components/game-valid-period'))
@@ -19,8 +17,13 @@ const FAQ = lazy(() => import('./screens/faq'))
 const Rewards = lazy(() => import('./screens/rewards'))
 //const Terms = lazy(() => import('./screens/terms/terms'))
 
-export function App({ configData }:{ configData: ConfigData }) {
-  const { validPeriod } = useConfigStore()
+const configURL =
+  'https://raw.githubusercontent.com/marcotortolani/trivia-moob-v3-demo/refs/heads/main/src/data/config.json'
+
+export function App() {
+  const { data: configData } = useFetch(configURL)
+  const { validPeriod, lastUpdated, updateConfigData, categories } =
+    useConfigStore()
   const { syncCategoriesState } = useGameStore()
 
   const actualDate = new Date().getTime()
@@ -28,11 +31,18 @@ export function App({ configData }:{ configData: ConfigData }) {
   const endDate = new Date(validPeriod.endDate).getTime()
 
   useEffect(() => {
-    if (!configData.categories) return
-    syncCategoriesState(configData.categories)
+    if (!configData || configData?.lastUpdated === lastUpdated) return
+    updateConfigData(configData)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [configData.categories])
+  }, [configData])
 
+  useEffect(() => {
+    if (!categories) return
+    syncCategoriesState(categories)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [categories])
+
+  if (configData === null) return <Loading />
   if (actualDate < startDate) {
     return <ValidPeriod type="upcoming" />
   }

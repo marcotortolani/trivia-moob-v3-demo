@@ -1,9 +1,9 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { Question, Category } from '@/data/type-config'
+import { Question, Category } from '@/types/type-config-data'
 
-import configData from '@/data/config.json'
-const { categories } = configData
+import configDataInitial from '@/data/configDataInitial.json'
+const { categories } = configDataInitial
 
 const categoriesStateInitial = categories.map((cat) => ({
   id: cat.id,
@@ -37,7 +37,7 @@ interface GameState {
   categoriesState: CategoryState[]
   selectedCategory: SelectedCategory
   score: number
-  totalQuestions: number
+  //totalQuestions: number
   answeredQuestions: AnsweredQuestions
   timeSpent: number
   questions: Question[]
@@ -82,10 +82,10 @@ export const useGameStore = create<GameState>()(
       score:
         JSON.parse(localStorage.getItem('game-storage') || '{}')?.state
           ?.score || 0,
-      totalQuestions: categories.reduce(
-        (acc, category) => acc + category.questions.length,
-        0
-      ),
+      // totalQuestions: categories.reduce(
+      //   (acc, category) => acc + category.questions.length,
+      //   0
+      // ),
       answeredQuestions:
         JSON.parse(localStorage.getItem('game-storage') || '{}')?.state
           ?.answeredQuestionsInitial || answeredQuestionsInitial,

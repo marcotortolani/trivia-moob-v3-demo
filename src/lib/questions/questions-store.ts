@@ -1,5 +1,6 @@
 import { create } from 'zustand'
-import { Question } from '@/types/game-types'
+//import { Question } from '@/types/game-types'
+import { Question } from '@/types/type-config-data'
 
 export interface GameState {
   currentState: 'START' | 'PLAYING' | 'PAUSE' | 'CAT_COMPLETED'

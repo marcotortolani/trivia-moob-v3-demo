@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
-import { ConfigData } from '@/data/type-config'
+import { ConfigData } from '@/types/type-config-data'
+
+type Error = { message: string }
 
 type FetchState = {
   data: ConfigData | null
   loading: boolean
-  error: string | null
+  error: Error | null
 }
 
 export function useFetch(url: string, options?: RequestInit) {
@@ -32,12 +34,14 @@ export function useFetch(url: string, options?: RequestInit) {
         if (isMounted) {
           setState({ data, loading: false, error: null })
         }
-      } catch (error: any) {
+      } catch (error) {
         if (isMounted) {
           setState({
             data: null,
             loading: false,
-            error: error.message || 'Something went wrong',
+            error: {
+              message: (error as Error).message || 'Error al obtener los datos',
+            },
           })
         }
       }

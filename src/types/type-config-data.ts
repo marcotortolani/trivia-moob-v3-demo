@@ -32,6 +32,7 @@ export interface ConfigData {
     text: string
     text2: string
     primary: string
+    primaryLight: string
     secondary: string
     rouletteSection: string[]
     wheel: string
@@ -88,11 +89,16 @@ type LanguageTexts = {
   seconds: string
 }
 
+export type Answer = {
+  text: string
+  isCorrect: boolean
+}
+
 export type Question = {
   id: number
   title: string
   bonus?: boolean
-  answers: { text: string; isCorrect: boolean }[]
+  answers: Answer[]
 }
 export type Category = {
   id: number

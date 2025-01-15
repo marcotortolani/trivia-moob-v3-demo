@@ -1,0 +1,277 @@
+{
+  "lastUpdated": "",
+  "userData": {
+    "userId": "",
+    "userName": "",
+    "userMSISDN": "",
+    "userEmail": "",
+    "userPoints": "",
+    "userAvatar": ""
+  },
+  "validPeriod": {
+    "startDate": "",
+    "endDate": ""
+  },
+  "config": {
+    "triesAllowedPerDay": 0,
+    "countdownSeconds": 0,
+    "amountAnswersToChangeCategory": 0,
+    "pointsCorrect": 0,
+    "pointsWrong": 0,
+    "pointsBonus": 0
+  },
+  "URLImagesHost": "",
+  "colors": {
+    "background": "",
+    "backgroundCongrats": "",
+    "backgroundRewards": "",
+    "disable": "",
+    "wrong": "",
+    "correct": "",
+    "title": "",
+    "text": "",
+    "text2": "",
+    "primary": "",
+    "primaryLight": "",
+    "secondary": "",
+    "rouletteSection": [""],
+    "wheel": "",
+    "nextBtnGradient": "",
+    "answerBtnGradient": ""
+  },
+  "images": {
+    "es": {
+      "logoHeader": "",
+      "rewardsImages": [
+        {
+          "src": "",
+          "name": ""
+        }
+      ]
+    },
+    "madeBy": "",
+    "backgroundApp": "",
+    "spinButton": "",
+    "rewardsButton": "",
+    "termsButton": "",
+    "backgroundPoints": "",
+    "backgroundPointsMenu": "",
+    "rouletteSpinAgain": "",
+    "circleQuestionsCounter": "",
+    "avatars": [""]
+  },
+  "links": {
+    "termsURL": ""
+  },
+  "textsByLang": {
+    "es": {
+      "terms": "",
+      "rewards": "",
+      "categoryTitle": "",
+      "buttonStart": "",
+      "dailyLimit": "",
+      "categoryCompleted": "",
+      "congratsTriviaCompleted": "",
+      "correctAnswer": "",
+      "wrongAnswer": "",
+      "points": "",
+      "userMenu": "",
+      "progressByCategory": "",
+      "totalProgress": "",
+      "hitRate": "",
+      "correctAmount": "",
+      "wrongAmount": "",
+      "bonusAmount": "",
+      "pointsPerAnswer": "",
+      "timeSpentTitle": "",
+      "totalTime": "",
+      "averageTime": "",
+      "seconds": ""
+    },
+    "en": {
+      "terms": "",
+      "rewards": "",
+      "categoryTitle": "",
+      "buttonStart": "",
+      "dailyLimit": "",
+      "categoryCompleted": "",
+      "congratsTriviaCompleted": "",
+      "correctAnswer": "",
+      "wrongAnswer": "",
+      "points": "",
+      "userMenu": "",
+      "progressByCategory": "",
+      "totalProgress": "",
+      "hitRate": "",
+      "correctAmount": "",
+      "wrongAmount": "",
+      "bonusAmount": "",
+      "pointsPerAnswer": "",
+      "timeSpentTitle": "",
+      "totalTime": "",
+      "averageTime": "",
+      "seconds": ""
+    },
+    "pt": {
+      "terms": "",
+      "rewards": "",
+      "categoryTitle": "",
+      "buttonStart": "",
+      "dailyLimit": "",
+      "categoryCompleted": "",
+      "congratsTriviaCompleted": "",
+      "correctAnswer": "",
+      "wrongAnswer": "",
+      "points": "",
+      "userMenu": "",
+      "progressByCategory": "",
+      "totalProgress": "",
+      "hitRate": "",
+      "correctAmount": "",
+      "wrongAmount": "",
+      "bonusAmount": "",
+      "pointsPerAnswer": "",
+      "timeSpentTitle": "",
+      "totalTime": "",
+      "averageTime": "",
+      "seconds": ""
+    }
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "",
+      "imgURL": "",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "",
+              "isCorrect": false
+            },
+            {
+              "text": "",
+              "isCorrect": false
+            },
+            {
+              "text": "",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "",
+      "imgURL": "",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "",
+              "isCorrect": false
+            },
+            {
+              "text": "",
+              "isCorrect": false
+            },
+            {
+              "text": "",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "",
+      "imgURL": "",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "",
+              "isCorrect": false
+            },
+            {
+              "text": "",
+              "isCorrect": false
+            },
+            {
+              "text": "",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "",
+      "imgURL": "",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "",
+              "isCorrect": false
+            },
+            {
+              "text": "",
+              "isCorrect": false
+            },
+            {
+              "text": "",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "",
+      "imgURL": "",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "",
+              "isCorrect": false
+            },
+            {
+              "text": "",
+              "isCorrect": false
+            },
+            {
+              "text": "",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import { useConfigStore } from '@/lib/config-store'
 import { useQuestionStore } from '@/lib/questions/questions-store'
 import { Timer } from './timer'
 import BadgeGlow from '../ui/badge-glow'
-import { Question, Answer } from '@/types/game-types'
+import { Question, Answer } from '@/types/type-config-data'
 import TimeUp from './time-up'
 
 import correctAnswer from '@/assets/sound/correct-answer.mp3'

@@ -1,40 +1,47 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import configData from '@/data/config.json'
+//import configData from '@/data/config.json'
+import configDataInitial from '@/data/configDataInitial.json'
+import { ConfigData } from '@/types/type-config-data'
 
 const {
+  lastUpdated,
   userData,
   validPeriod,
   config,
   colors,
   images,
-
   links,
   textsByLang,
   categories,
-} = configData
+} = configDataInitial
 
-export type UserData = typeof userData
+export type UserData = ConfigData['userData']
+type CategoryImage = {
+  id: number
+  name: string
+  image: string
+}
 
-const categoriesImages = categories.map((category) => ({
+const categoriesImages: CategoryImage[] = categories.map((category) => ({
   id: category.id,
   name: category.name,
   image: category.imgURL,
 }))
 
 interface ConfigState {
+  lastUpdated: string
   user: UserData
-  validPeriod: typeof validPeriod
-  config: typeof config
-  colors: typeof colors
-  images: typeof images
-  // sounds: typeof sounds
-  links: typeof links
-  textsByLang: typeof textsByLang
-  categories: typeof categories
-  categoriesImages: typeof categoriesImages
-
+  validPeriod: ConfigData['validPeriod']
+  config: ConfigData['config']
+  colors: ConfigData['colors']
+  images: ConfigData['images']
+  links: ConfigData['links']
+  textsByLang: ConfigData['textsByLang']
+  categories: ConfigData['categories']
+  categoriesImages: CategoryImage[]
   soundActive: boolean
+  updateConfigData: (data: Partial<ConfigData>) => void
   setSoundActive: (active: boolean) => void
   setUserData: (user: UserData) => void
 }
@@ -42,26 +49,28 @@ interface ConfigState {
 export const useConfigStore = create<ConfigState>()(
   persist(
     (set) => ({
+      lastUpdated,
       user: userData,
       validPeriod,
       config,
       colors,
       images,
-      // sounds,
       links,
       textsByLang,
       categories,
       categoriesImages,
       soundActive: false,
+      updateConfigData: (data) => set(data),
       setSoundActive: (active) => set({ soundActive: active }),
       setUserData: (user) => set({ user }),
     }),
     {
-      name: 'config-sound-storage',
-      partialize: (state) => ({
-        user: state.user,
-        soundActive: state.soundActive,
-      }),
+      name: 'config-data-storage',
+      // partialize: (state) => ({
+      //   lastUpdated: state.lastUpdated,
+      //   user: state.user,
+      //   soundActive: state.soundActive,
+      // }),
     }
   )
 )
