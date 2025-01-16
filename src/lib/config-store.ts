@@ -41,9 +41,14 @@ interface ConfigState {
   categories: ConfigData['categories']
   categoriesImages: CategoryImage[]
   soundActive: boolean
+  dataEndpoint: { gameHash: string | null; userHash: string | null }
+  setUserData: (user: UserData) => void
   updateConfigData: (data: Partial<ConfigData>) => void
   setSoundActive: (active: boolean) => void
-  setUserData: (user: UserData) => void
+  updateDataEndpoint: (data: {
+    gameHash: string | null
+    userHash: string | null
+  }) => void
 }
 
 export const useConfigStore = create<ConfigState>()(
@@ -60,17 +65,14 @@ export const useConfigStore = create<ConfigState>()(
       categories,
       categoriesImages,
       soundActive: false,
+      dataEndpoint: { gameHash: '', userHash: '' },
       updateConfigData: (data) => set(data),
       setSoundActive: (active) => set({ soundActive: active }),
       setUserData: (user) => set({ user }),
+      updateDataEndpoint: (data) => set({ dataEndpoint: data }),
     }),
     {
       name: 'config-data-storage',
-      // partialize: (state) => ({
-      //   lastUpdated: state.lastUpdated,
-      //   user: state.user,
-      //   soundActive: state.soundActive,
-      // }),
     }
   )
 )

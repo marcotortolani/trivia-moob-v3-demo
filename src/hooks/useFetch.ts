@@ -9,7 +9,7 @@ type FetchState = {
   error: Error | null
 }
 
-export function useFetch(url: string) {
+export function useFetch(url: string | null) {
   const [state, setState] = useState<FetchState>({
     data: null,
     loading: true,
@@ -19,6 +19,14 @@ export function useFetch(url: string) {
   const options = {}
 
   useEffect(() => {
+    if (!url) {
+      setState((prevState) => ({
+        ...prevState,
+        loading: false,
+        error: { message: 'La URL es inválida o no está definida.' },
+      }))
+      return
+    }
     let isMounted = true // Evita actualizar el estado si el componente se desmonta.
 
     const fetchData = async () => {
@@ -54,7 +62,7 @@ export function useFetch(url: string) {
     return () => {
       isMounted = false
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url])
   return state
 }
