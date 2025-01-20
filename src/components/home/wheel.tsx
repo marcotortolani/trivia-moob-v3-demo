@@ -216,15 +216,15 @@ export function Wheel() {
             }
           >
             <div
-              className=" absolute top-0 left-1/2 -translate-x-1/2 translate-y-1/3 w-6 mx-auto h-6 content-normal rounded-full"
+              className=" absolute top-2 left-1/2 -translate-x-1/2 translate-y-1/3 w-6 mx-auto h-6 content-normal rounded-full"
               style={{
-                background: `linear-gradient(to bottom, ${colors.secondary}, 90%, #000)`,
+                background: `linear-gradient(to bottom, ${colors.background}, 90%, #000)`,
               }}
             />
             <img
               src={indicatorCategory}
               alt="Logo"
-              className=" block w-12 h-16 drop-shadow-[-2px_5px_5px_rgba(0,0,0,0.75)] "
+              className=" block w-12 h-auto drop-shadow-[-2px_5px_5px_rgba(0,0,0,0.75)] "
             />
           </motion.div>
         </div>
@@ -269,11 +269,16 @@ const SpinButton = ({
       disabled={isSpinning || gameCompleted}
       className={` ${
         isSpinning ? ' shadow-inner' : 'shadow-md'
-      } z-[100]  disabled:cursor-not-allowed disabled:grayscale-[50%] disabled:scale-95 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full  flex items-center justify-center text-2xl border-2 border-black shadow-black/60 transition-all duration-200 ease-in-out`}
+      } z-[100]  disabled:cursor-not-allowed disabled:grayscale-[50%] disabled:scale-95 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full  flex items-center justify-center text-2xl border-2 border-black/0 shadow-black/60 transition-all duration-200 ease-in-out`}
       style={{
         backgroundColor: bgColor,
       }}
     >
+      <img
+        src={ringWheel}
+        alt="Ring wheel"
+        className=" absolute z-50 w-full scale-110 p-0.5 "
+      />
       {imageSpin ? (
         <img src={imageSpin} alt="Spin" width={60} height={60} />
       ) : (

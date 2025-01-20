@@ -40,7 +40,7 @@ export default function ValidPeriod({ type }: { type: 'upcoming' | 'ended' }) {
     <div
       className=" w-screen h-[100dvh] overflow-hidden flex flex-col items-center justify-center  "
       style={{
-        background: `linear-gradient(to bottom, ${colors?.secondary}, #000 120%)`,
+        background: `linear-gradient(to bottom, ${colors?.background}, #000 120%)`,
         color: colors?.text,
       }}
     >

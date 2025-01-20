@@ -44,7 +44,7 @@ export default function QuestionsPage() {
     <div
       className="z-50 min-h-[100dvh] flex flex-col"
       style={{
-        background: `linear-gradient(to bottom, ${colors.secondary}, #000)`,
+        background: `linear-gradient(to bottom, ${colors.background}, #000)`,
         color: colors.text,
       }}
     >

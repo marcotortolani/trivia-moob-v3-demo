@@ -56,7 +56,7 @@ export default function Profile() {
         animate={{ scale: 1, opacity: 1, transition: { duration: 0.5 } }}
         className={` relative w-full min-h-[100dvh] flex flex-col items-center gap-4 xl:gap-10 overflow-hidden mb-10 md:mb-0 `}
         style={{
-          background: `linear-gradient(to bottom, ${colors.secondary}, #000)`,
+          background: `linear-gradient(to bottom, ${colors.background}, #000)`,
         }}
       >
         <Header onMenuClick={() => setIsSidebarOpen(true)} />

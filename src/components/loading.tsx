@@ -7,7 +7,7 @@ export default function Loading() {
     <div
       className="w-screen h-[100dvh] flex items-center justify-center"
       style={{
-        background: `linear-gradient(180deg, ${colors?.secondary} 0%, #000 150%)`,
+        background: `linear-gradient(180deg, ${colors?.background} 0%, #000 150%)`,
       }}
     >
       <div className=" w-full h-full flex items-center justify-center">

@@ -19,7 +19,7 @@ export default function Rewards() {
         animate={{ scale: 1, opacity: 1, transition: { duration: 0.5 } }}
         className={` relative min-h-[100dvh] flex flex-col items-center overflow-hidden `}
         style={{
-          background: `linear-gradient(to bottom, ${colors.secondary}, #000)`,
+          background: `linear-gradient(to bottom, ${colors.background}, #000)`,
         }}
       >
         <Header onMenuClick={() => setIsSidebarOpen(true)} />

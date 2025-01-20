@@ -27,7 +27,7 @@ export default function Ranking() {
         animate={{ scale: 1, opacity: 1, transition: { duration: 0.5 } }}
         className={` relative w-full min-h-[100dvh] pb-10 flex flex-col  `}
         style={{
-          background: `linear-gradient(to bottom, ${colors.secondary}, #000)`,
+          background: `linear-gradient(to bottom, ${colors.background}, #000)`,
         }}
       >
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
@@ -282,7 +282,7 @@ const RankingSection = () => {
               style={{
                 background:
                   player.name === user.userName
-                    ? colors.secondary
+                    ? colors.background
                     : index % 2 === 0
                     ? `rgba(${hexToRgb(colors.primary)}, 1)`
                     : `rgba(${hexToRgb(colors.primary)}, 0.4)`,
