@@ -1,13 +1,14 @@
 import { useEffect } from 'react'
-import { useFetch } from './hooks/useFetch'
+//import { useFetch } from './hooks/useFetch'
 import { lazy } from 'react'
 import { Routes, Route, useSearchParams } from 'react-router-dom'
 import { useConfigStore } from './lib/config-store'
 import { useGameStore } from './lib/game-store'
 
-import { ENDPOINT_CONFIG } from './data/constants'
+//import { ENDPOINT_CONFIG } from './data/constants'
+import configData from './data/config.json'
 
-const Loading = lazy(() => import('./components/loading'))
+//const Loading = lazy(() => import('./components/loading'))
 const ValidPeriod = lazy(() => import('./components/game-valid-period'))
 
 const Home = lazy(() => import('./screens/home'))
@@ -23,15 +24,15 @@ export default function App() {
   const [searchParams] = useSearchParams()
   const gameHash: string | null = searchParams.get('gameHash') || null
   const userHash: string | null = searchParams.get('userHash') || null
-  console.log({ gameHash, userHash })
+  //console.log({ gameHash, userHash })
   //
   // const apiURL =
   //   gameHash && userHash
   //     ? `${ENDPOINT_CONFIG}/?gameHash=${gameHash}&userHash=${userHash}`
   //     : null
-  const apiURL = `${ENDPOINT_CONFIG}`
+  //const apiURL = `${ENDPOINT_CONFIG}`
 
-  const { data: configData, loading, error } = useFetch(apiURL)
+  //const { data: configData, loading, error } = useFetch(apiURL)
   const {
     validPeriod,
     lastUpdated,
@@ -62,13 +63,13 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categories])
 
-  if (loading) return <Loading />
-  if (error && lastUpdated === '')
-    return (
-      <div className=" w-full h-[100dvh] px-8 flex items-center justify-center text-center font-medium bg-black text-white">
-        Error al cargar los datos: {error.message}
-      </div>
-    )
+  //if (loading) return <Loading />
+  // if (error && lastUpdated === '')
+  //   return (
+  //     <div className=" w-full h-[100dvh] px-8 flex items-center justify-center text-center font-medium bg-black text-white">
+  //       Error al cargar los datos: {error.message}
+  //     </div>
+  //   )
   if (actualDate < startDate) {
     return <ValidPeriod type="upcoming" />
   }

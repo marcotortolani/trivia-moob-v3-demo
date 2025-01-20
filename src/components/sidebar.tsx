@@ -28,6 +28,7 @@ import {
 import swoosh from '../assets/sound/swoosh.mp3'
 import blopSound from '../assets/sound/blop.mp3'
 import UserAvatar from './profile/user-avatar'
+import FallbackImage from "./fallback-image"
 
 interface SidebarProps {
   isOpen: boolean
@@ -97,7 +98,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             </div>
             <div className=" ml-1 mr-3 w-[1px] h-16 bg-neutral-400 content-normal"></div>
             <div className=" relative w-2/3 mx-auto  ">
-              <img src={images.backgroundPointsMenu} alt="background points" />
+              <FallbackImage
+                primaryImage={images.backgroundPointsMenu}
+                fallbackImage={images.backgroundPoints}
+                alt="background points"
+              />
               <span
                 className="absolute ml-2 xs:ml-4 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl xs:text-2xl md:text-3xl font-oswaldBold"
                 style={{ color: colors.text }}

@@ -5,7 +5,7 @@
     "userName": "",
     "userMSISDN": "",
     "userEmail": "",
-    "userPoints": "",
+    "userPoints": 0,
     "userAvatar": ""
   },
   "validPeriod": {

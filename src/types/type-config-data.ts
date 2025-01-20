@@ -5,7 +5,7 @@ export interface ConfigData {
     userName: string
     userMSISDN: string
     userEmail: string
-    userPoints: string
+    userPoints: number
     userAvatar: string
   }
   validPeriod: {

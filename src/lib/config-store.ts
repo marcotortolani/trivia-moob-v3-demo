@@ -72,7 +72,7 @@ export const useConfigStore = create<ConfigState>()(
       updateDataEndpoint: (data) => set({ dataEndpoint: data }),
     }),
     {
-      name: 'config-data-storage',
+      name: 'config-data-trivia-v3',
     }
   )
 )

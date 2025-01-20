@@ -12,6 +12,7 @@ import {
   DialogClose,
   DialogTitle,
 } from '@/components/ui/dialog'
+
 import { Label } from '../ui/label'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
@@ -22,6 +23,7 @@ import { XIcon, Edit, ChevronLeft, ChevronRight } from 'lucide-react'
 import closeSound from '../../assets/sound/popup-close-minimize.mp3'
 import blopSound from '../../assets/sound/blop.mp3'
 import successAction from '../../assets/sound/success-action.mp3'
+import FallbackImage from '../fallback-image'
 
 export default function UserPoints() {
   const { colors, images, user, soundActive } = useConfigStore()
@@ -72,7 +74,11 @@ export default function UserPoints() {
 
       <div className=" relative px-2 w-3/5  mx-auto flex flex-col items-center  ">
         <div className=" relative ">
-          <img src={images.backgroundPointsMenu} alt="background points" />
+          <FallbackImage
+            primaryImage={images.backgroundPointsMenu}
+            fallbackImage={images.backgroundPoints}
+            alt="background points"
+          />
           <span
             className="absolute ml-2 xs:ml-4 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl xs:text-3xl font-oswaldBold"
             style={{ color: colors.text }}
