@@ -7,7 +7,7 @@ import { Sidebar } from '@/components/sidebar'
 import SliderRewards from '@/components/slider-rewards'
 
 export default function Rewards() {
-  const { colors } = useConfigStore()
+  const { colors, dictionary } = useConfigStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   return (
@@ -32,7 +32,7 @@ export default function Rewards() {
               borderBottom: `1.5px solid ${colors.primary}`,
             }}
           >
-            Premios
+            {dictionary['Rewards']}
           </h2>
           <SliderRewards />
         </section>

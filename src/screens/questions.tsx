@@ -12,9 +12,13 @@ import { Header } from '@/components/header'
 import { GameFooter } from '@/components/game-footer'
 import { Sidebar } from '@/components/sidebar'
 
-const StartScreen = lazy(() => import('@/components/questions/start-screen') )
-const PlayingScreen = lazy(() => import('@/components/questions/playing-screen'))
-const CategoryCompleted = lazy(() => import('@/components/questions/category-completed'))
+const StartScreen = lazy(() => import('@/components/questions/start-screen'))
+const PlayingScreen = lazy(
+  () => import('@/components/questions/playing-screen')
+)
+const CategoryCompleted = lazy(
+  () => import('@/components/questions/category-completed')
+)
 
 import confettiSound from '../assets/sound/confetti-sound.mp3'
 

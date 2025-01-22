@@ -7,7 +7,7 @@ import incorrectIcon from '/img/default/incorrect-icon.webp'
 import bonusIcon from '/img/default/bonus-icon.webp'
 
 export default function PointsInfo() {
-  const { colors, config } = useConfigStore()
+  const { colors, config, dictionary } = useConfigStore()
   return (
     <motion.section
       initial={{ opacity: 0, x: 500 }}
@@ -29,7 +29,7 @@ export default function PointsInfo() {
         className="w-full p-2 flex items-center justify-between gap-4 rounded-xl "
         style={{ border: `2px solid ${colors?.primaryLight}` }}
       >
-        <SectionTitle title="Puntos por respuesta" />
+        <SectionTitle title={dictionary['Points per Answer']} />
         <div className=" w-fit ml-2 h-full flex flex-col items-center justify-center ">
           <img
             className=" w-[10vw] min-w-[30px] max-w-[50px] aspect-square"

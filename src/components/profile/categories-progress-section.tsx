@@ -9,7 +9,7 @@ export default function CategoriesProgress({
 }: {
   answeredQuestionsProgress: number
 }) {
-  const { colors } = useConfigStore()
+  const { colors, dictionary } = useConfigStore()
   const { categoriesState } = useGameStore()
 
   const totalQuestions = categoriesState.reduce(
@@ -34,7 +34,7 @@ export default function CategoriesProgress({
       }}
       className=" w-full max-w-lg h-fit px-4 my-2"
     >
-      <SectionTitle title="Progreso por categoría" />
+      <SectionTitle title={dictionary['Progress by Category']} />
 
       <ul className=" w-full my-4 flex flex-col gap-2 ">
         {categoriesState.map((cat) => (
@@ -66,7 +66,7 @@ export default function CategoriesProgress({
           className=" text-[0.65rem] xs:text-xs font-oswaldRegular xs:font-oswaldBold uppercase "
           style={{ color: colors?.correct }}
         >
-          Progreso Total
+          {dictionary['Total Progress']}
         </h5>
         <ProgressBar
           progress={answeredQuestionsProgress}
@@ -84,7 +84,7 @@ const ProgressBar = ({
   progress: number
   total: number
 }) => {
-  const { colors } = useConfigStore()
+  const { colors, dictionary } = useConfigStore()
 
   return (
     <div className=" relative w-[65%] flex items-center justify-center gap-1">
@@ -126,7 +126,7 @@ const ProgressBar = ({
             {(progress / total) * 100 >= 10
               ? progress < total
                 ? progress
-                : 'Completo'
+                : dictionary['Completed']
               : progress}
           </motion.span>
         </motion.div>

@@ -15,6 +15,7 @@ import { hexToRgb } from '@/lib/utils'
 
 import mediaMoob from '/img/default/logo-media-moob.svg'
 
+import { X } from 'lucide-react'
 import {
   HomeIcon,
   ProfileIcon,
@@ -25,8 +26,8 @@ import {
   RewardsIcon,
 } from '@/lib/icons'
 
-import swoosh from '../assets/sound/swoosh.mp3'
-import blopSound from '../assets/sound/blop.mp3'
+import swoosh from '@/assets/sound/swoosh.mp3'
+import blopSound from '@/assets/sound/blop.mp3'
 import UserAvatar from './profile/user-avatar'
 import FallbackImage from './fallback-image'
 
@@ -36,8 +37,16 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
-  const { colors, images, user, links, soundActive, dictionary } =
-    useConfigStore()
+  const {
+    colors,
+    images,
+    user,
+    links,
+    soundActive,
+    dictionary,
+    lang,
+    setLang,
+  } = useConfigStore()
   const { score } = useGameStore()
   const navigate = useNavigate()
 
@@ -76,10 +85,10 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             <button
               type="button"
               onClick={onCloseSidebar}
-              className=" w-8 h-8 font-mono text-xl rounded-full"
+              className=" w-8 h-8 p-0.5 font-mono text-xl rounded-full"
               style={{ backgroundColor: colors.primary, color: colors.text }}
             >
-              X
+              <X className=" w-full h-full" />
             </button>
             <img src={images.es.logoHeader} alt="logo" className=" w-3/4" />
           </SheetTitle>
@@ -113,6 +122,45 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             </div>
           </div>
 
+          <div className="mt-4 flex items-center gap-4">
+            <button
+              type="button"
+              onClick={() => setLang('es')}
+              className={`w-12 h-8 p-0.5 font-mono text-xl rounded-full`}
+              style={{
+                backgroundColor:
+                  lang === 'es' ? colors.primary : colors.secondary,
+                color: colors.text,
+              }}
+            >
+              ES
+            </button>
+            <button
+              type="button"
+              onClick={() => setLang('en')}
+              className=" w-12 h-8 p-0.5 font-mono text-xl rounded-full"
+              style={{
+                backgroundColor:
+                  lang === 'en' ? colors.primary : colors.secondary,
+                color: colors.text,
+              }}
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              onClick={() => setLang('pt')}
+              className=" w-12 h-8 p-0.5 font-mono text-xl rounded-full"
+              style={{
+                backgroundColor:
+                  lang === 'pt' ? colors.primary : colors.secondary,
+                color: colors.text,
+              }}
+            >
+              PT
+            </button>
+          </div>
+
           <div
             className="w-full xs:px-2 min-h-fit grid gap-5 lg:gap-8 py-8"
             style={{
@@ -121,23 +169,23 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           >
             <NavLinkStyled to="/" onNavLink={handleNavLink}>
               <HomeIcon width={24} height={24} fill={colors.primary} />
-              {dictionary['home']}
+              {dictionary['Home']}
             </NavLinkStyled>
             <NavLinkStyled to="/profile" onNavLink={handleNavLink}>
               <ProfileIcon width={24} height={24} fill={colors.primary} />
-              {dictionary['myProfile']}
+              {dictionary['My profile']}
             </NavLinkStyled>
             <NavLinkStyled to="/ranking" onNavLink={handleNavLink}>
               <RankingIcon width={24} height={24} fill={colors.primary} />
-              {dictionary['goalsAndRanking']}
+              {dictionary['Goals and Ranking']}
             </NavLinkStyled>
             <NavLinkStyled to="/how-to-play" onNavLink={handleNavLink}>
               <TutorialIcon width={24} height={24} fill={colors.primary} />
-              {dictionary['howToPlay']}
+              {dictionary['How to play?']}
             </NavLinkStyled>
             <NavLinkStyled to="/faq" onNavLink={handleNavLink}>
               <AboutIcon width={24} height={24} fill={colors.primary} />
-              {dictionary['frequentlyAskedQuestions']}
+              {dictionary['FAQs']}
             </NavLinkStyled>
             <NavLinkStyled
               to={links.termsURL}
@@ -146,11 +194,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               }}
             >
               <TermsIcon width={24} height={24} fill={colors.primary} />
-              {dictionary['termsAndConditions']}
+              {dictionary['Terms and Conditions']}
             </NavLinkStyled>
             <NavLinkStyled to="/rewards" onNavLink={handleNavLink}>
               <RewardsIcon width={24} height={24} fill={colors.primary} />
-              {dictionary['rewards']}
+              {dictionary['Rewards']}
             </NavLinkStyled>
           </div>
         </div>
@@ -174,14 +222,14 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               className=" text-sm md:text-base font-oswaldLight tracking-wider"
               style={{ color: colors.text }}
             >
-              {dictionary['anotherSolutionByMediaMoob']}
+              {dictionary['Another solution by Media Moob']}
             </p>
           </div>
           <p
             className=" text-xs font-oswaldLight tracking-wider uppercase"
             style={{ color: colors.text }}
           >
-            {dictionary['allRightsReserved']} - {currentYear}
+            {dictionary['All rights reserved']} - {currentYear}
           </p>
         </SheetFooter>
       </SheetContent>

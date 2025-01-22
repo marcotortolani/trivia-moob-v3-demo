@@ -20,13 +20,13 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import UserAvatar from './user-avatar'
 import { XIcon, Edit, ChevronLeft, ChevronRight } from 'lucide-react'
 
-import closeSound from '../../assets/sound/popup-close-minimize.mp3'
-import blopSound from '../../assets/sound/blop.mp3'
-import successAction from '../../assets/sound/success-action.mp3'
+import closeSound from '@/assets/sound/popup-close-minimize.mp3'
+import blopSound from '@/assets/sound/blop.mp3'
+import successAction from '@/assets/sound/success-action.mp3'
 import FallbackImage from '../fallback-image'
 
 export default function UserPoints() {
-  const { colors, images, user, soundActive } = useConfigStore()
+  const { colors, images, user, soundActive, dictionary } = useConfigStore()
   const { score } = useGameStore()
   const [points, setPoints] = useState(0)
   const [isOpen, setIsOpen] = useState(false)
@@ -67,7 +67,7 @@ export default function UserPoints() {
           className=" text-sm xs:text-base font-oswaldMedium uppercase tracking-wider "
           style={{ color: colors.text }}
         >
-          {user.userName ? user.userName : 'UserName'}
+          {user.userName ? user.userName : dictionary['Your Name']}
         </span>
       </div>
       <div className=" ml-1 mr-3 w-[1px] h-16 bg-neutral-400 content-normal"></div>
@@ -90,7 +90,7 @@ export default function UserPoints() {
           className=" text-sm xs:text-base font-oswaldMedium uppercase tracking-wider "
           style={{ color: colors.text }}
         >
-          Puntaje
+          {dictionary['Score']}
         </span>
       </div>
       <UserData isOpen={isOpen} onClose={() => setIsOpen(false)} />
@@ -105,7 +105,8 @@ const UserData = ({
   isOpen: boolean
   onClose: () => void
 }) => {
-  const { images, colors, soundActive, user, setUserData } = useConfigStore()
+  const { images, colors, soundActive, user, setUserData, dictionary } =
+    useConfigStore()
   const [avatarIndex, setAvatarIndex] = useState(0)
   const [formData, setFormData] = useState({
     userName: user.userName,
@@ -171,7 +172,7 @@ const UserData = ({
             className=" font-oswaldMedium uppercase"
             style={{ color: colors.text }}
           >
-            Editar Perfil
+            {dictionary['Edit Profile']}
           </DialogTitle>
           <DialogDescription
             style={{ color: 'transparent' }}
@@ -230,7 +231,7 @@ const UserData = ({
                 htmlFor="userName"
                 className="text-white font-poppinsRegular"
               >
-                Nombre de Usuario
+                {dictionary['Username']}
               </Label>
               <Input
                 id="userName"
@@ -239,7 +240,7 @@ const UserData = ({
                   setFormData({ ...formData, userName: e.target.value })
                 }
                 className="bg-white/10 border-white/20 font-poppinsRegular text-white placeholder:text-white/50"
-                placeholder="Ingresa tu nombre"
+                placeholder={dictionary['Enter your name']}
               />
             </div>
 
@@ -248,7 +249,7 @@ const UserData = ({
                 htmlFor="userEmail"
                 className="text-white font-poppinsRegular"
               >
-                Correo Electrónico
+                {dictionary['Email']}
               </Label>
               <Input
                 id="userEmail"
@@ -258,7 +259,7 @@ const UserData = ({
                   setFormData({ ...formData, userEmail: e.target.value })
                 }
                 className="bg-white/10 border-white/20 font-poppinsRegular text-white placeholder:text-white/50"
-                placeholder="correo@ejemplo.com"
+                placeholder={dictionary['Mail example']}
               />
             </div>
 
@@ -267,8 +268,10 @@ const UserData = ({
                 htmlFor="userAvatar"
                 className="text-white font-poppinsRegular"
               >
-                URL del Avatar{' '}
-                <span className=" text-xs font-poppinsLight">(opcional)</span>
+                {dictionary['Avatar URL']}{' '}
+                <span className=" text-xs font-poppinsLight">
+                  ({dictionary['optional']})
+                </span>
               </Label>
               <Input
                 id="userAvatar"
@@ -281,7 +284,7 @@ const UserData = ({
                   setFormData({ ...formData, userAvatar: e.target.value })
                 }
                 className="bg-white/10 border-white/20 font-poppinsRegular text-white placeholder:text-white/50"
-                placeholder="https://ejemplo.com/avatar.jpg"
+                placeholder={dictionary['Avatar URL example']}
               />
             </div>
           </div>
@@ -292,7 +295,7 @@ const UserData = ({
               className="bg-white hover:bg-white/90 font-oswaldBold uppercase"
               style={{ color: colors.primary }}
             >
-              Guardar Cambios
+              {dictionary['Save Changes']}
             </Button>
           </div>
         </form>

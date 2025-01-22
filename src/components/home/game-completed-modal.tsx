@@ -46,7 +46,7 @@ export function GameCompletedModal() {
             background: `linear-gradient(180deg, ${colors.primary} 60%, rgb(0, 0, 0,1) 150%)`,
           }}
         >
-          {dictionary['youDidIt']}
+          {dictionary['You did it']}
         </p>
 
         <div className=" w-3/4 max-w-[250px]">{View}</div>
@@ -56,13 +56,13 @@ export function GameCompletedModal() {
             className=" font-oswaldHeavyItalic text-4xl md:text-5xl uppercase text-center"
             style={{ color: colors.primary }}
           >
-            {dictionary['congrats']}
+            {dictionary['Congrats!']}
           </h2>
           <p
             className=" font-oswaldHeavyItalic text-4xl md:text-5xl leading-9 uppercase text-center"
             style={{ color: colors.text }}
           >
-            {dictionary['youCompletedTheTrivia']}
+            {dictionary['You completed the Trivia!']}
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export function GameCompletedModal() {
           className=" font-tekoRegular text-lg md:text-xl uppercase mb-4"
           style={{ color: colors.text }}
         >
-          {dictionary['wouldYouLikeToPlayAgain']}
+          {dictionary['Would you like to play again?']}
         </p>
         <Button
           onClick={() => {
@@ -83,7 +83,7 @@ export function GameCompletedModal() {
             color: colors.text,
           }}
         >
-          {dictionary['resetingTrivia']}
+          {dictionary['Reseting Trivia']}
         </Button>
       </motion.div>
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />

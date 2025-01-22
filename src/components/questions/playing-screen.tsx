@@ -1,5 +1,4 @@
 import { lazy, useEffect, useState } from 'react'
-
 import useSound from 'use-sound'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -11,10 +10,6 @@ import { useConfigStore } from '@/lib/config-store'
 import { useQuestionStore } from '@/lib/questions/questions-store'
 import { useCountdown } from '@/hooks/useCountDown'
 import { useQuestionsAnswered } from '@/hooks/useQuestionsAnswered'
-
-// import ModalChangeCategory from './modal-change-category'
-// import ModalMotivationalMessage from './modal-motivational-message'
-// import ModalGoalAchievement from './modal-goal-achievement'
 
 const ModalChangeCategory = lazy(() => import('./modal-change-category'))
 const ModalMotivationalMessage = lazy(() => import('./modal-motivational-message'))

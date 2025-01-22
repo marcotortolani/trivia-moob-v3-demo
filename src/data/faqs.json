@@ -1,5 +1,5 @@
 {
-  "faqs": [
+  "es": [
     {
       "id": 1,
       "question": "¿Cómo se juega?",
@@ -39,6 +39,90 @@
       "id": 8,
       "question": "¿Cómo contacto con soporte técnico?",
       "answer": "Si tienes problemas técnicos, puedes enviarnos un mensaje a hola@memoob.com y haremos todo lo posible por solucionar el problema."
+    }
+  ],
+  "en": [
+    {
+      "id": 1,
+      "question": "How do you play?",
+      "answer": "The goal of the game is to answer as many questions correctly as possible to accumulate points and access prizes. For more details, visit the 'How to play?' section."
+    },
+    {
+      "id": 2,
+      "question": "What are the question categories?",
+      "answer": "The game has various categories! Each game is different!"
+    },
+    {
+      "id": 3,
+      "question": "How do I access the prizes?",
+      "answer": "You win by earning the most points during the trivia session. The faster you answer, the more points you'll accumulate."
+    },
+    {
+      "id": 4,
+      "question": "What if I don't know the answer?",
+      "answer": "If you don't know the answer, you can try your luck by selecting any of the answer options. Maybe you'll get lucky and pick the right one!"
+    },
+    {
+      "id": 5,
+      "question": "What are diamonds and how do I get them?",
+      "answer": "Diamonds are accumulated by answering questions. Both correct and incorrect answers earn diamonds."
+    },
+    {
+      "id": 6,
+      "question": "Can I play offline?",
+      "answer": "To play the trivia, you will need to be connected to a Wi-Fi network or your mobile data provider's network."
+    },
+    {
+      "id": 7,
+      "question": "What should I do if I find an error in a question?",
+      "answer": "You can report it by sending us an email at: hola@memoob.com"
+    },
+    {
+      "id": 8,
+      "question": "How do I contact technical support?",
+      "answer": "If you're having technical issues, you can send us a message at hola@memoob.com and we'll do our best to solve the problem."
+    }
+  ],
+  "pt": [
+    {
+      "id": 1,
+      "question": "Como se joga?",
+      "answer": "O objetivo do jogo é responder corretamente o maior número possível de perguntas para acumular pontos e acessar os prêmios. Para mais detalhes, acesse a seção 'Como jogar?'"
+    },
+    {
+      "id": 2,
+      "question": "Quais são as categorias de perguntas?",
+      "answer": "O jogo possui várias categorias! Cada partida é diferente!"
+    },
+    {
+      "id": 3,
+      "question": "Como eu acesso os prêmios?",
+      "answer": "Você ganha ao acumular mais pontos durante o período da trivia. Quanto mais rápido responder, mais pontos você acumula."
+    },
+    {
+      "id": 4,
+      "question": "E se eu não souber a resposta?",
+      "answer": "Se você não souber a resposta, pode tentar a sorte e selecionar qualquer uma das opções de resposta. Talvez você tenha sorte e acerte!"
+    },
+    {
+      "id": 5,
+      "question": "O que são os diamantes e como eu os consigo?",
+      "answer": "Os diamantes são acumulados ao responder perguntas. Tanto as respostas corretas quanto as incorretas somam diamantes."
+    },
+    {
+      "id": 6,
+      "question": "Posso jogar sem conexão à internet?",
+      "answer": "Para jogar a trivia, você precisará estar conectado a uma rede Wi-Fi ou à rede de dados do seu provedor de Internet móvel."
+    },
+    {
+      "id": 7,
+      "question": "O que fazer se encontrar um erro em uma pergunta?",
+      "answer": "Você pode reportá-lo enviando um e-mail para: hola@memoob.com"
+    },
+    {
+      "id": 8,
+      "question": "Como entrar em contato com o suporte técnico?",
+      "answer": "Se você estiver com problemas técnicos, pode nos enviar uma mensagem para hola@memoob.com e faremos o possível para resolver o problema."
     }
   ]
 }

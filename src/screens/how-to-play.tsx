@@ -24,7 +24,7 @@ import swoosh from '../assets/sound/swoosh.mp3'
 import blopSound from '../assets/sound/blop.mp3'
 
 export default function HowToPlay() {
-  const { colors, config, soundActive } = useConfigStore()
+  const { colors, config, soundActive, dictionary } = useConfigStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [[page, direction], setPage] = useState([0, 0])
   const navigate = useNavigate()
@@ -45,8 +45,10 @@ export default function HowToPlay() {
       image: imageStep01,
       description: (
         <>
-          <span className="font-poppinsBold">Presiona el spinner</span> y haz
-          girar la ruleta
+          <span className="font-poppinsBold">
+            {dictionary['Press the spinner']}
+          </span>{' '}
+          {dictionary['and make the wheel spin']}
         </>
       ),
     },
@@ -54,8 +56,11 @@ export default function HowToPlay() {
       image: imageStep02,
       description: (
         <>
-          Cuando la ruleta se detenga podrás ver sobre qué categoría contestarás
-          la ronda de preguntas
+          {
+            dictionary[
+              "When the wheel stops, you will see which category you'll answer in the round of questions."
+            ]
+          }
         </>
       ),
     },
@@ -63,15 +68,19 @@ export default function HowToPlay() {
       image: imageStep03,
       description: (
         <>
-          Pulsa{' '}
+          {dictionary['Press']}{' '}
           <span className="font-poppinsBold">
-            COMENZAR para empezar a contestar
+            {dictionary['START to begin answering']}
           </span>
-          . Si prefieres contestar sobre otra categoría,{' '}
+          . {dictionary['If you prefer to answer a different category']},{' '}
           <span className="font-poppinsBold">
-            puedes volver a tirar la ruleta
+            {dictionary['you can spin the wheel again']}
           </span>{' '}
-          con el botón que está debajo a la izquierda del puntaje.
+          {
+            dictionary[
+              'with the button located below, to the left of the score.'
+            ]
+          }
         </>
       ),
     },
@@ -79,12 +88,14 @@ export default function HowToPlay() {
       image: imageStep04,
       description: (
         <>
-          Se mostrará la pregunta con{' '}
+          {dictionary['The question will be displayed with']}{' '}
           <span className="font-poppinsBold">
-            3 opciones de respuesta, una de ellas es correcta
+            {dictionary['3 answer options, on of which is correct']}
           </span>
-          . Si seleccionas la correcta recibirás <b>{config.pointsCorrect}</b>{' '}
-          puntos; de no ser así, recibirás <b>{config.pointsWrong}</b> puntos.
+          . {dictionary['If you select the correct answerm you will receive']}{' '}
+          <b>{config.pointsCorrect}</b>{' '}
+          {dictionary['points; if not, you will recive']}{' '}
+          <b>{config.pointsWrong}</b> {dictionary['points']}.
         </>
       ),
     },
@@ -92,9 +103,14 @@ export default function HowToPlay() {
       image: imageStep05,
       description: (
         <>
-          <span className="font-poppinsBold">El tiempo también cuenta!</span>{' '}
-          Cuando más rápido contestes más puntos obtendrás. Si tardas más de 10
-          segundos en contestar, la pregunta se considerará incorrecta.
+          <span className="font-poppinsBold">
+            {dictionary['Time also counts!']}
+          </span>{' '}
+          {
+            dictionary[
+              "The faster you answer, the more points you'll earn. If you take more than 10 seconds to answer, the question will be considered incorrect."
+            ]
+          }
         </>
       ),
     },
@@ -186,7 +202,7 @@ export default function HowToPlay() {
                 color: colors.text,
               }}
             >
-              ¿Cómo Jugar?
+              {dictionary['How to play?']}
             </h2>
           </div>
 
@@ -282,14 +298,15 @@ export default function HowToPlay() {
                 className=" uppercase text-5xl font-oswaldHeavyItalic"
                 style={{ color: colors.text }}
               >
-                Ahora Si!
+                {dictionary["Now we're ready!"]}
               </h4>
               <p
                 className=" mt-2 text-2xl text-center font-oswaldMedium uppercase"
                 style={{ color: colors.text }}
               >
-                Ya estas listo para empezar a contestar y sumar! <br />
-                Buena Suerte!
+                {dictionary["You're ready to start answering and scoring!"]}{' '}
+                <br />
+                {dictionary['Good Luck']}
               </p>
               <Button
                 variant="default"
@@ -300,7 +317,7 @@ export default function HowToPlay() {
                   color: colors.text,
                 }}
               >
-                ¡Jugar Ahora!
+                {dictionary['Play Now!']}
               </Button>
             </motion.div>
           </div>

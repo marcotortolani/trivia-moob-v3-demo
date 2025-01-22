@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import useSound from 'use-sound'
-//import { useNavigate } from 'react-router-dom'
 import { useGameStore } from '@/lib/game-store'
 import { Button } from '@/components/ui/button'
 import { AnimateProgressive, AnimateSwitch } from './animated-number'
@@ -10,8 +9,7 @@ import { useConfigStore } from '@/lib/config-store'
 import blopSound from '@/assets/sound/blop.mp3'
 
 export function GameFooter() {
-  //const navigate = useNavigate()
-  const { colors, images, soundActive } = useConfigStore()
+  const { colors, images, soundActive, dictionary } = useConfigStore()
   const { score, selectedCategory } = useGameStore()
   const { questionsAnswered, totalQuestions } = useQuestionsAnswered(
     selectedCategory?.id
@@ -21,7 +19,6 @@ export function GameFooter() {
 
   function handleHomeClick() {
     if (soundActive) playButton()
-    // navigate('/')
     window.document.location.href = '/'
   }
 
@@ -66,12 +63,12 @@ export function GameFooter() {
           </div>
 
           <div
-            className=" font-oswaldMedium tracking-widest text-xs xs:text-sm md:text-base"
+            className=" font-oswaldMedium uppercase tracking-widest text-xs xs:text-sm md:text-base"
             style={{
               color: colors.text,
             }}
           >
-            PUNTAJE
+            {dictionary['Score']}
           </div>
         </div>
 
@@ -97,7 +94,7 @@ export function GameFooter() {
               {totalQuestions}
             </span>
           </div>
-          Preguntas
+          {dictionary['Questions']}
         </div>
       </div>
     </motion.footer>

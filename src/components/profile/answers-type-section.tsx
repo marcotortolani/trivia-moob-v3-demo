@@ -10,7 +10,7 @@ import incorrectIcon from '/img/default/incorrect-icon.webp'
 import bonusIcon from '/img/default/bonus-icon.webp'
 
 export default function AnswersType() {
-  const { colors } = useConfigStore()
+  const { colors, dictionary } = useConfigStore()
   const { answeredQuestions } = useGameStore()
 
   return (
@@ -35,7 +35,7 @@ export default function AnswersType() {
         style={{ border: `2px solid ${colors?.primaryLight}` }}
       >
         <div className=" relative w-full h-3/5 p-0 flex items-center justify-center gap-2.5">
-          <SectionTitle title="Índice de aciertos" />
+          <SectionTitle title={dictionary['Accuracy Index']} />
           <DonutChart />
         </div>
         <div className=" w-full flex justify-around ">
@@ -49,7 +49,7 @@ export default function AnswersType() {
               className=" text-[0.6rem] xs:text-xs font-oswaldRegular uppercase "
               style={{ color: colors?.text }}
             >
-              Correctas: {answeredQuestions.correct}
+              {dictionary['Correct(pl)']}: {answeredQuestions.correct}
             </span>
           </div>
 
@@ -63,7 +63,7 @@ export default function AnswersType() {
               className=" text-[0.6rem] xs:text-xs font-oswaldRegular uppercase "
               style={{ color: colors?.text }}
             >
-              Incorrectas: {answeredQuestions.incorrect}
+              {dictionary['Incorrect(pl)']}: {answeredQuestions.incorrect}
             </span>
           </div>
 
@@ -77,7 +77,7 @@ export default function AnswersType() {
               className=" text-[0.6rem] xs:text-xs font-oswaldRegular uppercase "
               style={{ color: colors?.text }}
             >
-              Bonus: {answeredQuestions.bonus}
+              {dictionary['Bonus']}: {answeredQuestions.bonus}
             </span>
           </div>
         </div>

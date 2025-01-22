@@ -45,7 +45,7 @@ export default function Ranking() {
 }
 
 const MedalsSection = () => {
-  const { colors, config, categories } = useConfigStore()
+  const { colors, config, categories, dictionary } = useConfigStore()
   const { score } = useGameStore()
 
   const totalQuestionsGame = categories.reduce((total, category) => {
@@ -54,7 +54,7 @@ const MedalsSection = () => {
 
   const medalsToAchieve = [
     {
-      name: 'Oro',
+      name: dictionary['Gold'],
       image: goldMedalPodium,
       points:
         MEDAL_THRESHOLDS.gold.percentageGoal *
@@ -62,7 +62,7 @@ const MedalsSection = () => {
         config.pointsCorrect,
     },
     {
-      name: 'Plata',
+      name: dictionary['Silver'],
       image: silverMedalPodium,
       points:
         MEDAL_THRESHOLDS.silver.percentageGoal *
@@ -70,7 +70,7 @@ const MedalsSection = () => {
         config.pointsCorrect,
     },
     {
-      name: 'Cobre',
+      name: dictionary['Copper'],
       image: copperMedalPodium,
       points:
         MEDAL_THRESHOLDS.copper.percentageGoal *
@@ -91,7 +91,7 @@ const MedalsSection = () => {
           borderBottom: `1.5px solid ${colors.primary}`,
         }}
       >
-        Objetivos
+        {dictionary['Goals']}
       </motion.h2>
       <div className=" w-full px-4 py-4 space-y-1">
         {medalsToAchieve.map((medal, index) => (
@@ -124,7 +124,7 @@ const MedalsSection = () => {
                     className="mt-0.5 uppercase font-tekoRegular "
                     style={{ color: colors.text }}
                   >
-                    Objetivo Cumplido
+                    {dictionary['Goal Achieved']}
                   </p>
                   <img
                     src={greenCheck}
@@ -139,12 +139,11 @@ const MedalsSection = () => {
                     color: colors.text,
                   }}
                 >
-                  Alcanza los
+                  {dictionary['Reach']}
                 </p>
               )}
 
               <div>
-                {/* <img src="/" alt="" /> */}
                 <span
                   className=" font-oswaldBold text-4xl"
                   style={{
@@ -163,7 +162,8 @@ const MedalsSection = () => {
 }
 
 const RankingSection = () => {
-  const { colors, images, user, categories, config } = useConfigStore()
+  const { colors, images, user, categories, config, dictionary } =
+    useConfigStore()
   const { score } = useGameStore()
 
   const totalQuestionsGame = categories.reduce((total, category) => {
@@ -174,63 +174,63 @@ const RankingSection = () => {
 
   const rankingData = [
     {
-      name: 'Jugador 1',
+      name: dictionary['Player'] + ' 1',
       image: avatarImages[8],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.1 * config.pointsCorrect,
     },
     {
-      name: 'Jugador 2',
+      name: dictionary['Player'] + ' 2',
       image: avatarImages[3],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.152 * config.pointsCorrect,
     },
     {
-      name: 'Jugador 3',
+      name: dictionary['Player'] + ' 3',
       image: avatarImages[6],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.22 * config.pointsCorrect,
     },
     {
-      name: 'Jugador 4',
+      name: dictionary['Player'] + ' 4',
       image: avatarImages[2],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.375 * config.pointsCorrect,
     },
     {
-      name: 'Jugador 5',
+      name: dictionary['Player'] + ' 5',
       image: avatarImages[1],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.432 * config.pointsCorrect,
     },
     {
-      name: 'Jugador 6',
+      name: dictionary['Player'] + ' 6',
       image: avatarImages[9],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.567 * config.pointsCorrect,
     },
     {
-      name: 'Jugador 7',
+      name: dictionary['Player'] + ' 7',
       image: avatarImages[5],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.658 * config.pointsCorrect,
     },
     {
-      name: 'Jugador 8',
+      name: dictionary['Player'] + ' 8',
       image: avatarImages[10],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.723 * config.pointsCorrect,
     },
     {
-      name: 'Jugador 9',
+      name: dictionary['Player'] + ' 9',
       image: avatarImages[7],
       score:
         totalQuestionsGame * config.pointsCorrect -
@@ -259,7 +259,7 @@ const RankingSection = () => {
           borderBottom: `1.5px solid ${colors.primary}`,
         }}
       >
-        Ranking
+        {dictionary['Ranking']}
       </motion.h2>
 
       <div className=" w-full py-4 space-y-4" style={{ color: colors.text }}>
@@ -311,14 +311,16 @@ const RankingSection = () => {
               </div>
               <div className=" w-4/6 xs:w-3/4 flex flex-col xs:flex-row items-center justify-between ">
                 <span className=" font-tekoRegular tracking-wider text-lg lg:text-xl ">
-                  {player.name === user.userName ? 'Tú' : player.name}
+                  {player.name === user.userName
+                    ? dictionary['You']
+                    : player.name}
                 </span>
                 <div className=" w-1/2 xs:w-1/6 h-[1px] bg-white"></div>
                 <p>
                   <span className=" font-tekoRegular text-lg lg:text-xl ">
                     {parseFloat(player.score.toFixed(2))}
                   </span>{' '}
-                  puntos
+                  {dictionary['points']}
                 </p>
               </div>
             </motion.div>

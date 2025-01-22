@@ -58,7 +58,7 @@ export function Footer() {
               alt="Logo"
               className=" w-full h-auto"
             />
-            {dictionary['terms']}
+            {dictionary['Terms']}
           </Button>
         </Link>
 
@@ -83,7 +83,7 @@ export function Footer() {
             className=" font-oswaldMedium tracking-widest text-xs xs:text-base uppercase "
             style={{ color: colors.text }}
           >
-            {dictionary['score']}
+            {dictionary['Score']}
           </div>
         </div>
 
@@ -100,7 +100,7 @@ export function Footer() {
                 alt="Logo"
                 className=" w-full h-auto"
               />
-              {dictionary['rewards']}
+              {dictionary['Rewards']}
             </Button>
           </DialogTrigger>
           <DialogContent
@@ -124,7 +124,7 @@ export function Footer() {
                 className=" font-oswaldMedium uppercase"
                 style={{ color: colors.text }}
               >
-                {dictionary['availableRewards']}
+                {dictionary['Available Rewards']}
               </DialogTitle>
               <DialogDescription
                 style={{ color: 'transparent' }}

@@ -29,7 +29,7 @@ import blopSound from '@/assets/sound/blop.mp3'
 import successAction from '@/assets/sound/success-action.mp3'
 
 export default function Profile() {
-  const { colors, soundActive } = useConfigStore()
+  const { colors, soundActive, dictionary } = useConfigStore()
   const { categoriesState } = useGameStore()
   const [isOpen, setIsOpen] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -85,7 +85,7 @@ export default function Profile() {
           }}
           onClick={handleResetButton}
         >
-          Reset Trivia
+          {dictionary['Reset Trivia']}
         </Button>
 
         <ResetModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
@@ -106,7 +106,7 @@ const ResetModal = ({
   isOpen: boolean
   onClose: () => void
 }) => {
-  const { colors, soundActive, user } = useConfigStore()
+  const { colors, soundActive, user, dictionary } = useConfigStore()
   const { resetGame } = useGameStore()
 
   const [playSuccess] = useSound(successAction, {
@@ -149,7 +149,7 @@ const ResetModal = ({
             className=" font-oswaldMedium uppercase"
             style={{ color: colors.text }}
           >
-            Reset Trivia
+            {dictionary['Reset Trivia']}
           </DialogTitle>
           <DialogDescription
             style={{ color: 'transparent' }}
@@ -159,11 +159,17 @@ const ResetModal = ({
           className=" w-full xs:w-5/6 mx-auto text-center"
           style={{ color: colors.text }}
         >
-          {user.userName === '' ? 'Este' : user.userName + ', este'} proceso
-          borrará todos los datos de progreso y no podrás recuperarlos.
+          {user.userName === ''
+            ? dictionary['This']
+            : user.userName + `, ${dictionary['This']}`}{' '}
+          {
+            dictionary[
+              'process will delete all progress data, and you will not be able to recover it.'
+            ]
+          }
         </p>
         <p className=" text-center" style={{ color: colors.text }}>
-          ¿Deseas continuar con la acción?
+          {dictionary['Do you wish to proceed with the action?']}
         </p>
 
         <div className=" w-full xs:px-10 flex items-center justify-between">
@@ -173,7 +179,7 @@ const ResetModal = ({
             style={{ color: colors.primary }}
             onClick={handleClose}
           >
-            Cancelar
+            {dictionary['Cancel']}
           </Button>
           <Button
             type="button"
@@ -181,7 +187,7 @@ const ResetModal = ({
             style={{ color: colors.primary }}
             onClick={handleReset}
           >
-            Aceptar
+            {dictionary['Accept']}
           </Button>
         </div>
       </DialogContent>

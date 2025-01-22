@@ -24,7 +24,7 @@ type CategoryImage = {
   image: string
 }
 
-type Lang = ConfigData['lang']
+export type Lang = ConfigData['lang']
 
 const categoriesImages: CategoryImage[] = categories.map((category) => ({
   id: category.id,

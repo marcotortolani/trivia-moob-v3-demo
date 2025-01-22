@@ -10,7 +10,7 @@ import blopSound from '@/assets/sound/blop.mp3'
 import successTrumpets from '@/assets/sound/success-trumpets.mp3'
 
 export default function CategoryCompleted() {
-  const { colors, soundActive } = useConfigStore()
+  const { colors, soundActive, dictionary } = useConfigStore()
 
   const gameCompleted = useGameStore((state) =>
     state.categoriesState.every((category) => category.completed)
@@ -29,7 +29,6 @@ export default function CategoryCompleted() {
       }
     }
     window.document.location.href = '/'
-    // navigate('/')
   }
 
   return (
@@ -52,13 +51,13 @@ export default function CategoryCompleted() {
           className=" font-oswaldHeavyItalic text-5xl xs:text-[3.5rem] lg:text-[4.5rem] uppercase"
           style={{ color: colors.primary }}
         >
-          Felicidades
+          {dictionary['Congrats!']}
         </h1>
         <p
           className=" w-5/6 font-tekoMedium text-3xl xs:text-4xl lg:text-[3.5rem] leading-8 uppercase text-center"
           style={{ color: colors.text }}
         >
-          ¡Has completado toda la categoría!
+          {dictionary["You've completed the entire category!"]}
         </p>
         <Button
           className="mt-10 px-8 py-6 lg:py-8 font-oswaldMedium text-2xl lg:text-3xl hover:scale-105 active:scale-100 transition-all duration-200 ease-in-out uppercase rounded-full"
@@ -68,7 +67,7 @@ export default function CategoryCompleted() {
           }}
           onClick={handleClick}
         >
-          Girar la ruleta
+          {dictionary['Spin the wheel']}
         </Button>
       </div>
     </motion.div>

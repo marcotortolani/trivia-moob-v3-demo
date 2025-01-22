@@ -5,11 +5,13 @@ import { useConfigStore } from '@/lib/config-store'
 import { Header } from '@/components/header'
 import { Sidebar } from '@/components/sidebar'
 
-import { faqs } from '../data/faqs.json'
+import { Lang } from '@/lib/config-store'
+
+import dataFAQs from '../data/faqs.json'
 import { ChevronDown } from 'lucide-react'
 import { hexToRgb } from '@/lib/utils'
 
-import swooshShort from "../assets/sound/swoosh-2.mp3"
+import swooshShort from '../assets/sound/swoosh-2.mp3'
 
 type FaqType = {
   id: number
@@ -18,9 +20,11 @@ type FaqType = {
 }
 
 export default function FAQ() {
-  const { colors, soundActive } = useConfigStore()
+  const { colors, soundActive, dictionary, lang } = useConfigStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const faqs: FaqType[] = dataFAQs[lang as Lang]
 
   const [playSwooshOpen] = useSound(swooshShort, { playbackRate: 1.35 })
   const [playSwooshClose] = useSound(swooshShort, { playbackRate: 1.2 })
@@ -88,7 +92,7 @@ export default function FAQ() {
               borderBottom: `1.5px solid ${colors.primary}`,
             }}
           >
-            Preguntas Frecuentes
+            {dictionary['FAQs']}
           </motion.h2>
 
           <motion.ul

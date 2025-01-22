@@ -10,7 +10,7 @@ import goldenRing from '/img/default/anillo-ruleta.webp'
 import blopSound from '@/assets/sound/blop.mp3'
 
 const StartScreen = () => {
-  const { colors, soundActive } = useConfigStore()
+  const { colors, soundActive, dictionary } = useConfigStore()
   const { selectedCategory } = useGameStore()
   const { setGameState } = useQuestionStore()
 
@@ -33,7 +33,7 @@ const StartScreen = () => {
         className="text-center text-3xl xs:text-4xl xs:leading-[3.2rem] uppercase font-oswaldMedium italic tracking-wide -mb-2 xs:-mb-6 "
         style={{ color: colors.text }}
       >
-        Categoría
+        {dictionary['Category']}
       </p>
       <h2
         className="w-[95%] text-center text-wrap text-4xl xs:text-[3.2rem] xs:leading-[4rem] uppercase font-oswaldBold italic tracking-wide -mb-4 "
@@ -45,13 +45,6 @@ const StartScreen = () => {
       </h2>
       <div
         key="category-selected"
-        // initial={{ opacity: 0, scale: 0.5, rotate: -900 }}
-        // animate={{
-        //   opacity: 1,
-        //   scale: 1,
-        //   rotate: 0,
-        //   transition: { duration: 0.25, ease: 'easeInOut' },
-        // }}
         className=" relative w-3/5 max-w-[300px] my-4 aspect-square"
       >
         <img
@@ -81,7 +74,7 @@ const StartScreen = () => {
           color: colors.text,
         }}
       >
-        Comenzar
+        {dictionary['Start']}
       </Button>
     </motion.div>
   )

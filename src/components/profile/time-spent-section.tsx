@@ -10,7 +10,6 @@ export default function TimeSpent({
 }) {
   const { colors, dictionary } = useConfigStore()
   const { timeSpent } = useGameStore()
-  const texts = dictionary  
 
   function timeToText(time: number) {
     if (time === 0) return '00m:00s'
@@ -49,7 +48,7 @@ export default function TimeSpent({
       }}
       className=" w-full max-w-lg h-fit p-4 relative flex flex-col items-start justify-center gap-2"
     >
-      <SectionTitle title={texts?.timeSpentTitle} />
+      <SectionTitle title={dictionary['Time Spent']} />
 
       <div className=" w-full h-full flex items-center gap-2">
         <svg
@@ -107,14 +106,14 @@ export default function TimeSpent({
           className=" text-sm xs:text-base font-oswaldRegular tracking-wider uppercase"
           style={{ color: colors?.text }}
         >
-          {texts?.totalTime}:
+          {dictionary['Total']}:
         </h5>
         <p
           className=" text-base font-oswaldRegular align-text-bottom"
           style={{ color: colors?.text }}
         >
           <span className=" text-lg font-oswaldMedium ">{timeSpent}</span>{' '}
-          {texts?.seconds} = {timeToText(timeSpent)}
+          {dictionary['seconds']} = {timeToText(timeSpent)}
         </p>
       </div>
 
@@ -174,7 +173,7 @@ export default function TimeSpent({
           className=" text-sm xs:text-base font-oswaldRegular text-wrap tracking-wider uppercase "
           style={{ color: colors?.text }}
         >
-          {texts?.averageTime}:
+          {dictionary['Average Time']}:
         </h5>
         <p
           className=" min-w-fit text-nowrap text-sm xs:text-base font-oswaldRegular align-text-bottom "
@@ -183,7 +182,7 @@ export default function TimeSpent({
           <span className=" text-lg font-oswaldMedium ">
             {averageTime(timeSpent, answeredQuestionsProgress)}
           </span>{' '}
-          {texts?.seconds}
+          {dictionary['seconds']}
         </p>
       </div>
     </motion.section>
