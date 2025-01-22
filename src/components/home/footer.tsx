@@ -21,7 +21,7 @@ import closeSound from '@/assets/sound/popup-close-minimize.mp3'
 
 export function Footer() {
   const { score } = useGameStore()
-  const { colors, images, links, soundActive } = useConfigStore()
+  const { colors, images, links, soundActive, dictionary } = useConfigStore()
 
   const [playBlop, { stop: stopBlop }] = useSound(blopSound, {
     interrupt: true,
@@ -57,7 +57,7 @@ export function Footer() {
               alt="Logo"
               className=" w-full h-auto"
             />
-            Bases
+            {dictionary['terms']}
           </Button>
         </Link>
 
@@ -79,10 +79,10 @@ export function Footer() {
             </span>
           </div>
           <div
-            className=" font-oswaldMedium tracking-widest text-xs xs:text-base "
+            className=" font-oswaldMedium tracking-widest text-xs xs:text-base uppercase "
             style={{ color: colors.text }}
           >
-            PUNTAJE
+            {dictionary['score']}
           </div>
         </div>
 
@@ -99,7 +99,7 @@ export function Footer() {
                 alt="Logo"
                 className=" w-full h-auto"
               />
-              Premios
+              {dictionary['rewards']}
             </Button>
           </DialogTrigger>
           <DialogContent
@@ -123,7 +123,7 @@ export function Footer() {
                 className=" font-oswaldMedium uppercase"
                 style={{ color: colors.text }}
               >
-                Premios Disponibles
+                {dictionary['availableRewards']}
               </DialogTitle>
               <DialogDescription
                 style={{ color: 'transparent' }}

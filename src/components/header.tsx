@@ -1,5 +1,5 @@
 import useSound from 'use-sound'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useConfigStore } from '@/lib/config-store'
 import { Menu, VolumeX, Volume2 } from 'lucide-react'
@@ -31,6 +31,12 @@ export function Header({ onMenuClick }: HeaderProps) {
     onMenuClick()
   }
 
+  function handleLogoClick() {
+    if (soundActive) playPop()
+    // navigate('/')
+    window.document.location.href = '/'
+  }
+
   return (
     <motion.header
       initial={{ y: -200 }}
@@ -49,13 +55,13 @@ export function Header({ onMenuClick }: HeaderProps) {
           <Menu style={{ width: 28, height: 32, color: colors.text }} />
         </Button>
 
-        <Link to="/" onClick={soundActive ? () => playPop() : () => {}}>
+        <div onClick={handleLogoClick}>
           <img
             src={images.es.logoHeader}
             alt="Logo"
             className="w-5/6 xs:w-4/5 max-w-[300px] mx-auto"
           />
-        </Link>
+        </div>
 
         <motion.button
           initial={{ scale: 1, rotate: 0 }}

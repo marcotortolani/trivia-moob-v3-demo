@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import useSound from 'use-sound'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
+
 import { useStateMachine } from '@/hooks/useStateMachine'
 import { useScoreManager } from '@/hooks/useScoreManager'
 import { CardQuestion } from './card-question'
@@ -22,7 +22,6 @@ import victorySound from '@/assets/sound/tada-result.mp3'
 import CategorySelectedHeader from './category-selected-header'
 
 export function PlayingScreen() {
-  const navigate = useNavigate()
   const {
     selectedCategory,
     updateAnsweredQuestions,
@@ -186,7 +185,7 @@ export function PlayingScreen() {
         )}
         {state === 'changeCategoryModal' && (
           <ModalChangeCategory
-            onRoulette={() => navigate('/')}
+            onRoulette={() => (window.document.location.href = '/')}
             onCloseModal={() => send('STAY')}
             onDontAskAgain={() => send('DONT_ASK_AGAIN')}
           />

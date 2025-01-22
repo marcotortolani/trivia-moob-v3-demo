@@ -1,7 +1,6 @@
 import useSound from 'use-sound'
 import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
-import { useQuestionStore } from '@/lib/questions/questions-store'
+
 import { useConfigStore } from '@/lib/config-store'
 import { useGameStore } from '@/lib/game-store'
 import Confetti from 'react-confetti'
@@ -11,8 +10,6 @@ import blopSound from '@/assets/sound/blop.mp3'
 import successTrumpets from '@/assets/sound/success-trumpets.mp3'
 
 export default function CategoryCompleted() {
-  const navigate = useNavigate()
-  const { resetGameState } = useQuestionStore()
   const { colors, soundActive } = useConfigStore()
 
   const gameCompleted = useGameStore((state) =>
@@ -21,6 +18,19 @@ export default function CategoryCompleted() {
 
   const [playButton] = useSound(blopSound)
   const [playSuccess] = useSound(successTrumpets)
+
+  function handleClick() {
+    if (soundActive) {
+      playButton()
+      if (gameCompleted) {
+        setTimeout(() => {
+          playSuccess()
+        }, 200)
+      }
+    }
+    window.document.location.href = '/'
+    // navigate('/')
+  }
 
   return (
     <motion.div
@@ -56,18 +66,7 @@ export default function CategoryCompleted() {
             background: `linear-gradient(180deg, ${colors.primary} 60%, rgba(0, 0, 0, 1) 150%)`,
             color: colors.text,
           }}
-          onClick={() => {
-            if (soundActive) {
-              playButton()
-              if (gameCompleted) {
-                setTimeout(() => {
-                  playSuccess()
-                }, 200)
-              }
-            }
-            resetGameState()
-            navigate('/')
-          }}
+          onClick={handleClick}
         >
           Girar la ruleta
         </Button>

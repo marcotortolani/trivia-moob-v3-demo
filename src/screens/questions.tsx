@@ -52,7 +52,8 @@ export default function QuestionsPage() {
       <AnimatePresence mode="wait">
         <motion.main
           layout
-          key={`questions-page-${selectedCategory?.id}`}
+          // key={`questions-page-${selectedCategory?.id}`}
+          key="questions-page"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 1.5 } }}
           exit={{ scale: 0.5, opacity: 0, transition: { duration: 1.5 } }}

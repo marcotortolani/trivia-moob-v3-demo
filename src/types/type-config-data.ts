@@ -1,5 +1,6 @@
 export interface ConfigData {
   lastUpdated: string
+  lang: 'es' | 'en' | 'pt'
   userData: {
     userId: string
     userName: string
@@ -25,6 +26,7 @@ export interface ConfigData {
     background: string
     backgroundCongrats: string
     backgroundRewards: string
+    backgroundCardQuestion: string
     disable: string
     wrong: string
     correct: string
@@ -57,37 +59,7 @@ export interface ConfigData {
   links: {
     termsURL: string
   }
-  textsByLang: {
-    es: LanguageTexts
-    en: LanguageTexts
-    pt: LanguageTexts
-  }
   categories: Category[]
-}
-
-type LanguageTexts = {
-  terms: string
-  rewards: string
-  categoryTitle: string
-  buttonStart: string
-  dailyLimit: string
-  categoryCompleted: string
-  congratsTriviaCompleted: string
-  correctAnswer: string
-  wrongAnswer: string
-  points: string
-  userMenu: string
-  progressByCategory: string
-  totalProgress: string
-  hitRate: string
-  correctAmount: string
-  wrongAmount: string
-  bonusAmount: string
-  pointsPerAnswer: string
-  timeSpentTitle: string
-  totalTime: string
-  averageTime: string
-  seconds: string
 }
 
 export type Answer = {
@@ -107,4 +79,12 @@ export type Category = {
   imgURL: string
   bonus: boolean
   questions: Question[]
+}
+
+export type Dictionary = {
+  [key: string]: string
+}
+
+export type Dictionaries = {
+  [key: string]: Dictionary
 }

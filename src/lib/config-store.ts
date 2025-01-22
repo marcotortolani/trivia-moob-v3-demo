@@ -1,18 +1,19 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-//import configData from '@/data/config.json'
+
 import configDataInitial from '@/data/configDataInitial.json'
-import { ConfigData } from '@/types/type-config-data'
+import dictionaries from '@/data/dictionaries.json'
+import { ConfigData, Dictionary } from '@/types/type-config-data'
 
 const {
   lastUpdated,
+  lang,
   userData,
   validPeriod,
   config,
   colors,
   images,
   links,
-  textsByLang,
   categories,
 } = configDataInitial
 
@@ -23,6 +24,8 @@ type CategoryImage = {
   image: string
 }
 
+type Lang = ConfigData['lang']
+
 const categoriesImages: CategoryImage[] = categories.map((category) => ({
   id: category.id,
   name: category.name,
@@ -31,17 +34,19 @@ const categoriesImages: CategoryImage[] = categories.map((category) => ({
 
 interface ConfigState {
   lastUpdated: string
+  lang: Lang
   user: UserData
   validPeriod: ConfigData['validPeriod']
   config: ConfigData['config']
   colors: ConfigData['colors']
   images: ConfigData['images']
   links: ConfigData['links']
-  textsByLang: ConfigData['textsByLang']
+  dictionary: Dictionary
   categories: ConfigData['categories']
   categoriesImages: CategoryImage[]
   soundActive: boolean
   dataEndpoint: { gameHash: string | null; userHash: string | null }
+  setLang: (lang: string) => void
   setUserData: (user: UserData) => void
   updateConfigData: (data: Partial<ConfigData>) => void
   setSoundActive: (active: boolean) => void
@@ -55,20 +60,26 @@ export const useConfigStore = create<ConfigState>()(
   persist(
     (set) => ({
       lastUpdated,
+      lang: lang as Lang,
       user: userData,
       validPeriod,
       config,
       colors,
       images,
       links,
-      textsByLang,
+      dictionary: dictionaries[lang as Lang] as Dictionary,
       categories,
       categoriesImages,
       soundActive: false,
       dataEndpoint: { gameHash: '', userHash: '' },
+      setLang: (lang: string) =>
+        set({
+          lang: lang as Lang,
+          dictionary: dictionaries[lang as Lang] as Dictionary,
+        }),
+      setUserData: (user) => set({ user }),
       updateConfigData: (data) => set(data),
       setSoundActive: (active) => set({ soundActive: active }),
-      setUserData: (user) => set({ user }),
       updateDataEndpoint: (data) => set({ dataEndpoint: data }),
     }),
     {

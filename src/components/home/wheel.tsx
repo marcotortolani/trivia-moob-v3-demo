@@ -164,7 +164,7 @@ export function Wheel() {
                   key={category.name}
                   className={` ${
                     questionsAnswered >= totalQuestions &&
-                    ' brightness-[25%] grayscale-[0%]'
+                    ' brightness-[40%] grayscale-[90%]'
                   } absolute w-1/2 h-1/2 origin-bottom-right bg-gradient-to-br from-transparent to-black/20`}
                   style={{
                     transform: `rotate(-${

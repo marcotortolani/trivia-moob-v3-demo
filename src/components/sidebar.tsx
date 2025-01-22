@@ -28,7 +28,7 @@ import {
 import swoosh from '../assets/sound/swoosh.mp3'
 import blopSound from '../assets/sound/blop.mp3'
 import UserAvatar from './profile/user-avatar'
-import FallbackImage from "./fallback-image"
+import FallbackImage from './fallback-image'
 
 interface SidebarProps {
   isOpen: boolean
@@ -36,7 +36,8 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
-  const { colors, images, user, links, soundActive } = useConfigStore()
+  const { colors, images, user, links, soundActive, dictionary } =
+    useConfigStore()
   const { score } = useGameStore()
   const navigate = useNavigate()
 
@@ -120,23 +121,23 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           >
             <NavLinkStyled to="/" onNavLink={handleNavLink}>
               <HomeIcon width={24} height={24} fill={colors.primary} />
-              Inicio
+              {dictionary['home']}
             </NavLinkStyled>
             <NavLinkStyled to="/profile" onNavLink={handleNavLink}>
               <ProfileIcon width={24} height={24} fill={colors.primary} />
-              Mi Perfil
+              {dictionary['myProfile']}
             </NavLinkStyled>
             <NavLinkStyled to="/ranking" onNavLink={handleNavLink}>
               <RankingIcon width={24} height={24} fill={colors.primary} />
-              Objetivos - Ranking
+              {dictionary['goalsAndRanking']}
             </NavLinkStyled>
             <NavLinkStyled to="/how-to-play" onNavLink={handleNavLink}>
               <TutorialIcon width={24} height={24} fill={colors.primary} />
-              ¿Cómo Jugar?
+              {dictionary['howToPlay']}
             </NavLinkStyled>
             <NavLinkStyled to="/faq" onNavLink={handleNavLink}>
               <AboutIcon width={24} height={24} fill={colors.primary} />
-              Preguntas Frecuentes
+              {dictionary['frequentlyAskedQuestions']}
             </NavLinkStyled>
             <NavLinkStyled
               to={links.termsURL}
@@ -145,11 +146,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               }}
             >
               <TermsIcon width={24} height={24} fill={colors.primary} />
-              Bases y Condiciones
+              {dictionary['termsAndConditions']}
             </NavLinkStyled>
             <NavLinkStyled to="/rewards" onNavLink={handleNavLink}>
               <RewardsIcon width={24} height={24} fill={colors.primary} />
-              Premios
+              {dictionary['rewards']}
             </NavLinkStyled>
           </div>
         </div>
@@ -173,14 +174,14 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               className=" text-sm md:text-base font-oswaldLight tracking-wider"
               style={{ color: colors.text }}
             >
-              Otra solución de Media Moob
+              {dictionary['anotherSolutionByMediaMoob']}
             </p>
           </div>
           <p
             className=" text-xs font-oswaldLight tracking-wider uppercase"
             style={{ color: colors.text }}
           >
-            Todos los derechos reservados - {currentYear}
+            {dictionary['allRightsReserved']} - {currentYear}
           </p>
         </SheetFooter>
       </SheetContent>

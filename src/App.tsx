@@ -4,6 +4,7 @@ import { lazy } from 'react'
 import { Routes, Route, useSearchParams } from 'react-router-dom'
 import { useConfigStore } from './lib/config-store'
 import { useGameStore } from './lib/game-store'
+import { ConfigData } from './types/type-config-data'
 
 //import { ENDPOINT_CONFIG } from './data/constants'
 import configData from './data/config.json'
@@ -49,7 +50,7 @@ export default function App() {
   useEffect(() => {
     if (!configData) return
     if (configData?.lastUpdated === lastUpdated) return
-    updateConfigData(configData)
+    updateConfigData(configData as ConfigData)
     updateDataEndpoint({
       gameHash: gameHash,
       userHash: userHash,

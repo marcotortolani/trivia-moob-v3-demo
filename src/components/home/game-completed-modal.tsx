@@ -12,7 +12,7 @@ import blopSound from '@/assets/sound/blop.mp3'
 
 export function GameCompletedModal() {
   const { resetGame } = useGameStore()
-  const { colors, soundActive } = useConfigStore()
+  const { colors, soundActive, dictionary } = useConfigStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   const [playButton] = useSound(blopSound)
@@ -46,7 +46,7 @@ export function GameCompletedModal() {
             background: `linear-gradient(180deg, ${colors.primary} 60%, rgb(0, 0, 0,1) 150%)`,
           }}
         >
-          Lo has logrado
+          {dictionary['youDidIt']}
         </p>
 
         <div className=" w-3/4 max-w-[250px]">{View}</div>
@@ -56,13 +56,13 @@ export function GameCompletedModal() {
             className=" font-oswaldHeavyItalic text-4xl md:text-5xl uppercase text-center"
             style={{ color: colors.primary }}
           >
-            ¡Felicidades!
+            {dictionary['congrats']}
           </h2>
           <p
             className=" font-oswaldHeavyItalic text-4xl md:text-5xl leading-9 uppercase text-center"
             style={{ color: colors.text }}
           >
-            ¡Completaste <br /> la trivia!
+            {dictionary['youCompletedTheTrivia']}
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export function GameCompletedModal() {
           className=" font-tekoRegular text-lg md:text-xl uppercase mb-4"
           style={{ color: colors.text }}
         >
-          ¿Te gustaría jugar nuevamente?
+          {dictionary['wouldYouLikeToPlayAgain']}
         </p>
         <Button
           onClick={() => {
@@ -83,7 +83,7 @@ export function GameCompletedModal() {
             color: colors.text,
           }}
         >
-          Resetear Trivia
+          {dictionary['resetingTrivia']}
         </Button>
       </motion.div>
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />

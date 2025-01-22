@@ -110,8 +110,8 @@ export function CardQuestion({
           rotate,
           background: timeUp
             ? `linear-gradient(to bottom, ${colors.wrong} 60%, #000 120%)`
-            : `linear-gradient(to bottom, ${colors.primary} 70%, #000 220%)`,
-          outlineColor: timeUp ? colors.wrong : colors.primary,
+            : `linear-gradient(to bottom, ${colors.backgroundCardQuestion} 70%, #000 220%)`,
+          outlineColor: timeUp ? colors.wrong : colors.backgroundCardQuestion,
         }}
         className={`relative rounded-3xl px-2 py-4 xs:p-6 lg:p-8 outline-[6px] outline 
         ${timeUp ? 'animate-shake ' : ''}

@@ -3,7 +3,7 @@ import { useConfigStore } from '@/lib/config-store'
 import { useGameStore } from '@/lib/game-store'
 
 export default function LastestSelectedCategory() {
-  const { colors } = useConfigStore()
+  const { colors, dictionary } = useConfigStore()
   const { selectedCategory } = useGameStore()
 
   return (
@@ -23,7 +23,7 @@ export default function LastestSelectedCategory() {
       className="z-0 w-full md:w-fit mx-auto md:px-8 py-1 md:py-1.5 text-center font-oswaldRegular mb-0 md:rounded-full"
       style={{ backgroundColor: colors.primaryLight, color: colors.text }}
     >
-      Última categoría jugada:{' '}
+      {dictionary['latestCategoryPlayed']}:{' '}
       <span className=" font-oswaldHeavyItalic text-xl ">
         {selectedCategory.name}
       </span>

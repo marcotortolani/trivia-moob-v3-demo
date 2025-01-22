@@ -241,7 +241,7 @@ const RankingSection = () => {
   rankingData.push({
     name: user.userName,
     image: user.userAvatar,
-    score: score + 14500,
+    score: score,
   })
 
   rankingData.sort((a, b) => b.score - a.score)

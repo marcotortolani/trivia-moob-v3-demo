@@ -47,7 +47,7 @@ export default function Terms() {
   return (
     <AnimatePresence mode="wait">
       <motion.main
-        key="home-page"
+        key="terms-page"
         layout
         initial={{ scale: 1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1, transition: { duration: 0.5 } }}
