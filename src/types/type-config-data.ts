@@ -21,18 +21,14 @@ export interface ConfigData {
     pointsWrong: number
     pointsBonus: number
   }
-  URLImagesHost: string
   colors: {
-    background: string
-    backgroundCongrats: string
-    backgroundRewards: string
+    background: string    
     backgroundCardQuestion: string
     disable: string
     wrong: string
     correct: string
     title: string
     text: string
-    text2: string
     primary: string
     primaryLight: string
     secondary: string

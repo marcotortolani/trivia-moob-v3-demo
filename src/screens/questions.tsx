@@ -1,3 +1,4 @@
+import { lazy } from 'react'
 import { useState, useEffect } from 'react'
 import useSound from 'use-sound'
 
@@ -11,9 +12,9 @@ import { Header } from '@/components/header'
 import { GameFooter } from '@/components/game-footer'
 import { Sidebar } from '@/components/sidebar'
 
-import { StartScreen } from '@/components/questions/start-screen'
-import { PlayingScreen } from '@/components/questions/playing-screen'
-import CategoryCompleted from '@/components/questions/category-completed'
+const StartScreen = lazy(() => import('@/components/questions/start-screen') )
+const PlayingScreen = lazy(() => import('@/components/questions/playing-screen'))
+const CategoryCompleted = lazy(() => import('@/components/questions/category-completed'))
 
 import confettiSound from '../assets/sound/confetti-sound.mp3'
 

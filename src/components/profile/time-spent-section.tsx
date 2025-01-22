@@ -8,9 +8,9 @@ export default function TimeSpent({
 }: {
   answeredQuestionsProgress: number
 }) {
-  const { colors, textsByLang } = useConfigStore()
+  const { colors, dictionary } = useConfigStore()
   const { timeSpent } = useGameStore()
-  const texts = textsByLang['es']
+  const texts = dictionary  
 
   function timeToText(time: number) {
     if (time === 0) return '00m:00s'
@@ -49,7 +49,7 @@ export default function TimeSpent({
       }}
       className=" w-full max-w-lg h-fit p-4 relative flex flex-col items-start justify-center gap-2"
     >
-      <SectionTitle title={texts.timeSpentTitle} />
+      <SectionTitle title={texts?.timeSpentTitle} />
 
       <div className=" w-full h-full flex items-center gap-2">
         <svg

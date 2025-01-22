@@ -9,7 +9,7 @@ import goldenRing from '/img/default/anillo-ruleta.webp'
 
 import blopSound from '@/assets/sound/blop.mp3'
 
-export const StartScreen = () => {
+const StartScreen = () => {
   const { colors, soundActive } = useConfigStore()
   const { selectedCategory } = useGameStore()
   const { setGameState } = useQuestionStore()
@@ -86,3 +86,5 @@ export const StartScreen = () => {
     </motion.div>
   )
 }
+
+export default StartScreen

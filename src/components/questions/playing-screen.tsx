@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { lazy, useEffect, useState } from 'react'
+
 import useSound from 'use-sound'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -10,9 +11,14 @@ import { useConfigStore } from '@/lib/config-store'
 import { useQuestionStore } from '@/lib/questions/questions-store'
 import { useCountdown } from '@/hooks/useCountDown'
 import { useQuestionsAnswered } from '@/hooks/useQuestionsAnswered'
-import ModalChangeCategory from './modal-change-category'
-import ModalMotivationalMessage from './modal-motivational-message'
-import ModalGoalAchievement from './modal-goal-achievement'
+
+// import ModalChangeCategory from './modal-change-category'
+// import ModalMotivationalMessage from './modal-motivational-message'
+// import ModalGoalAchievement from './modal-goal-achievement'
+
+const ModalChangeCategory = lazy(() => import('./modal-change-category'))
+const ModalMotivationalMessage = lazy(() => import('./modal-motivational-message'))
+const ModalGoalAchievement = lazy(() => import('./modal-goal-achievement'))
 
 import swooshLong from '@/assets/sound/swoosh.mp3'
 import swooshShort from '@/assets/sound/swoosh-2.mp3'
@@ -21,7 +27,7 @@ import positiveSound from '@/assets/sound/button_sound.mp3'
 import victorySound from '@/assets/sound/tada-result.mp3'
 import CategorySelectedHeader from './category-selected-header'
 
-export function PlayingScreen() {
+export default function PlayingScreen() {
   const {
     selectedCategory,
     updateAnsweredQuestions,

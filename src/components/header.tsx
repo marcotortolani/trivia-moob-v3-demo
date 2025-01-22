@@ -39,6 +39,7 @@ export function Header({ onMenuClick }: HeaderProps) {
 
   return (
     <motion.header
+      key="header"
       initial={{ y: -200 }}
       animate={{ y: 0, transition: { duration: 0.5 } }}
       className={`${

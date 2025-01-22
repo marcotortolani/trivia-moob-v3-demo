@@ -40,6 +40,7 @@ export function Footer() {
 
   return (
     <motion.footer
+      key="footer"
       initial={{ y: 200 }}
       animate={{ y: -5, transition: { duration: 0.5 } }}
       className="z-20 px-4 py-2 lg:pt-4 lg:pb-6"

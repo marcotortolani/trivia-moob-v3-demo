@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-01-20 12:12:00",
+  "lastUpdated": "2025-01-22 12:13:00",
   "lang": "es",
   "userData": {
     "userId": "",
@@ -21,18 +21,14 @@
     "pointsWrong": 500,
     "pointsBonus": 1000
   },
-  "URLImagesHost": "",
   "colors": {
     "background": "#3d1c7c",
-    "backgroundCongrats": "#07121BF2",
-    "backgroundRewards": "#FFF",
     "backgroundCardQuestion": "#9d2b67",
     "disable": "#989898",
     "wrong": "#ef1f1f",
     "correct": "#5ac439",
     "title": "#9d2b67",
     "text": "#FAFAFA",
-    "text2": "",
     "primary": "#9d2b67",
     "primaryLight": "#c93c87",
     "secondary": "#3d1c7c",
@@ -95,7 +91,6 @@
   "links": {
     "termsURL": "https://google.com"
   },
-
   "categories": [
     {
       "id": 1,

@@ -100,6 +100,7 @@ export function Wheel() {
 
   return (
     <motion.div
+      key="wheel"
       layout
       initial={{ opacity: 0, x: -1000, rotate: -540 }}
       animate={{

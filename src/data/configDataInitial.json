@@ -21,18 +21,14 @@
     "pointsWrong": 0,
     "pointsBonus": 0
   },
-  "URLImagesHost": "",
   "colors": {
     "background": "",
-    "backgroundCongrats": "",
-    "backgroundRewards": "",
     "backgroundCardQuestion": "",
     "disable": "",
     "wrong": "",
     "correct": "",
     "title": "",
     "text": "",
-    "text2": "",
     "primary": "",
     "primaryLight": "",
     "secondary": "",
