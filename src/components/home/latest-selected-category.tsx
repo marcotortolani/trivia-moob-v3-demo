@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useConfigStore } from '@/lib/config-store'
 import { useGameStore } from '@/lib/game-store'
 
-export default function LastestSelectedCategory() {
+export default function LatestSelectedCategory() {
   const { colors, dictionary } = useConfigStore()
   const { selectedCategory } = useGameStore()
 
@@ -23,7 +23,7 @@ export default function LastestSelectedCategory() {
       className="z-0 w-full md:w-fit mx-auto md:px-8 py-1 md:py-1.5 text-center font-oswaldRegular mb-0 md:rounded-full"
       style={{ backgroundColor: colors.primaryLight, color: colors.text }}
     >
-      {dictionary['Latest Category Played']}:{' '}
+      {dictionary['Latest category played']}:{' '}
       <span className=" font-oswaldHeavyItalic text-xl ">
         {selectedCategory.name}
       </span>

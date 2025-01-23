@@ -8,7 +8,7 @@ import { useGameStore } from '@/lib/game-store'
 import { useConfigStore } from '@/lib/config-store'
 import { useQuestionStore } from '@/lib/questions/questions-store'
 import { GameCompletedModal } from '@/components/home/game-completed-modal'
-import LastestSelectedCategory from '@/components/home/latest-selected-category'
+import LatestSelectedCategory from '@/components/home/latest-selected-category'
 
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -42,7 +42,7 @@ export default function Home() {
 
         {gameCompleted && <GameCompletedModal />}
         <Wheel />
-        {selectedCategory.name && <LastestSelectedCategory />}
+        {selectedCategory.name && <LatestSelectedCategory />}
         <Footer />
         <Sidebar
           isOpen={isSidebarOpen}
