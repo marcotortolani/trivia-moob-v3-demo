@@ -304,7 +304,7 @@ const RankingSection = () => {
                 ) : (
                   <img
                     src={player.image}
-                    alt=""
+                    alt="Image Avatar Player"
                     className=" w-10 h-10 rounded-full"
                   />
                 )}

@@ -94,7 +94,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           </SheetTitle>
         </SheetHeader>
 
-        <div className="w-full px-2 flex flex-col items-center justify-center lg:gap-16">
+        <div className="w-full px-2 flex flex-col items-center justify-center lg:gap-12">
           <div className="w-full px-2 flex items-center justify-center ">
             <div className=" w-1/3  flex flex-col items-center justify-center ">
               <UserAvatar />
@@ -122,11 +122,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             </div>
           </div>
 
-          <div className="mt-4 flex items-center gap-4">
+          <div className="mt-4 xl:mt-0 flex items-center gap-4">
             <button
               type="button"
               onClick={() => setLang('es')}
-              className={`w-12 h-8 p-0.5 font-mono text-xl rounded-full`}
+              className=" w-12 h-8 p-0.5 pt-1 font-tekoMedium text-xl rounded-full"
               style={{
                 backgroundColor:
                   lang === 'es' ? colors.primary : colors.secondary,
@@ -138,7 +138,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             <button
               type="button"
               onClick={() => setLang('en')}
-              className=" w-12 h-8 p-0.5 font-mono text-xl rounded-full"
+              className=" w-12 h-8 p-0.5 pt-1 font-tekoMedium text-xl rounded-full"
               style={{
                 backgroundColor:
                   lang === 'en' ? colors.primary : colors.secondary,
@@ -150,7 +150,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             <button
               type="button"
               onClick={() => setLang('pt')}
-              className=" w-12 h-8 p-0.5 font-mono text-xl rounded-full"
+              className=" w-12 h-8 p-0.5 pt-1 font-tekoMedium text-xl rounded-full"
               style={{
                 backgroundColor:
                   lang === 'pt' ? colors.primary : colors.secondary,
@@ -162,7 +162,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           </div>
 
           <div
-            className="w-full xs:px-2 min-h-fit grid gap-5 lg:gap-8 py-8"
+            className="w-full xs:px-2 min-h-fit grid gap-5 lg:gap-6 py-8 xl:py-2"
             style={{
               color: colors.text,
             }}

@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion'
 import { useLottie } from 'lottie-react'
+import { useConfigStore } from '@/lib/config-store'
 
 import timesUpDynamite from '../../assets/lotties/times-up-dynamite.json'
 
 export default function TimeUp({ timeUp }: { timeUp: boolean }) {
+  const { dictionary } = useConfigStore()
   const options = {
     animationData: timesUpDynamite,
     loop: true,
@@ -23,7 +25,7 @@ export default function TimeUp({ timeUp }: { timeUp: boolean }) {
       className="z-[200] absolute bottom-0 left-0 w-full h-full flex flex-col items-center justify-center gap-6 bg-gradient-to-b from-black/30 to-black/80 backdrop-blur-sm"
     >
       <p className="px-6 py-4 bg-white text-red-600 font-oswaldHeavyItalic uppercase text-xl xs:text-2xl text-center rounded-xl">
-        Se agotó el tiempo!!!
+        {dictionary["Time's up!!!"]}
       </p>
       <div className=" w-3/5 max-w-[250px] rotate-3 ">{View}</div>
     </motion.div>

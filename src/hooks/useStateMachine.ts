@@ -6,6 +6,8 @@ import {
   MedalType,
 } from '@/lib/questions/questions-constants'
 
+import { Lang } from '@/lib/config-store'
+
 // Configuración de transiciones con delays
 const transitionDelays = [
   { from: 'answering', to: 'changeCategoryModal', delay: 2500 },
@@ -38,7 +40,9 @@ type TEvent =
   | 'STAY'
   | 'SHOW_GOAL_ACHIEVED'
 
-type ValidSizes = keyof (typeof MOTIVATIONAL_MESSAGES)['correct' | 'incorrect']
+type ValidSizes = keyof (typeof MOTIVATIONAL_MESSAGES)[Lang][
+  | 'correct'
+  | 'incorrect']
 export type MotivationalMessage = {
   title: string
   lottieName: string
@@ -48,6 +52,9 @@ export type MotivationalMessage = {
   number: number
 }
 
+export type MotivationalMessageByLang = {
+  [key in Lang]: MotivationalMessage
+}
 
 type PendingState = TState[]
 
@@ -62,7 +69,6 @@ interface Context {
   currentMedal: MedalType
   score: number
 }
-
 
 // Configuración de la máquina de estados
 const stateMachineConfig = {
@@ -194,7 +200,9 @@ function checkMotivationalMessage(
 
 // Función auxiliar para obtener mensaje motivacional
 function getMotivationalMessage(type: string, size: number) {
-  return MOTIVATIONAL_MESSAGES[type as 'correct' | 'incorrect'][
+  const { lang } = useConfigStore.getState()
+
+  return MOTIVATIONAL_MESSAGES[lang][type as 'correct' | 'incorrect'][
     size.toString() as ValidSizes
   ]
 }

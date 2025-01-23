@@ -33,7 +33,6 @@ export function Header({ onMenuClick }: HeaderProps) {
 
   function handleLogoClick() {
     if (soundActive) playPop()
-    // navigate('/')
     window.document.location.href = '/'
   }
 

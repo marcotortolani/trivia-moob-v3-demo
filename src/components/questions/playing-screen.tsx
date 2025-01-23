@@ -12,7 +12,9 @@ import { useCountdown } from '@/hooks/useCountDown'
 import { useQuestionsAnswered } from '@/hooks/useQuestionsAnswered'
 
 const ModalChangeCategory = lazy(() => import('./modal-change-category'))
-const ModalMotivationalMessage = lazy(() => import('./modal-motivational-message'))
+const ModalMotivationalMessage = lazy(
+  () => import('./modal-motivational-message')
+)
 const ModalGoalAchievement = lazy(() => import('./modal-goal-achievement'))
 
 import swooshLong from '@/assets/sound/swoosh.mp3'

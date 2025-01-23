@@ -29,7 +29,7 @@ export function CardQuestion({
 }) {
   const { selectedCategory } = useGameStore()
   const { showExtraPoints } = useQuestionStore()
-  const { colors, soundActive } = useConfigStore()
+  const { colors, soundActive, dictionary } = useConfigStore()
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
   const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null)
 
@@ -113,9 +113,7 @@ export function CardQuestion({
             : `linear-gradient(to bottom, ${colors.backgroundCardQuestion} 70%, #000 220%)`,
           outlineColor: timeUp ? colors.wrong : colors.backgroundCardQuestion,
         }}
-        className={`relative rounded-3xl px-2 py-4 xs:p-6 lg:p-8 outline-[6px] outline 
-        ${timeUp ? 'animate-shake ' : ''}
-      `}
+        className={`relative rounded-3xl px-2 py-4 xs:p-6 lg:p-8 outline-[6px] outline`}
       >
         <div className="absolute top-0 right-0 translate-x-1/4 -translate-y-1/2 flex justify-end">
           <Timer
@@ -125,8 +123,8 @@ export function CardQuestion({
           />
         </div>
         {(categoryHasBonus || questionHasBonus) && (
-          <div className="absolute top-0 left-0 -translate-x-4 -translate-y-1/2 flex justify-end">
-            <BadgeGlow>BONUS</BadgeGlow>
+          <div className="absolute top-0 left-0 -translate-x-4 -translate-y-1/2 flex justify-end uppercase">
+            <BadgeGlow>{dictionary['Bonus']}</BadgeGlow>
           </div>
         )}
         <motion.div style={{ scale }}>
@@ -148,8 +146,6 @@ export function CardQuestion({
                 selectedAnswer={selectedAnswer}
                 timeUp={timeUp}
                 onSelectAnswer={() => {
-                  console.log(' click button answer')
-
                   handleAnswer({ index, isCorrect: answer.isCorrect })
                 }}
                 questionHasBonus={currentQuestion?.bonus ?? false}
@@ -181,7 +177,7 @@ function ButtonAnswer({
   questionHasBonus: boolean
   categoryHasBonus: boolean
 }) {
-  const { config, colors } = useConfigStore()
+  const { config, colors, dictionary } = useConfigStore()
   const { pointsCorrect, pointsWrong, pointsBonus } = config
 
   const styles = {
@@ -228,9 +224,9 @@ function ButtonAnswer({
       {selectedAnswer === index
         ? answer.isCorrect
           ? questionHasBonus || categoryHasBonus
-            ? `Extra Bonus: +${pointsCorrect + pointsBonus}`
-            : `Correcta: +${pointsCorrect}`
-          : `Incorrecta: +${pointsWrong}`
+            ? `${dictionary['Extra Bonus']}: +${pointsCorrect + pointsBonus}`
+            : `${dictionary['Correct(sn)']}: +${pointsCorrect}`
+          : `${dictionary['Incorrect(sn)']}: +${pointsWrong}`
         : answer.text}
     </motion.button>
   )

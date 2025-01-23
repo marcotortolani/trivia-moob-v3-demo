@@ -29,11 +29,13 @@ export function useScoreManager() {
 
       return pointsWrong + timeBonus
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )
 
   const updateScore = useCallback((points: number) => {
     incrementScore(points)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const addRecentAnswer = useCallback((answer: AnswerType) => {

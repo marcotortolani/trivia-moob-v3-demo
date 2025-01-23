@@ -1,86 +1,260 @@
 {
-  "correct": {
-    "3": {
-      "title": "¡Impresionante!",
-      "lottieName": "confetti",
-      "longMessage": "¡Estás calentando motores!",
-      "shortMessage": "¡Sigue así!",
-      "type": "correct",
-      "number": 3
+  "es": {
+    "correct": {
+      "3": {
+        "title": "¡Impresionante!",
+        "lottieName": "confetti",
+        "longMessage": "¡Estás calentando motores!",
+        "shortMessage": "¡Sigue así!",
+        "type": "correct",
+        "number": 3
+      },
+      "5": {
+        "title": "¡Wouw 5 al hilo!",
+        "lottieName": "rocket",
+        "longMessage": "¡Estás en una buena racha!",
+        "shortMessage": "¡Sigue así!",
+        "type": "correct",
+        "number": 5
+      },
+      "7": {
+        "title": "¡Esto es épico!",
+        "lottieName": "fire",
+        "longMessage": "¡Estás en una buena racha!",
+        "shortMessage": "¡Sigue así!",
+        "type": "correct",
+        "number": 7
+      },
+      "10": {
+        "title": "¡Eres muy crack!",
+        "lottieName": "star",
+        "longMessage": "¡Eres una genialidad en acción!",
+        "shortMessage": "¡Sigue así!",
+        "type": "correct",
+        "number": 10
+      },
+      "12": {
+        "title": "¡Eres muy crack!",
+        "lottieName": "sunglasses",
+        "longMessage": "¡Tu cerebro está en Modo Turbo!",
+        "shortMessage": "¡Sigue así!",
+        "type": "correct",
+        "number": 12
+      }
     },
-    "5": {
-      "title": "¡Wouw 5 al hilo!",
-      "lottieName": "rocket",
-      "longMessage": "¡Estás en una buena racha!",
-      "shortMessage": "¡Sigue así!",
-      "type": "correct",
-      "number": 5
-    },
-    "7": {
-      "title": "¡Esto es épico!",
-      "lottieName": "fire",
-      "longMessage": "¡Estás en una buena racha!",
-      "shortMessage": "¡Sigue así!",
-      "type": "correct",
-      "number": 7
-    },
-    "10": {
-      "title": "¡Eres muy crack!",
-      "lottieName": "star",
-      "longMessage": "¡Eres una genialidad en acción!",
-      "shortMessage": "¡Sigue así!",
-      "type": "correct",
-      "number": 10
-    },
-    "12": {
-      "title": "¡Eres muy crack!",
-      "lottieName": "sunglasses",
-      "longMessage": "¡Tu cerebro está en Modo Turbo!",
-      "shortMessage": "¡Sigue así!",
-      "type": "correct",
-      "number": 12
+    "incorrect": {
+      "3": {
+        "title": "No te desanimes!",
+        "lottieName": "muscle",
+        "longMessage": "¡Vamos tu puedes con la próxima!",
+        "shortMessage": "¡La próxima es tuya!",
+        "type": "incorrect",
+        "number": 3
+      },
+      "5": {
+        "title": "¡No pasa nada!",
+        "lottieName": "fist",
+        "longMessage": "¡Hasta los mejores tienen malos días!",
+        "shortMessage": "¡La próxima es tuya!",
+        "type": "incorrect",
+        "number": 5
+      },
+      "7": {
+        "title": "¡Necesitas practicar!",
+        "lottieName": "sadFace",
+        "longMessage": "¡Respira hondo y sigue adelante!",
+        "shortMessage": "¡A revertirlo!",
+        "type": "incorrect",
+        "number": 7
+      },
+      "10": {
+        "title": "¡Vamos, no te desanimes!",
+        "lottieName": "ungryFace",
+        "longMessage": "Las grandes comebacks comienzan así",
+        "shortMessage": "¡Se que lo revertirás!",
+        "type": "incorrect",
+        "number": 10
+      },
+      "12": {
+        "title": "¡Se que puedes!",
+        "lottieName": "cryFace",
+        "longMessage": "¡Recuerda que esto es para divertirse!",
+        "shortMessage": "¡Sigue intentando!",
+        "type": "incorrect",
+        "number": 12
+      }
     }
   },
-  "incorrect": {
-    "3": {
-      "title": "No te desanimes!",
-      "lottieName": "muscle",
-      "longMessage": "¡Vamos tu puedes con la próxima!",
-      "shortMessage": "¡La próxima es tuya!",
-      "type": "incorrect",
-      "number": 3
+  "en": {
+    "correct": {
+      "3": {
+        "title": "Impressive!",
+        "lottieName": "confetti",
+        "longMessage": "You're warming up!",
+        "shortMessage": "Keep it up!",
+        "type": "correct",
+        "number": 3
+      },
+      "5": {
+        "title": "Wow, 5 in a row!",
+        "lottieName": "rocket",
+        "longMessage": "You're on a good streak!",
+        "shortMessage": "Keep it up!",
+        "type": "correct",
+        "number": 5
+      },
+      "7": {
+        "title": "This is epic!",
+        "lottieName": "fire",
+        "longMessage": "You're on a good streak!",
+        "shortMessage": "Keep it up!",
+        "type": "correct",
+        "number": 7
+      },
+      "10": {
+        "title": "You're amazing!",
+        "lottieName": "star",
+        "longMessage": "You're brilliance in action!",
+        "shortMessage": "Keep it up!",
+        "type": "correct",
+        "number": 10
+      },
+      "12": {
+        "title": "You're amazing!",
+        "lottieName": "sunglasses",
+        "longMessage": "Your brain is in Turbo Mode!",
+        "shortMessage": "Keep it up!",
+        "type": "correct",
+        "number": 12
+      }
     },
-    "5": {
-      "title": "¡No pasa nada!",
-      "lottieName": "fist",
-      "longMessage": "¡Hasta los mejores tienen malos días!",
-      "shortMessage": "¡La próxima es tuya!",
-      "type": "incorrect",
-      "number": 5
+    "incorrect": {
+      "3": {
+        "title": "Don't get discouraged!",
+        "lottieName": "muscle",
+        "longMessage": "Come on, you can do it next time!",
+        "shortMessage": "The next one is yours!",
+        "type": "incorrect",
+        "number": 3
+      },
+      "5": {
+        "title": "It's all good!",
+        "lottieName": "fist",
+        "longMessage": "Even the best have bad days!",
+        "shortMessage": "The next one is yours!",
+        "type": "incorrect",
+        "number": 5
+      },
+      "7": {
+        "title": "You need to practice!",
+        "lottieName": "sadFace",
+        "longMessage": "Take a deep breath and keep going!",
+        "shortMessage": "Turn it around!",
+        "type": "incorrect",
+        "number": 7
+      },
+      "10": {
+        "title": "Come on, don't give up!",
+        "lottieName": "ungryFace",
+        "longMessage": "Great comebacks start like this!",
+        "shortMessage": "I know you'll turn it around!",
+        "type": "incorrect",
+        "number": 10
+      },
+      "12": {
+        "title": "I know you can do it!",
+        "lottieName": "cryFace",
+        "longMessage": "Remember, this is all about having fun!",
+        "shortMessage": "Keep trying!",
+        "type": "incorrect",
+        "number": 12
+      }
+    }
+  },
+  "pt": {
+    "correct": {
+      "3": {
+        "title": "Impressionante!",
+        "lottieName": "confetti",
+        "longMessage": "Você está aquecendo!",
+        "shortMessage": "Continue assim!",
+        "type": "correct",
+        "number": 3
+      },
+      "5": {
+        "title": "Uau, 5 seguidas!",
+        "lottieName": "rocket",
+        "longMessage": "Você está em uma boa sequência!",
+        "shortMessage": "Continue assim!",
+        "type": "correct",
+        "number": 5
+      },
+      "7": {
+        "title": "Isso é épico!",
+        "lottieName": "fire",
+        "longMessage": "Você está em uma boa sequência!",
+        "shortMessage": "Continue assim!",
+        "type": "correct",
+        "number": 7
+      },
+      "10": {
+        "title": "Você é incrível!",
+        "lottieName": "star",
+        "longMessage": "Você é um gênio em ação!",
+        "shortMessage": "Continue assim!",
+        "type": "correct",
+        "number": 10
+      },
+      "12": {
+        "title": "Você é incrível!",
+        "lottieName": "sunglasses",
+        "longMessage": "Seu cérebro está no Modo Turbo!",
+        "shortMessage": "Continue assim!",
+        "type": "correct",
+        "number": 12
+      }
     },
-    "7": {
-      "title": "¡Necesitas practicar!",
-      "lottieName": "sadFace",
-      "longMessage": "¡Respira hondo y sigue adelante!",
-      "shortMessage": "¡A revertirlo!",
-      "type": "incorrect",
-      "number": 7
-    },
-    "10": {
-      "title": "¡Vamos, no te desanimes!",
-      "lottieName": "ungryFace",
-      "longMessage": "Las grandes comebacks comienzan así",
-      "shortMessage": "¡Se que lo revertirás!",
-      "type": "incorrect",
-      "number": 10
-    },
-    "12": {
-      "title": "¡Se que puedes!",
-      "lottieName": "cryFace",
-      "longMessage": "¡Recuerda que esto es para divertirse!",
-      "shortMessage": "¡Sigue intentando!",
-      "type": "incorrect",
-      "number": 12
+    "incorrect": {
+      "3": {
+        "title": "Não desanime!",
+        "lottieName": "muscle",
+        "longMessage": "Vamos lá, você consegue na próxima!",
+        "shortMessage": "A próxima é sua!",
+        "type": "incorrect",
+        "number": 3
+      },
+      "5": {
+        "title": "Tudo bem!",
+        "lottieName": "fist",
+        "longMessage": "Até os melhores têm dias ruins!",
+        "shortMessage": "A próxima é sua!",
+        "type": "incorrect",
+        "number": 5
+      },
+      "7": {
+        "title": "Você precisa praticar!",
+        "lottieName": "sadFace",
+        "longMessage": "Respire fundo e continue!",
+        "shortMessage": "Vamos virar o jogo!",
+        "type": "incorrect",
+        "number": 7
+      },
+      "10": {
+        "title": "Vamos lá, não desista!",
+        "lottieName": "ungryFace",
+        "longMessage": "Grandes comebacks começam assim!",
+        "shortMessage": "Eu sei que você vai virar isso!",
+        "type": "incorrect",
+        "number": 10
+      },
+      "12": {
+        "title": "Eu sei que você consegue!",
+        "lottieName": "cryFace",
+        "longMessage": "Lembre-se de que isso é para se divertir!",
+        "shortMessage": "Continue tentando!",
+        "type": "incorrect",
+        "number": 12
+      }
     }
   }
 }

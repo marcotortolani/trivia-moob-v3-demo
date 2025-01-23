@@ -19,7 +19,7 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
   onCloseModal,
   onDontAskAgain,
 }) => {
-  const { config, colors, soundActive } = useConfigStore()
+  const { config, colors, soundActive, dictionary } = useConfigStore()
 
   const [playButton] = useSound(blopSound)
 
@@ -49,8 +49,9 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
             color: colors.text,
           }}
         >
-          Ya respondiste {config.amountAnswersToChangeCategory} preguntas en
-          esta categoría
+          {dictionary['You have already answered']}{' '}
+          {config.amountAnswersToChangeCategory}{' '}
+          {dictionary['questions in this category']}
         </p>
         <h2
           className=" w-5/6 mt-3 uppercase text-2xl xs:text-3xl font-oswaldHeavyItalic leading-7 text-center "
@@ -58,7 +59,7 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
             color: colors.text,
           }}
         >
-          ¿Te gustaría volver a tirar la ruleta?
+          {dictionary['Would you like to spin the wheel again?']}
         </h2>
         <div className=" w-3/5 max-w-[250px]">{View}</div>
 
@@ -73,7 +74,7 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
             background: `linear-gradient(180deg, ${colors.primary} 60%, rgba(0,0,0,1) 160%`,
           }}
         >
-          Volver a tirar
+          {dictionary['Spin again']}
         </button>
 
         <button
@@ -84,7 +85,7 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
           className="mt-2 px-6 py-0.5 bg-neutral-400 uppercase font-tekoRegular text-lg xs:text-2xl shadow-md shadow-black/50 rounded-full "
           style={{ color: colors.text }}
         >
-          Continuar en Categoría actual
+          {dictionary['Continue in Current Category']}
         </button>
 
         <div className="mt-4 flex items-center gap-3">
@@ -99,7 +100,7 @@ const ModalChangeCategory: React.FC<ModalChangeCategoryProps> = ({
             className=" w-5 h-5 xs:w-6 xs:h-6  bg-transparent border-2 border-white rounded-lg accent-rose-500 text-rose-400"
           />
           <p className=" font-tekoRegular uppercase text-lg xs:text-2xl">
-            No volver a preguntarme
+            {dictionary["Don't ask me again"]}
           </p>
         </div>
       </div>

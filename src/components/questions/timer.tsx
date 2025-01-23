@@ -28,6 +28,7 @@ export function Timer({
       setExtraPoints(secondsLeft * 10)
     }
     if (soundActive) playTic()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showExtraPoints, secondsLeft])
 
   return (

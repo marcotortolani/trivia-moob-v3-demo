@@ -1,6 +1,6 @@
 import { useLottie } from 'lottie-react'
 import { motion } from 'framer-motion'
-import { useConfigStore } from '@/lib/config-store'
+import { Lang, useConfigStore } from '@/lib/config-store'
 import { MEDAL_THRESHOLDS } from '@/lib/questions/questions-constants'
 
 import goldMedal from '@/assets/lotties/gold-medal.json'
@@ -14,7 +14,8 @@ export default function ModalGoalAchievement({
 }: {
   medal: string | null
 }) {
-  const { colors, images, config, categories } = useConfigStore()
+  const { colors, images, config, categories, lang, dictionary } =
+    useConfigStore()
   const options = {
     animationData: goldMedal,
     loop: true,
@@ -29,15 +30,15 @@ export default function ModalGoalAchievement({
   switch (medal) {
     case MEDAL_THRESHOLDS.gold.type:
       options.animationData = goldMedal
-      goalName = 'Dorado'
+      goalName = dictionary['Golden']
       break
     case MEDAL_THRESHOLDS.silver.type:
       options.animationData = silverMedal
-      goalName = 'Plateado'
+      goalName = dictionary['Silvered']
       break
     case MEDAL_THRESHOLDS.copper.type:
       options.animationData = copperMedal
-      goalName = 'Cobre'
+      goalName = dictionary['Copper']
       break
   }
 
@@ -50,7 +51,9 @@ export default function ModalGoalAchievement({
       className="absolute top-0 left-0 z-[200] w-screen min-h-[100dvh]  px-2 pb-10 flex flex-col items-center justify-center lg:gap-8 bg-gradient-to-b from-black/10 via-black/30 to-black backdrop-blur-sm"
     >
       <div className="relative z-0 h-fit flex flex-col items-center justify-center mb-2  ">
-        <div className="  w-4/5 lg:w-full lg:max-w-[400px] -mb-20 -mt-10 lg:-mb-28 lg:-mt-20 ">{View}</div>
+        <div className="  w-4/5 lg:w-full lg:max-w-[400px] -mb-20 -mt-10 lg:-mb-28 lg:-mt-20 ">
+          {View}
+        </div>
         <img
           src={podium3D}
           alt="3D Cylinder Podium image"
@@ -74,7 +77,7 @@ export default function ModalGoalAchievement({
           className=" text-2xl leading-7 xs:text-4xl xs:leading-9 lg:text-5xl font-oswaldHeavyItalic uppercase text-center"
           style={{ color: colors.text }}
         >
-          ¡Cumpliste el objetivo {goalName}!
+          {dictionary['You completed the goal']}: {goalName}!
         </p>
         <p
           className=" text-2xl leading-7 xs:text-4xl xs:leading-9 lg:text-5xl font-oswaldHeavyItalic uppercase text-center"
@@ -82,7 +85,11 @@ export default function ModalGoalAchievement({
             color: colors.primary,
           }}
         >
-          {MEDAL_THRESHOLDS[medal as keyof typeof MEDAL_THRESHOLDS].message}
+          {
+            MEDAL_THRESHOLDS[medal as keyof typeof MEDAL_THRESHOLDS].message[
+              lang as Lang
+            ]
+          }
         </p>
       </div>
       <div className="mt-5 text-4xl lg:text-5xl">🎉 🌟 🔥 🚀 😎</div>

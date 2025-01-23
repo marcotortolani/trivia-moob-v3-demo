@@ -4,7 +4,7 @@ import triviaUpcoming from '../../public/img/default/trivia-proximamente.webp'
 import triviaEnded from '../../public/img/default/trivia-finalizada.webp'
 
 export default function ValidPeriod({ type }: { type: 'upcoming' | 'ended' }) {
-  const { validPeriod, images, colors } = useConfigStore()
+  const { validPeriod, images, colors, dictionary } = useConfigStore()
   const dateStartStyled = new Date(validPeriod?.startDate).toLocaleDateString(
     'es',
     {
@@ -65,10 +65,10 @@ export default function ValidPeriod({ type }: { type: 'upcoming' | 'ended' }) {
             className=" w-[90%] max-x-[400px] mt-8 text-center font-oswaldHeavyItalic uppercase mb-8 text-3xl animate-pulse"
             style={{ color: colors?.text }}
           >
-            Podras jugar
+            {dictionary['You will be able to play']}
             <br />
             <span className=" text-4xl" style={{ color: colors?.correct }}>
-              Proximamente
+              {dictionary['Coming soon']}
             </span>
           </h4>
         ) : (
@@ -76,9 +76,9 @@ export default function ValidPeriod({ type }: { type: 'upcoming' | 'ended' }) {
             className=" w-[90%] max-x-[400px] mt-8 text-center font-oswaldHeavyItalic uppercase mb-8 text-3xl animate-pulse"
             style={{ color: colors?.text }}
           >
-            La trivia ha <br />
+            {dictionary['The Trivia has']} <br />
             <span className=" text-4xl " style={{ color: colors?.wrong }}>
-              Finalizado
+              {dictionary['Ended']}
             </span>
           </h4>
         )}
@@ -88,19 +88,21 @@ export default function ValidPeriod({ type }: { type: 'upcoming' | 'ended' }) {
             className="w-4/5 max-w-[350px] font-oswaldLight tracking-wider text-center uppercase"
             style={{ color: colors?.text }}
           >
-            La trivia estará habilitada del {dateStartStyled} a las{' '}
-            {timeStartStyled}
-            <span className=" lowercase">hs</span> hasta el {dateEndStyled} a
-            las {timeEndStyled}
-            <span className=" lowercase">hs</span>
+            {dictionary['The Trivia will be available from']} {dateStartStyled}{' '}
+            {dictionary['at']} {timeStartStyled}
+            <span className=" lowercase">{dictionary['hrs']}</span>{' '}
+            {dictionary['until']} {dateEndStyled} {dictionary['at']}{' '}
+            {timeEndStyled}
+            <span className=" lowercase">{dictionary['hrs']}</span>
           </p>
         ) : (
           <p
             className="w-4/5 max-w-[350px] font-oswaldLight tracking-wider text-center uppercase"
             style={{ color: colors?.text }}
           >
-            El día {dateEndStyled} a las {timeEndStyled}
-            <span className=" lowercase">hs</span>
+            {dictionary['On']} {dateEndStyled} {dictionary['at']}{' '}
+            {timeEndStyled}
+            <span className=" lowercase">{dictionary['hrs']}</span>
           </p>
         )}
       </div>

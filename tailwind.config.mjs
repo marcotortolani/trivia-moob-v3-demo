@@ -30,7 +30,6 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        shake: 'shake 0.82s cubic-bezier(.36,.07,.19,.97) both',
       },
       dropShadow: {
         gold: ['0 0 5px #FFD700', '0 0 10px #FFD700', '0 0 20px #FFD70055'],

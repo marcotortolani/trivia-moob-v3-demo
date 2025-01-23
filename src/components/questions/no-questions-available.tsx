@@ -1,13 +1,12 @@
-import useSound from "use-sound"
-import { useNavigate } from 'react-router-dom'
+import useSound from 'use-sound'
+
 import { useConfigStore } from '@/lib/config-store'
 import { Button } from '../ui/button'
 
 import blopSound from '@/assets/sound/blop.mp3'
 
 export default function NoQuestionsAvailable() {
-  const navigate = useNavigate()
-  const { colors, soundActive } = useConfigStore()
+  const { colors, soundActive, dictionary } = useConfigStore()
   const [playButton] = useSound(blopSound)
 
   return (
@@ -16,7 +15,7 @@ export default function NoQuestionsAvailable() {
         className=" w-5/6 font-tekoMedium text-3xl xs:text-4xl lg:text-[3.2rem] leading-8 uppercase text-center"
         style={{ color: colors.text }}
       >
-        No hay preguntas disponibles
+        {dictionary['No questions available']}
       </p>
       <Button
         className="px-8 py-6 lg:py-8 font-oswaldMedium text-2xl lg:text-3xl hover:scale-105 active:scale-100 transition-all duration-200 ease-in-out uppercase rounded-full"
@@ -28,10 +27,10 @@ export default function NoQuestionsAvailable() {
           if (soundActive) {
             playButton()
           }
-          navigate('/')
+          window.document.location.href = '/'
         }}
       >
-        Girar la ruleta
+        {dictionary['Spin the wheel']}
       </Button>
     </div>
   )

@@ -20,7 +20,7 @@ const ModalMotivationalMessage = ({
 }: {
   motivationalMessage: MotivationalMessage
 }) => {
-  const { colors } = useConfigStore()
+  const { colors, dictionary } = useConfigStore()
   let lottie = undefined
 
   switch (motivationalMessage?.lottieName) {
@@ -93,11 +93,11 @@ const ModalMotivationalMessage = ({
             className=" font-tekoRegular text-2xl xs:text-3xl "
             style={{ color: colors.text }}
           >
-            Llevas {motivationalMessage?.number}{' '}
+            {dictionary["You've got"]} {motivationalMessage?.number}{' '}
             {motivationalMessage?.type === 'correct'
-              ? 'correctas'
-              : 'incorrectas'}{' '}
-            consecutivas.
+              ? dictionary['correct(pl)']
+              : dictionary['incorrect(pl)']}{' '}
+            {dictionary['in a row.']}
           </p>
           <p
             className=" font-tekoMedium uppercase text-2xl xs:text-3xl "
