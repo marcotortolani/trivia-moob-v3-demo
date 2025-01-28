@@ -1,8 +1,8 @@
-
 // hooks/useScoreManager.ts
 import { useState, useCallback } from 'react'
 import { useGameStore } from '@/lib/game-store'
 import { useConfigStore } from '@/lib/config-store'
+//import { updateEndpointScore } from '@/services/updateEndpointScore'
 type AnswerType = 'correct' | 'incorrect' | 'bonus'
 
 export function useScoreManager() {
@@ -35,7 +35,10 @@ export function useScoreManager() {
 
   const updateScore = useCallback((points: number) => {
     incrementScore(points)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    
+    // TODO Update Endpoint Score
+    //updateEndpointScore({ partialScore: points })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const addRecentAnswer = useCallback((answer: AnswerType) => {

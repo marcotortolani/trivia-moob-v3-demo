@@ -22,7 +22,7 @@ export interface ConfigData {
     pointsBonus: number
   }
   colors: {
-    background: string    
+    background: string
     backgroundCardQuestion: string
     disable: string
     wrong: string
@@ -43,6 +43,7 @@ export interface ConfigData {
       rewardsImages: { src: string; name: string }[]
     }
     madeBy: string
+    backgroundApp: string
     spinButton: string
     rewardsButton: string
     termsButton: string

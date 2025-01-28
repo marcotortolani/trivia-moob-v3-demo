@@ -1,12 +1,10 @@
 import { useState, useCallback } from 'react'
-import { useConfigStore } from '@/lib/config-store'
+import { useConfigStore, Lang } from '@/lib/config-store'
 import MOTIVATIONAL_MESSAGES from '@/data/motivational-messages.json'
 import {
   MEDAL_THRESHOLDS,
   MedalType,
 } from '@/lib/questions/questions-constants'
-
-import { Lang } from '@/lib/config-store'
 
 // Configuración de transiciones con delays
 const transitionDelays = [
@@ -208,7 +206,8 @@ function getMotivationalMessage(type: string, size: number) {
 }
 
 export function checkMedalAchievement(score: number): MedalType {
-  const { config, categories } = useConfigStore.getState()
+  const { config, getCategories } = useConfigStore.getState()
+  const categories = getCategories()
 
   const totalQuestionsGame = categories.reduce((total, category) => {
     return total + category.questions.length

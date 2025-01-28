@@ -1,11 +1,9 @@
 import { useState } from 'react'
 import useSound from 'use-sound'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useConfigStore } from '@/lib/config-store'
+import { useConfigStore, Lang } from '@/lib/config-store'
 import { Header } from '@/components/header'
 import { Sidebar } from '@/components/sidebar'
-
-import { Lang } from '@/lib/config-store'
 
 import dataFAQs from '../data/faqs.json'
 import { ChevronDown } from 'lucide-react'

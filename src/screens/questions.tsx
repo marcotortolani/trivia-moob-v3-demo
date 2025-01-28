@@ -27,7 +27,8 @@ export default function QuestionsPage() {
   const { colors, soundActive } = useConfigStore()
   const { gameState } = useQuestionStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const { selectedCategory, questions } = useGameStore()
+  const { selectedCategory, getQuestions } = useGameStore()
+  const questions = getQuestions()
 
   const [playConfetti] = useSound(confettiSound, { volume: 0.5 })
 
@@ -57,7 +58,6 @@ export default function QuestionsPage() {
       <AnimatePresence mode="wait">
         <motion.main
           layout
-          // key={`questions-page-${selectedCategory?.id}`}
           key="questions-page"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 1.5 } }}

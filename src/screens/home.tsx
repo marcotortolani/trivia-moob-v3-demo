@@ -12,7 +12,7 @@ import LatestSelectedCategory from '@/components/home/latest-selected-category'
 
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const { colors } = useConfigStore()
+  const { colors, images } = useConfigStore()
   const { selectedCategory } = useGameStore()
   const { resetGameState } = useQuestionStore()
   const gameCompleted = useGameStore((state) =>
@@ -33,11 +33,18 @@ export default function Home() {
         layout
         initial={{ scale: 1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1, transition: { duration: 0.5 } }}
-        className={` relative min-h-[100dvh]  flex flex-col overflow-hidden `}
+        className={`relative min-h-[100dvh]  flex flex-col items-center overflow-hidden `}
         style={{
           background: `linear-gradient(to bottom, ${colors.background}, #000)`,
         }}
       >
+        {images.backgroundApp.length && (
+          <img
+            src={images.backgroundApp}
+            alt="Background App Image"
+            className="absolute top-0 object-center object-cover lg:object-fill w-full max-w-screen-xl mx-auto h-full"
+          />
+        )}
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
 
         {gameCompleted && <GameCompletedModal />}

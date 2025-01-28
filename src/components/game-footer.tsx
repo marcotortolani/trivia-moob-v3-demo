@@ -24,6 +24,7 @@ export function GameFooter() {
 
   return (
     <motion.footer
+      key="game-footer"
       initial={{ y: 200 }}
       animate={{ y: 0, transition: { duration: 0.5 } }}
       className="z-0 p-2 bg-transparent"

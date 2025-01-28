@@ -36,6 +36,14 @@ export function useFetch() {
 
   const options = {}
 
+  // const options = {
+  //   method: 'GET',
+  //   redirect: 'follow',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  // }
+
   return { data: configData, loading: false, error: null }
 
   useEffect(() => {

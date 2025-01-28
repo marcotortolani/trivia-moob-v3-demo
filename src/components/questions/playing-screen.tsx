@@ -29,7 +29,7 @@ export default function PlayingScreen() {
     selectedCategory,
     updateAnsweredQuestions,
     updateCategoriesState,
-    questions,
+    getQuestions,
     categoriesState,
     timeSpent,
     updateTimeSpent,
@@ -45,6 +45,8 @@ export default function PlayingScreen() {
   } = useQuestionStore()
 
   const { state, send, context } = useStateMachine('answering')
+
+  const questions = getQuestions()
 
   const { countdownSeconds } = config
   const { calculateScore, updateScore } = useScoreManager()

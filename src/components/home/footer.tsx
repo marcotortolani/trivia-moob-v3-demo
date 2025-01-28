@@ -43,7 +43,7 @@ export function Footer() {
       key="footer"
       initial={{ y: 200 }}
       animate={{ y: -5, transition: { duration: 0.5 } }}
-      className="z-20 px-4 py-2 lg:pt-4 lg:pb-6"
+      className="z-20 w-full px-4 py-2 lg:pt-4 lg:pb-6"
     >
       <div className=" max-w-screen-md xl:max-w-screen-lg mx-auto xl:px-6 flex justify-between items-end gap-4 ">
         <Link to={links.termsURL} target="_blank">
