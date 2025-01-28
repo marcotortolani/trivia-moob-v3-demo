@@ -206,8 +206,7 @@ function getMotivationalMessage(type: string, size: number) {
 }
 
 export function checkMedalAchievement(score: number): MedalType {
-  const { config, getCategories } = useConfigStore.getState()
-  const categories = getCategories()
+  const { config, categories } = useConfigStore.getState()
 
   const totalQuestionsGame = categories.reduce((total, category) => {
     return total + category.questions.length
