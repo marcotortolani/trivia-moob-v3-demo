@@ -38,7 +38,7 @@ export default function Home() {
           background: `linear-gradient(to bottom, ${colors.background}, #000)`,
         }}
       >
-        {images.backgroundApp.length && (
+        {images.backgroundApp.length > 0 && (
           <img
             src={images.backgroundApp}
             alt="Background App Image"
