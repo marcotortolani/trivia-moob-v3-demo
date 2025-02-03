@@ -13,6 +13,8 @@ import greenCheck from '/img/default/correct-icon.webp'
 import { hexToRgb } from '@/lib/utils'
 import { User } from 'lucide-react'
 
+import avatars from '@/data/avatars-images.json'
+
 export default function Ranking() {
   const { colors } = useConfigStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -162,76 +164,73 @@ const MedalsSection = () => {
 }
 
 const RankingSection = () => {
-  const { colors, images, user, categories, config, dictionary } =
-    useConfigStore()
+  const { colors, user, categories, config, dictionary } = useConfigStore()
   const { score } = useGameStore()
 
   const totalQuestionsGame = categories.reduce((total, category) => {
     return total + category.questions.length
   }, 0)
 
-  const avatarImages = images.avatars
-
   const rankingData = [
     {
       name: dictionary['Player'] + ' 1',
-      image: avatarImages[8],
+      image: avatars[8],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.1 * config.pointsCorrect,
     },
     {
       name: dictionary['Player'] + ' 2',
-      image: avatarImages[3],
+      image: avatars[3],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.152 * config.pointsCorrect,
     },
     {
       name: dictionary['Player'] + ' 3',
-      image: avatarImages[6],
+      image: avatars[6],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.22 * config.pointsCorrect,
     },
     {
       name: dictionary['Player'] + ' 4',
-      image: avatarImages[2],
+      image: avatars[2],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.375 * config.pointsCorrect,
     },
     {
       name: dictionary['Player'] + ' 5',
-      image: avatarImages[1],
+      image: avatars[1],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.432 * config.pointsCorrect,
     },
     {
       name: dictionary['Player'] + ' 6',
-      image: avatarImages[9],
+      image: avatars[9],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.567 * config.pointsCorrect,
     },
     {
       name: dictionary['Player'] + ' 7',
-      image: avatarImages[5],
+      image: avatars[5],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.658 * config.pointsCorrect,
     },
     {
       name: dictionary['Player'] + ' 8',
-      image: avatarImages[10],
+      image: avatars[10],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.723 * config.pointsCorrect,
     },
     {
       name: dictionary['Player'] + ' 9',
-      image: avatarImages[7],
+      image: avatars[7],
       score:
         totalQuestionsGame * config.pointsCorrect -
         totalQuestionsGame * 0.868 * config.pointsCorrect,

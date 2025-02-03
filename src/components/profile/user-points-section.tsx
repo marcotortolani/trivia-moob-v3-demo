@@ -25,6 +25,8 @@ import blopSound from '@/assets/sound/blop.mp3'
 import successAction from '@/assets/sound/success-action.mp3'
 import FallbackImage from '../fallback-image'
 
+import avatars from '@/data/avatars-images.json'
+
 export default function UserPoints() {
   const { colors, images, user, soundActive, dictionary } = useConfigStore()
   const { score } = useGameStore()
@@ -119,21 +121,6 @@ const UserData = ({
     volume: 0.5,
     playbackRate: 1.8,
   })
-
-  const avatars = [
-    '/img/avatars/avatar-1.webp',
-    '/img/avatars/avatar-2.webp',
-    '/img/avatars/avatar-3.webp',
-    '/img/avatars/avatar-4.webp',
-    '/img/avatars/avatar-5.webp',
-    '/img/avatars/avatar-6.webp',
-    '/img/avatars/avatar-7.webp',
-    '/img/avatars/avatar-8.webp',
-    '/img/avatars/avatar-9.webp',
-    '/img/avatars/avatar-10.webp',
-    '/img/avatars/avatar-11.webp',
-    '/img/avatars/avatar-12.webp',
-  ]
 
   const updateAvatar = ({ direction }: { direction: 1 | -1 }) => {
     if (direction === -1 && avatarIndex === 0) return
