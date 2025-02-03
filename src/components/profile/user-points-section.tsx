@@ -105,7 +105,7 @@ const UserData = ({
   isOpen: boolean
   onClose: () => void
 }) => {
-  const { images, colors, soundActive, user, setUserData, dictionary } =
+  const { colors, soundActive, user, setUserData, dictionary } =
     useConfigStore()
   const [avatarIndex, setAvatarIndex] = useState(0)
   const [formData, setFormData] = useState({
@@ -120,7 +120,20 @@ const UserData = ({
     playbackRate: 1.8,
   })
 
-  const avatars = images.avatars
+  const avatars = [
+    '/img/avatars/avatar-1.webp',
+    '/img/avatars/avatar-2.webp',
+    '/img/avatars/avatar-3.webp',
+    '/img/avatars/avatar-4.webp',
+    '/img/avatars/avatar-5.webp',
+    '/img/avatars/avatar-6.webp',
+    '/img/avatars/avatar-7.webp',
+    '/img/avatars/avatar-8.webp',
+    '/img/avatars/avatar-9.webp',
+    '/img/avatars/avatar-10.webp',
+    '/img/avatars/avatar-11.webp',
+    '/img/avatars/avatar-12.webp',
+  ]
 
   const updateAvatar = ({ direction }: { direction: 1 | -1 }) => {
     if (direction === -1 && avatarIndex === 0) return

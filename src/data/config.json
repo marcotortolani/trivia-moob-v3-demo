@@ -24,7 +24,6 @@
   "colors": {
     "background": "#3d1c7c",
     "backgroundCardQuestion": "#9d2b67",
-    "disable": "#989898",
     "wrong": "#ef1f1f",
     "correct": "#5ac439",
     "title": "#9d2b67",
@@ -32,7 +31,6 @@
     "primary": "#9d2b67",
     "primaryLight": "#c93c87",
     "secondary": "#3d1c7c",
-    "wheel": "#325667",
     "rouletteSection": [
       "#c93c87",
       "#8daaa5",
@@ -72,21 +70,7 @@
     "backgroundPoints": "/img/barra-puntos.webp",
     "backgroundPointsMenu": "/img/puntaje-perfil.webp",
     "rouletteSpinAgain": "/img/volveratirar.webp",
-    "circleQuestionsCounter": "/img/circulo-preguntas.webp",
-    "avatars": [
-      "/img/avatars/avatar-1.webp",
-      "/img/avatars/avatar-2.webp",
-      "/img/avatars/avatar-3.webp",
-      "/img/avatars/avatar-4.webp",
-      "/img/avatars/avatar-5.webp",
-      "/img/avatars/avatar-6.webp",
-      "/img/avatars/avatar-7.webp",
-      "/img/avatars/avatar-8.webp",
-      "/img/avatars/avatar-9.webp",
-      "/img/avatars/avatar-10.webp",
-      "/img/avatars/avatar-11.webp",
-      "/img/avatars/avatar-12.webp"
-    ]
+    "circleQuestionsCounter": "/img/circulo-preguntas.webp"
   },
   "links": {
     "termsURL": "https://google.com"

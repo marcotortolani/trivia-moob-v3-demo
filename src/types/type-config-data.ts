@@ -24,7 +24,6 @@ export interface ConfigData {
   colors: {
     background: string
     backgroundCardQuestion: string
-    disable: string
     wrong: string
     correct: string
     title: string
@@ -33,7 +32,6 @@ export interface ConfigData {
     primaryLight: string
     secondary: string
     rouletteSection: string[]
-    wheel: string
     nextBtnGradient: string
     answerBtnGradient: string
   }
@@ -51,7 +49,6 @@ export interface ConfigData {
     backgroundPointsMenu: string
     rouletteSpinAgain: string
     circleQuestionsCounter: string
-    avatars: string[]
   }
   links: {
     termsURL: string

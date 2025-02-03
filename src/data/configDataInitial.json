@@ -24,7 +24,6 @@
   "colors": {
     "background": "",
     "backgroundCardQuestion": "",
-    "disable": "",
     "wrong": "",
     "correct": "",
     "title": "",
@@ -33,7 +32,6 @@
     "primaryLight": "",
     "secondary": "",
     "rouletteSection": [""],
-    "wheel": "",
     "nextBtnGradient": "",
     "answerBtnGradient": ""
   },
@@ -55,8 +53,7 @@
     "backgroundPoints": "",
     "backgroundPointsMenu": "",
     "rouletteSpinAgain": "",
-    "circleQuestionsCounter": "",
-    "avatars": [""]
+    "circleQuestionsCounter": ""
   },
   "links": {
     "termsURL": ""
