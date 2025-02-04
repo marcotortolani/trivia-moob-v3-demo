@@ -29,6 +29,9 @@ export default function App() {
   } = useConfigStore()
   const { syncCategoriesState } = useGameStore()
 
+  
+  
+
   const actualDate = new Date().getTime()
   const startDate = new Date(validPeriod.startDate).getTime()
   const endDate = new Date(validPeriod.endDate).getTime()

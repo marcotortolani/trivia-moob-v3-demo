@@ -18,9 +18,9 @@ export function useFetch() {
   const gameHash = searchParams.get('gamehash')
   const userHash = searchParams.get('userhash')
   const apiURL =
-    gameHash && userHash
-      ? `${ENDPOINT_CONFIG}/${gameHash}/${userHash}`
-      : null
+    gameHash && userHash ? `${ENDPOINT_CONFIG}/${gameHash}/${userHash}` : null
+
+  console.log(gameHash)
 
   const { updateDataEndpoint } = useConfigStore()
   const [state, setState] = useState<FetchState>({
