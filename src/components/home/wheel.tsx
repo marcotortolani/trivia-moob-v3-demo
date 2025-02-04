@@ -154,8 +154,9 @@ export function Wheel() {
                 7: [-60, -60, -60, -60, -60, -60, -60],
                 8: [-70, -70, -70, -70, -70, -70, -70, -70],
               }
-              const bgColor =
-                colors?.rouletteSection[index % colors?.rouletteSection.length]
+              // const bgColor =
+              //   colors?.rouletteSection[index % colors?.rouletteSection.length]
+              const bgColor = category.color
               const { questionsAnswered, totalQuestions } = categoryCompleted(
                 category?.id
               )

@@ -20,8 +20,6 @@ export function useFetch() {
   const apiURL =
     gameHash && userHash ? `${ENDPOINT_CONFIG}/${gameHash}/${userHash}` : null
 
-  console.log(gameHash)
-
   const { updateDataEndpoint } = useConfigStore()
   const [state, setState] = useState<FetchState>({
     data: null,

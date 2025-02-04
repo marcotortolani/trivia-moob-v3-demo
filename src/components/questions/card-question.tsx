@@ -182,7 +182,7 @@ function ButtonAnswer({
 
   const styles = {
     default: {
-      background: colors.answerBtnGradient,
+      background: `linear-gradient(to bottom, ${colors.answerBtnGradient} 60%, #000 150%)`,
     },
     correct: {
       background: `linear-gradient(to bottom, ${colors.correct} 60%, #000 120%)`,
@@ -191,6 +191,7 @@ function ButtonAnswer({
       background: `linear-gradient(to bottom, ${colors.wrong} 60%, #000 120%)`,
     },
   }
+
 
   return (
     <motion.button

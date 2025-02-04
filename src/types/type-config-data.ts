@@ -31,7 +31,6 @@ export interface ConfigData {
     primary: string
     primaryLight: string
     secondary: string
-    rouletteSection: string[]
     nextBtnGradient: string
     answerBtnGradient: string
   }
@@ -71,6 +70,7 @@ export type Category = {
   id: number
   name: string
   imgURL: string
+  color: string
   bonus: boolean
   questions: Question[]
 }

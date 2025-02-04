@@ -31,18 +31,8 @@
     "primary": "#9d2b67",
     "primaryLight": "#c93c87",
     "secondary": "#3d1c7c",
-    "rouletteSection": [
-      "#c93c87",
-      "#8daaa5",
-      "#c93c87",
-      "#000000",
-      "#8daaa5",
-      "#c93c87",
-      "#8daaa5",
-      "#000000"
-    ],
     "nextBtnGradient": "linear-gradient(180deg, #9d2b67 50%, #691c45 100%)",
-    "answerBtnGradient": "linear-gradient(180deg, #b6b6b6 60%, #646464 100%)"
+    "answerBtnGradient": "#b6b6b6"
   },
   "images": {
     "es": {
@@ -80,6 +70,7 @@
       "id": 1,
       "name": "PERSONAJES",
       "imgURL": "/img/categoria-personajes.webp",
+      "color": "#c93c87",
       "bonus": true,
       "questions": [
         {
@@ -278,6 +269,7 @@
       "id": 2,
       "name": "JUEGOS",
       "imgURL": "/img/categoria-juegos.webp",
+      "color": "#8daaa5",
       "bonus": true,
       "questions": [
         {
@@ -476,6 +468,7 @@
       "id": 3,
       "name": "TECNO",
       "imgURL": "/img/categoria-tecno.webp",
+      "color": "#c93c87",
       "bonus": true,
       "questions": [
         {
@@ -674,6 +667,7 @@
       "id": 4,
       "name": "RETRO",
       "imgURL": "/img/categoria-retro.webp",
+      "color": "#000000",
       "bonus": true,
       "questions": [
         {
@@ -872,6 +866,7 @@
       "id": 5,
       "name": "GAMERS",
       "imgURL": "/img/categoria-gamers.webp",
+      "color": "#8daaa5",
       "bonus": true,
       "questions": [
         {

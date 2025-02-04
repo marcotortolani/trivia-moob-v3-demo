@@ -31,7 +31,6 @@
     "primary": "",
     "primaryLight": "",
     "secondary": "",
-    "rouletteSection": [""],
     "nextBtnGradient": "",
     "answerBtnGradient": ""
   },
@@ -63,6 +62,7 @@
       "id": 1,
       "name": "",
       "imgURL": "",
+      "color": "",
       "bonus": false,
       "questions": [
         {
@@ -90,6 +90,7 @@
       "id": 2,
       "name": "",
       "imgURL": "",
+      "color": "",
       "bonus": false,
       "questions": [
         {
@@ -117,6 +118,7 @@
       "id": 3,
       "name": "",
       "imgURL": "",
+      "color": "",
       "bonus": false,
       "questions": [
         {
@@ -144,6 +146,7 @@
       "id": 4,
       "name": "",
       "imgURL": "",
+      "color": "",
       "bonus": false,
       "questions": [
         {
@@ -171,6 +174,7 @@
       "id": 5,
       "name": "",
       "imgURL": "",
+      "color": "",
       "bonus": false,
       "questions": [
         {

@@ -19,18 +19,10 @@ const Rewards = lazy(() => import('./screens/rewards'))
 //const Terms = lazy(() => import('./screens/terms/terms'))
 
 export default function App() {
-
   const { data: configData, loading, error } = useFetch()
-  const {
-    validPeriod,
-    lastUpdated,
-    updateConfigData,
-    categories,
-  } = useConfigStore()
+  const { validPeriod, lastUpdated, updateConfigData, categories } =
+    useConfigStore()
   const { syncCategoriesState } = useGameStore()
-
-  
-  
 
   const actualDate = new Date().getTime()
   const startDate = new Date(validPeriod.startDate).getTime()
@@ -40,7 +32,7 @@ export default function App() {
     if (!configData) return
     if (configData?.lastUpdated === lastUpdated) return
     updateConfigData(configData as ConfigData)
-   
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [configData])
 
