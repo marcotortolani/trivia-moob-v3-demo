@@ -4,8 +4,6 @@ import { ConfigData } from '@/types/type-config-data'
 import { useConfigStore } from '@/lib/config-store'
 
 import { ENDPOINT_CONFIG } from '@/data/constants'
-//const LOCAL_ENDPOINT_ALE = 'http://127.0.0.1:8000/api/v1/getTrivia'
-import configData from '@/data/config.json'
 
 type Error = { message: string }
 
@@ -19,13 +17,10 @@ export function useFetch() {
   const [searchParams] = useSearchParams()
   const gameHash = searchParams.get('gamehash')
   const userHash = searchParams.get('userhash')
-  // const apiURL =
-  //   gameHash && userHash
-  //     ? `${ENDPOINT_CONFIG}/?gameHash=${gameHash}&userHash=${userHash}`
-  //     : null
-  const apiURL = `${ENDPOINT_CONFIG}`
-  //const apiURL_LOCAL = LOCAL_ENDPOINT_ALE + `/${gameHash}` + `/${userHash}`
-  //console.log({ gameHash, userHash })
+  const apiURL =
+    gameHash && userHash
+      ? `${ENDPOINT_CONFIG}/${gameHash}/${userHash}`
+      : null
 
   const { updateDataEndpoint } = useConfigStore()
   const [state, setState] = useState<FetchState>({
@@ -43,8 +38,6 @@ export function useFetch() {
   //     'Content-Type': 'application/json',
   //   },
   // }
-
-  return { data: configData, loading: false, error: null }
 
   useEffect(() => {
     if (!apiURL) {
