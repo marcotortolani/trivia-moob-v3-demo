@@ -27,7 +27,7 @@ export default function NoQuestionsAvailable() {
           if (soundActive) {
             playButton()
           }
-          window.document.location.href = '/'
+          window.document.location.href = '/trivia'
         }}
       >
         {dictionary['Spin the wheel']}

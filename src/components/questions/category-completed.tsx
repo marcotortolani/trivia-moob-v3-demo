@@ -28,7 +28,7 @@ export default function CategoryCompleted() {
         }, 200)
       }
     }
-    window.document.location.href = '/'
+    window.document.location.href = '/trivia'
   }
 
   return (

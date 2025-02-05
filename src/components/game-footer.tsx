@@ -19,7 +19,7 @@ export function GameFooter() {
 
   function handleHomeClick() {
     if (soundActive) playButton()
-    window.document.location.href = '/'
+    window.document.location.href = '/trivia'
   }
 
   return (

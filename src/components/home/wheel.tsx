@@ -271,18 +271,10 @@ const SpinButton = ({
       disabled={isSpinning || gameCompleted}
       className={` ${
         isSpinning ? ' shadow-inner' : 'shadow-md'
-      } z-[100]  disabled:cursor-not-allowed disabled:grayscale-[50%] disabled:scale-95 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full  flex items-center justify-center text-2xl border-2 border-black/0 shadow-black/60 transition-all duration-200 ease-in-out`}
-      style={{
-        backgroundColor: bgColor,
-      }}
+      } z-[100]  disabled:cursor-not-allowed disabled:grayscale-[50%] disabled:scale-95 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full  flex items-center justify-center text-2xl shadow-black/60 transition-all duration-200 ease-in-out`}
     >
-      <img
-        src={ringWheel}
-        alt="Ring wheel"
-        className=" absolute z-50 w-full scale-110 p-0.5 "
-      />
       {imageSpin ? (
-        <img src={imageSpin} alt="Spin" width={60} height={60} />
+        <img src={imageSpin} alt="Spin" className=" w-full h-full" />
       ) : (
         '🔄'
       )}

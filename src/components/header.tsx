@@ -33,7 +33,7 @@ export function Header({ onMenuClick }: HeaderProps) {
 
   function handleLogoClick() {
     if (soundActive) playPop()
-    window.document.location.href = '/'
+    window.document.location.href = '/trivia'
   }
 
   return (
@@ -55,11 +55,12 @@ export function Header({ onMenuClick }: HeaderProps) {
           <Menu style={{ width: 28, height: 32, color: colors.text }} />
         </Button>
 
-        <div onClick={handleLogoClick}>
+        <div>
           <img
             src={images.es.logoHeader}
             alt="Logo"
-            className="w-5/6 xs:w-4/5 max-w-[300px] mx-auto"
+            onClick={handleLogoClick}
+            className="w-5/6 xs:w-4/5 max-w-[300px] mx-auto hover:cursor-pointer"
           />
         </div>
 

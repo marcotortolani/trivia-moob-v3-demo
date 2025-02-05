@@ -10,8 +10,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  // server: {
-  //   host: true,
-  // },
-  base: './',
+  server: {
+    host: true,
+  },
+  base: '/trivia/',
 })

@@ -23,6 +23,7 @@ export default function App() {
   const { validPeriod, lastUpdated, updateConfigData, categories } =
     useConfigStore()
   const { syncCategoriesState } = useGameStore()
+  
 
   const actualDate = new Date().getTime()
   const startDate = new Date(validPeriod.startDate).getTime()
