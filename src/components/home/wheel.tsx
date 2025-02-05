@@ -234,7 +234,6 @@ export function Wheel() {
           spinWheel={spinWheel}
           isSpinning={isSpinning}
           gameCompleted={gameCompleted}
-          bgColor={colors?.secondary}
           imageSpin={images?.spinButton}
         />
       </div>
@@ -245,14 +244,12 @@ export function Wheel() {
 const SpinButton = ({
   spinWheel,
   isSpinning,
-  bgColor,
   imageSpin,
   gameCompleted,
 }: {
   spinWheel: () => void
   isSpinning: boolean
   gameCompleted: boolean
-  bgColor?: string
   imageSpin: string
 }) => {
   const { soundActive } = useConfigStore()
