@@ -1,7 +1,7 @@
 import { useConfigStore } from '@/lib/config-store'
 
-import triviaUpcoming from '../../public/img/default/trivia-proximamente.webp'
-import triviaEnded from '../../public/img/default/trivia-finalizada.webp'
+import triviaUpcoming from '/img/default/trivia-proximamente.webp'
+import triviaEnded from '/img/default/trivia-finalizada.webp'
 
 export default function ValidPeriod({ type }: { type: 'upcoming' | 'ended' }) {
   const { validPeriod, images, colors, dictionary } = useConfigStore()

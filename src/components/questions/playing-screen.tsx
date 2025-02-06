@@ -23,6 +23,7 @@ import failureTimeup from '@/assets/sound/failure-defeat.mp3'
 import positiveSound from '@/assets/sound/button_sound.mp3'
 import victorySound from '@/assets/sound/tada-result.mp3'
 import CategorySelectedHeader from './category-selected-header'
+import { updateEndpointScore } from '@/services/updateEndpointScore'
 
 export default function PlayingScreen() {
   const {
@@ -108,6 +109,8 @@ export default function PlayingScreen() {
       categoryHasBonus
     )
     updateScore(pointsUpdated)
+    updateEndpointScore({ partialScore: pointsUpdated })
+
     updateAnsweredQuestions(
       isCorrect
         ? questionsHasBonus || categoryHasBonus

@@ -12,6 +12,7 @@ export function encryptDataScore({
   userHash: string
   partialScore: number
 }) {
+
   const dataEncrypted: string =
     rc4.encrypt(`${gameHash}-${userHash}-${partialScore}`) || ''
   const transactionID = rc4.encrypt(

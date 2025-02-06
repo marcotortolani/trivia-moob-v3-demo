@@ -35,7 +35,7 @@ export function useScoreManager() {
 
   const updateScore = useCallback((points: number) => {
     incrementScore(points)
-    
+
     // TODO Update Endpoint Score
     //updateEndpointScore({ partialScore: points })
     // eslint-disable-next-line react-hooks/exhaustive-deps

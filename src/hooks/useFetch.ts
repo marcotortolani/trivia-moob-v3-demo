@@ -17,17 +17,22 @@ export function useFetch() {
   const [searchParams] = useSearchParams()
   const gameHash = searchParams.get('gamehash')
   const userHash = searchParams.get('userhash')
-  const apiURL =
-    gameHash && userHash ? `${ENDPOINT_CONFIG}/${gameHash}/${userHash}` : null
+  let apiURL: string | null = ''
 
-  const { updateDataEndpoint } = useConfigStore()
+  const { updateDataEndpoint, dataEndpoint } = useConfigStore()
   const [state, setState] = useState<FetchState>({
     data: null,
     loading: true,
     error: null,
   })
 
-  const options = {}
+  if (gameHash && userHash) {
+    apiURL = `${ENDPOINT_CONFIG}/${gameHash}/${userHash}`
+  } else if (dataEndpoint.gameHash && dataEndpoint.userHash) {
+    apiURL = `${ENDPOINT_CONFIG}/${dataEndpoint.gameHash}/${dataEndpoint.userHash}`
+  } else {
+    apiURL = null
+  }
 
   // const options = {
   //   method: 'GET',
@@ -46,13 +51,22 @@ export function useFetch() {
       }))
       return
     }
-    updateDataEndpoint({
-      gameHash: gameHash,
-      userHash: userHash,
-    })
+
+    if (
+      (dataEndpoint.gameHash === '' || dataEndpoint.gameHash === null) &&
+      (dataEndpoint.userHash === '' || dataEndpoint.userHash === null) &&
+      gameHash !== null &&
+      userHash !== null
+    ) {
+      updateDataEndpoint({
+        gameHash: gameHash,
+        userHash: userHash,
+      })
+    }
     let isMounted = true // Evita actualizar el estado si el componente se desmonta.
 
     const fetchData = async () => {
+      const options = {}
       try {
         setState({ data: null, loading: true, error: null })
 

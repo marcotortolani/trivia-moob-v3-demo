@@ -44,7 +44,7 @@ export default function App() {
   }, [categories])
 
   if (loading) return <Loading />
-  if (error && lastUpdated === '')
+  if (error)
     return (
       <div className=" w-full h-[100dvh] px-8 flex items-center justify-center text-center font-medium bg-black text-white">
         Error al cargar los datos: {error.message}
