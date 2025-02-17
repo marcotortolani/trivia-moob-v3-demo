@@ -14,7 +14,9 @@ export default function SliderRewards() {
 
   const [playSnap] = useSound(fingerSnap)
 
-  const REWARDS_ITEMS = images['es'].rewardsImages
+  const REWARDS_ITEMS = images['es'].rewardsImages.filter(
+    (item) => item.src !== 'null' && item.src !== null && item.src !== ''
+  )
 
   const paginate = (newDirection: number) => {
     if (

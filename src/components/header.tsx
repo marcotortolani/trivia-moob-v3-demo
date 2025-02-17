@@ -33,7 +33,7 @@ export function Header({ onMenuClick }: HeaderProps) {
 
   function handleLogoClick() {
     if (soundActive) playPop()
-    window.document.location.href = '/trivia'
+    window.document.location.href = '/trivia/'
   }
 
   return (

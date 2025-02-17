@@ -177,7 +177,8 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             </NavLinkStyled>
             <NavLinkStyled to="/ranking" onNavLink={handleNavLink}>
               <RankingIcon width={24} height={24} fill={colors.primary} />
-              {dictionary['Goals and Ranking']}
+              {/* {dictionary['Goals and Ranking']} */}
+              {dictionary['Goals']}
             </NavLinkStyled>
             <NavLinkStyled to="/how-to-play" onNavLink={handleNavLink}>
               <TutorialIcon width={24} height={24} fill={colors.primary} />

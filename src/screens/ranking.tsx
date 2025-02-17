@@ -18,7 +18,7 @@ import avatars from '@/data/avatars-images.json'
 export default function Ranking() {
   const { colors } = useConfigStore()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const isRankingData = true
+  const isRankingData = false
 
   return (
     <AnimatePresence mode="wait">
@@ -33,7 +33,7 @@ export default function Ranking() {
         }}
       >
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
-        <div className=" w-full max-w-screen-sm mx-auto lg:px-6 xl:px-4 lg:mt-10 xl:mt-2 lg:max-w-screen-lg flex flex-col lg:flex-row items-start justify-center ">
+        <div className=" w-full max-w-screen-sm mx-auto lg:px-6 xl:px-6 lg:mt-10 xl:mt-2 lg:max-w-screen-sm flex flex-col lg:flex-row items-start justify-center ">
           <MedalsSection />
           {isRankingData && <RankingSection />}
         </div>

@@ -242,8 +242,8 @@ export default function HowToPlay() {
               />
             </Button>
           </div>
-          <div className=" relative w-full h-full ">
-            <AnimatePresence initial={false} custom={direction}>
+          <div className=" relative w-full h-[75dvh] ">
+            <AnimatePresence initial={false} custom={direction} mode="wait">
               {page <= STEPS.length - 1 && (
                 <motion.div
                   key={page}
@@ -253,7 +253,7 @@ export default function HowToPlay() {
                   animate="center"
                   exit="exit"
                   transition={{
-                    x: { type: 'spring', stiffness: 300, damping: 30 },
+                    x: { type: 'spring', stiffness: 1000, damping: 50 },
                     opacity: { duration: 0.2 },
                     rotateY: { duration: 0.5 },
                     scale: { duration: 0.5 },
@@ -262,16 +262,16 @@ export default function HowToPlay() {
                   dragConstraints={{ left: 0, right: 0 }}
                   dragElastic={1}
                   onDragEnd={handleDragEnd}
-                  className="absolute w-full max-w-2xl h-5/6 px-4 min-h-fit flex flex-col items-center justify-center hover:cursor-grab "
-                  style={{ perspective: '1000px' }}
+                  className="absolute w-full md:max-w-2xl h-full px-4 min-h-fit flex flex-col items-center justify-start hover:cursor-grab "
+                  style={{ perspective: '500px' }}
                 >
                   <img
                     src={STEPS[page].image}
                     alt={`Image Step ${page + 1}`}
-                    className="w-full max-w-[600px] mb-4 rounded-lg pointer-events-none "
+                    className="w-full max-w-[500px] aspect-square object-contain mb-4 rounded-lg pointer-events-none "
                   />
                   <p
-                    className=" mt-2 text-center font-poppinsLight"
+                    className="w-full max-w-[500px] h-fit mt-2 text-center font-poppinsLight"
                     style={{ color: colors.text }}
                   >
                     {STEPS[page].description}

@@ -38,13 +38,15 @@ export default function Home() {
           background: `linear-gradient(to bottom, ${colors.background}, #000)`,
         }}
       >
-        {images.backgroundApp.length > 0 && (
-          <img
-            src={images.backgroundApp}
-            alt="Background App Image"
-            className="absolute top-0 object-center object-cover lg:object-fill w-full max-w-screen-xl mx-auto h-full"
-          />
-        )}
+        {images.backgroundApp !== null &&
+          images.backgroundApp !== 'null' &&
+          images.backgroundApp.length > 0 && (
+            <img
+              src={images.backgroundApp}
+              alt="Background App Image"
+              className="absolute top-0 object-center object-cover lg:object-fill w-full max-w-screen-xl mx-auto h-full"
+            />
+          )}
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
 
         {gameCompleted && <GameCompletedModal />}

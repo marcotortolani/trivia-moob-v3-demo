@@ -193,7 +193,7 @@ export default function PlayingScreen() {
         )}
         {state === 'changeCategoryModal' && (
           <ModalChangeCategory
-            onRoulette={() => (window.document.location.href = '/trivia')}
+            onRoulette={() => (window.document.location.href = '/trivia/')}
             onCloseModal={() => send('STAY')}
             onDontAskAgain={() => send('DONT_ASK_AGAIN')}
           />
