@@ -223,9 +223,8 @@ export const useGameStore = create<GameState>()(
   )
 )
 
-async function getLastUniqueHash() {
-  const lastUniqueHash = await localStorage.getItem('lastUniqueHash')
-  return lastUniqueHash
+function getLastUniqueHash() {
+  return localStorage.getItem('lastUniqueHash')
 }
 
 useGameStore.persist.setOptions({
