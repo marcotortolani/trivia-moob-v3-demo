@@ -13,5 +13,6 @@ export default defineConfig({
   server: {
     host: true,
   },
-  base: '/trivia/',
+  base: '/',
+  // base: '/trivia/',
 })
