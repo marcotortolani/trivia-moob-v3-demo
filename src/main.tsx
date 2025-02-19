@@ -9,8 +9,7 @@ import Loading from './components/loading'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Suspense fallback={<Loading />}>
-      <Router basename="/">
-      {/* <Router basename="/trivia"></Router> */}
+      <Router basename="/trivia">
         <AppRouter />
       </Router>
     </Suspense>
