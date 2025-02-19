@@ -217,9 +217,7 @@ export const useGameStore = create<GameState>()(
     },
     {
       // name: 'game-storage-trivia-v3',
-      name: `game-storage-trivia-v3-${
-        (await getLastUniqueHash()) || 'default'
-      }`,
+      name: `game-storage-trivia-v3-${getLastUniqueHash() || 'default'}`,
       version: 3,
     }
   )
@@ -231,6 +229,6 @@ async function getLastUniqueHash() {
 }
 
 useGameStore.persist.setOptions({
-  name: `game-storage-trivia-v3-${(await getLastUniqueHash()) || 'default'}`,
+  name: `game-storage-trivia-v3-${getLastUniqueHash() || 'default'}`,
 })
 useGameStore.persist.rehydrate()

@@ -184,9 +184,7 @@ export const useConfigStore = create<ConfigState>()(
     }),
     {
       // name: 'config-data-trivia-v3-default',
-      name: `config-data-trivia-v3-${
-        (await getLastUniqueHash()) || 'default'
-      }`,
+      name: `config-data-trivia-v3-${getLastUniqueHash() || 'default'}`,
     }
   )
 )
@@ -197,6 +195,6 @@ async function getLastUniqueHash() {
 }
 
 useConfigStore.persist.setOptions({
-  name: `config-data-trivia-v3-${(await getLastUniqueHash()) || 'default'}`,
+  name: `config-data-trivia-v3-${getLastUniqueHash() || 'default'}`,
 })
 useConfigStore.persist.rehydrate()
