@@ -216,9 +216,21 @@ export const useGameStore = create<GameState>()(
       }
     },
     {
-      name: 'game-storage-trivia-v3',
+      // name: 'game-storage-trivia-v3',
+      name: `game-storage-trivia-v3-${
+        (await getLastUniqueHash()) || 'default'
+      }`,
       version: 3,
     }
   )
 )
 
+async function getLastUniqueHash() {
+  const lastUniqueHash = await localStorage.getItem('lastUniqueHash')
+  return lastUniqueHash
+}
+
+useGameStore.persist.setOptions({
+  name: `game-storage-trivia-v3-${(await getLastUniqueHash()) || 'default'}`,
+})
+useGameStore.persist.rehydrate()

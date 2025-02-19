@@ -62,6 +62,8 @@ export default function PlayingScreen() {
     isActive: timerIsActive,
   } = useCountdown(countdownSeconds, handleTimeUp)
 
+  // const secondsLeft = 20
+
   const [playSwooshShort] = useSound(swooshShort, { playbackRate: 1.1 })
   const [playSwooshLong] = useSound(swooshLong, { playbackRate: 1.1 })
   const [playTimeup] = useSound(failureTimeup, { playbackRate: 0.9 })

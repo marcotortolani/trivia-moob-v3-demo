@@ -29,7 +29,7 @@ export default function CategorySelectedHeader() {
         <img
           src={goldenRing}
           alt="Ring wheel"
-          className=" absolute z-50 w-full h-full p-1  "
+          className=" absolute z-50 w-full h-full "
         />
         <img
           className="w-full h-full"

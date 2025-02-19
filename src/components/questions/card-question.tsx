@@ -192,12 +192,11 @@ function ButtonAnswer({
     },
   }
 
-
   return (
     <motion.button
       onClick={onSelectAnswer}
       disabled={selectedAnswer !== null || timeUp}
-      className={` h-14 shadow-md shadow-black/50 text-lg xs:text-xl lg:text-2xl lg:w-3/4 lg:mx-auto font-oswaldMedium italic tracking-wide transition-all duration-100 ease-in-out rounded-full `}
+      className={` h-14 px-2 shadow-md shadow-black/50  transition-all duration-100 ease-in-out rounded-full `}
       style={{
         color: colors.text,
         ...(selectedAnswer === index
@@ -222,13 +221,15 @@ function ButtonAnswer({
           : {}
       }
     >
-      {selectedAnswer === index
-        ? answer.isCorrect
-          ? questionHasBonus || categoryHasBonus
-            ? `${dictionary['Extra Bonus']}: +${pointsCorrect + pointsBonus}`
-            : `${dictionary['Correct(sn)']}: +${pointsCorrect}`
-          : `${dictionary['Incorrect(sn)']}: +${pointsWrong}`
-        : answer.text}
+      <p className=" py-1 text-lg xs:text-xl lg:text-2xl lg:w-3/4 lg:mx-auto font-oswaldRegular italic leading-4 xs:leading-5 md:leading-5 lg:leading-5 line-clamp-1 xs:line-clamp-2 tracking-wide">
+        {selectedAnswer === index
+          ? answer.isCorrect
+            ? questionHasBonus || categoryHasBonus
+              ? `${dictionary['Extra Bonus']}: +${pointsCorrect + pointsBonus}`
+              : `${dictionary['Correct(sn)']}: +${pointsCorrect}`
+            : `${dictionary['Incorrect(sn)']}: +${pointsWrong}`
+          : answer.text}
+      </p>
     </motion.button>
   )
 }

@@ -69,7 +69,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
   }
 
   return (
-    <Sheet open={isOpen} onOpenChange={onCloseSidebar}>
+    <Sheet open={isOpen} onOpenChange={onCloseSidebar} key="sidebar">
       <SheetOverlay className=" backdrop-blur-sm bg-black/20" />
       <SheetContent
         side="left"
