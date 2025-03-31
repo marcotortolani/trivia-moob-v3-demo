@@ -37,6 +37,7 @@
   "images": {
     "es": {
       "logoHeader": "https://test-moobgtest-moobg.s3.us-east-2.amazonaws.com/games/trivia/logo_1721324621.webp",
+      "logoHeaderMenu": "https://test-moobgtest-moobg.s3.us-east-2.amazonaws.com/games/trivia/logo_1721324621.webp",
       "rewardsImages": [
         {
           "src": "https://test-moobgtest-moobg.s3.us-east-2.amazonaws.com/games/trivia/logo_premios2_1721324622.webp",

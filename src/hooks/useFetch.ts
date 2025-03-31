@@ -34,22 +34,6 @@ export function useFetch() {
     apiURL = null
   }
 
-  // useEffect(() => {
-  //   if (gameHash) {
-  //     // crar en local storage un lastGameHash para el juego
-  //     localStorage.setItem('lastGameHash', gameHash)
-  //     useConfigStore.getState().initializeStore({ gameHash, userHash: null })
-  //   }
-  // }, [gameHash])
-
-  // const options = {
-  //   method: 'GET',
-  //   redirect: 'follow',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  // }
-
   useEffect(() => {
     if (!apiURL) {
       setState((prevState) => ({

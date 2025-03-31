@@ -37,6 +37,7 @@
   "images": {
     "es": {
       "logoHeader": "/img/logo.webp",
+      "logoHeaderMenu": "/img/logo.webp",
       "rewardsImages": [
         {
           "src": "/img/premio01.webp",

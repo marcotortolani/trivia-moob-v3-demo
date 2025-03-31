@@ -37,6 +37,7 @@ export interface ConfigData {
   images: {
     es: {
       logoHeader: string
+      logoHeaderMenu: string
       rewardsImages: { src: string; name: string }[]
     }
     madeBy: string

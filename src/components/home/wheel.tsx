@@ -163,7 +163,7 @@ export function Wheel() {
 
               return (
                 <div
-                  key={category.name}
+                  key={`${index}-${category.name}`}
                   className={` ${
                     questionsAnswered >= totalQuestions &&
                     ' brightness-[60%] grayscale-[90%]'

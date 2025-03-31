@@ -12,6 +12,8 @@ const FallbackImage = ({
   const [imgSrc, setImgSrc] = useState(primaryImage)
 
   const handleError = () => {
+    console.log('Error loading image')
+
     setImgSrc(fallbackImage)
   }
 

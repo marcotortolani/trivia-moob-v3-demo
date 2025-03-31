@@ -51,6 +51,7 @@
   "images": {
     "es": {
       "logoHeader": "/img/logo.webp",
+      "logoHeaderMenu": "/img/logo.webp",
       "bubbleStartMessage": "",
       "bubbleDailyLimit": "",
       "rewardsImages": [

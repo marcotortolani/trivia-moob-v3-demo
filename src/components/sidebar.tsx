@@ -90,7 +90,13 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             >
               <X className=" w-full h-full" />
             </button>
-            <img src={images.es.logoHeader} alt="logo" className=" w-3/4" />
+            <div className=" w-3/4">
+              <FallbackImage
+                primaryImage={images.es.logoHeaderMenu || images.es.logoHeader}
+                fallbackImage={images.es.logoHeader}
+                alt="Logo header menu"
+              />
+            </div>
           </SheetTitle>
         </SheetHeader>
 
