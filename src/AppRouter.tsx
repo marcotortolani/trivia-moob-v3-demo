@@ -1,5 +1,4 @@
 import { lazy, useEffect, useState } from 'react'
-//import { BrowserRouter as Router } from 'react-router-dom'
 import { useSearchParams } from 'react-router-dom'
 const Loading = lazy(() => import('./components/loading'))
 const App = lazy(() => import('./App'))

@@ -184,11 +184,11 @@ export function Wheel() {
                       left: `calc(75% - ${3 - 0.1 * totalCategories + 1.4}rem)`,
                     }}
                   >
-                    <div className=" relative w-full h-full">
+                    <div className=" relative w-full h-full ">
                       <img
                         src={category?.imgURL}
                         alt={category.name}
-                        className="w-full h-full -rotate-0 z-50  object-cover"
+                        className="w-full h-full -rotate-0 z-50 object-cover"
                         style={{
                           transform: `rotate(${imageRotationBySec[totalCategories][index]}deg)`,
                         }}
