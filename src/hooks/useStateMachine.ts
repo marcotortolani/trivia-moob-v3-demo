@@ -200,9 +200,9 @@ function checkMotivationalMessage(
 function getMotivationalMessage(type: string, size: number) {
   const { lang } = useConfigStore.getState()
 
-  return MOTIVATIONAL_MESSAGES[lang][type as 'correct' | 'incorrect'][
-    size.toString() as ValidSizes
-  ]
+  return MOTIVATIONAL_MESSAGES[lang ? lang : 'es'][
+    type as 'correct' | 'incorrect'
+  ][size.toString() as ValidSizes]
 }
 
 export function checkMedalAchievement(score: number): MedalType {
@@ -260,6 +260,7 @@ export function useStateMachine(initialState = 'answering') {
   })
 
   const send = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (event: TEvent, payload: Record<string, any> = {}) => {
       const currentStateConfig = stateMachineConfig[state as TState]
 
@@ -277,6 +278,7 @@ export function useStateMachine(initialState = 'answering') {
                 ? (
                     transition as (
                       context: Context,
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       payload?: Record<string, any>
                     ) => TState
                   )(newContext, payload)

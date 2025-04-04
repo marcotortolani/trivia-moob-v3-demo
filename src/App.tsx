@@ -34,6 +34,8 @@ export default function App() {
   const startDate = new Date(validPeriod.startDate).getTime()
   const endDate = new Date(validPeriod.endDate).getTime()
 
+  console.log(lang)
+
   useEffect(() => {
     if (!configData) return
     if (configData?.lastUpdated === lastUpdated) return
