@@ -1,6 +1,6 @@
 export interface ConfigData {
   lastUpdated: string
-  lang: 'es' | 'en' | 'pt'
+  lang: 'en' | 'es' | 'pt'
   userData: {
     userId: string
     userName: string

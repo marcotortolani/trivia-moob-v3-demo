@@ -33,7 +33,7 @@ const categoriesImages: CategoryImage[] = categories.map((category) => ({
 
 interface ConfigState {
   lastUpdated: string
-  lang: Lang
+  lang: Lang | ''
   user: UserData
   validPeriod: ConfigData['validPeriod']
   config: ConfigData['config']
@@ -66,7 +66,7 @@ export const useConfigStore = create<ConfigState>()(
   persist(
     (set) => ({
       lastUpdated,
-      lang: lang as Lang,
+      lang: '',
       user: userData,
       validPeriod,
       config,
@@ -84,7 +84,7 @@ export const useConfigStore = create<ConfigState>()(
           dictionary: dictionaries[lang as Lang] as Dictionary,
         }),
       setUserData: (user) => set({ user }),
-      updateConfigData: (data) => set(data),
+      updateConfigData: (data) => set({ ...data, lang: lang as Lang }),
       setSoundActive: (active) => set({ soundActive: active }),
       updateDataEndpoint: (data) => set({ dataEndpoint: data }),
       initializeStore: ({ gameHash, userHash }) => {
