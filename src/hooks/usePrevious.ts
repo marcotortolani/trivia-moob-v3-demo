@@ -1,11 +1,11 @@
 import { useRef, useEffect } from 'react'
 
-export function useInterval(callback: Function, delay: number | null) {
-  const savedCallback = useRef<Function>()
+export function useInterval(callback: () => void, delay: number | null) {
+  const savedCallback = useRef<() => void>()
   // Remember the latest callback.
   useEffect(() => {
     savedCallback.current = callback
-  })
+  }, [callback])
   // Set up the interval.
   useEffect(() => {
     function tick() {
@@ -20,8 +20,8 @@ export function useInterval(callback: Function, delay: number | null) {
   }, [delay])
 }
 
-export function usePrevious(value: any) {
-  const ref = useRef()
+export function usePrevious<T>(value: T): T | undefined {
+  const ref = useRef<T>()
 
   useEffect(() => {
     ref.current = value

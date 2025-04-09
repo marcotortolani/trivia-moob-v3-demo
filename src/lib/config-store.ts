@@ -33,7 +33,7 @@ const categoriesImages: CategoryImage[] = categories.map((category) => ({
 
 interface ConfigState {
   lastUpdated: string
-  lang: Lang | ''
+  lang: Lang | undefined
   user: UserData
   validPeriod: ConfigData['validPeriod']
   config: ConfigData['config']
@@ -66,7 +66,7 @@ export const useConfigStore = create<ConfigState>()(
   persist(
     (set) => ({
       lastUpdated,
-      lang: '',
+      lang: undefined,
       user: userData,
       validPeriod,
       config,

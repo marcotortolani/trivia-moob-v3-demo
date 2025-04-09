@@ -19,7 +19,7 @@ export default function Loading() {
 
 function TextSpinnerLoader({ colorText }: { colorText: string }) {
   const currentYear = new Date().getFullYear()
-  const text = `MEDIA MOOB - TRIVIA - ${currentYear} - `
+  const text = `TRIVIA  -  ${currentYear}  -  GAMES  -  `
   const characters = text.split('')
 
   const radius = 80
@@ -59,7 +59,7 @@ function TextSpinnerLoader({ colorText }: { colorText: string }) {
       )
     }
     animateLoader()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

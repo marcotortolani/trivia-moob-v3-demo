@@ -39,7 +39,7 @@ export default function App() {
     if (configData?.lastUpdated === lastUpdated) return
 
     updateConfigData(configData as ConfigData)
-    if (lang === '') {
+    if (lang === undefined) {
       setLang(configData.lang)
     }
 

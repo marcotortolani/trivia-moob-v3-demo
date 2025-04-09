@@ -27,9 +27,9 @@
   font-family: 'OswaldBold';
   src: url('../src/assets/fonts/Oswald/Oswald-Bold.ttf') format('truetype');
 }
-
 @font-face {
   font-family: 'OswaldHeavyItalic';
+  src: url('../src/assets/fonts/Oswald/Oswald-Bold.ttf') format('truetype');
   src: url('../src/assets/fonts/Oswald/Oswald-Heavy-Italic.otf')
     format('opentype');
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useCallback } from 'react'
 import { useConfigStore, Lang } from '@/lib/config-store'
 import MOTIVATIONAL_MESSAGES from '@/data/motivational-messages.json'
@@ -260,8 +261,7 @@ export function useStateMachine(initialState = 'answering') {
   })
 
   const send = useCallback(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (event: TEvent, payload: Record<string, any> = {}) => {
+    (event: TEvent, payload: Record<string, unknown> = {}) => {
       const currentStateConfig = stateMachineConfig[state as TState]
 
       if ('on' in currentStateConfig && currentStateConfig.on) {
@@ -278,8 +278,8 @@ export function useStateMachine(initialState = 'answering') {
                 ? (
                     transition as (
                       context: Context,
-                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                      payload?: Record<string, any>
+
+                      payload?: Record<string, unknown>
                     ) => TState
                   )(newContext, payload)
                 : (transition as TState)
