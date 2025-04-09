@@ -84,7 +84,13 @@ export const useConfigStore = create<ConfigState>()(
           dictionary: dictionaries[lang as Lang] as Dictionary,
         }),
       setUserData: (user) => set({ user }),
-      updateConfigData: (data) => set({ ...data, lang: lang as Lang }),
+      updateConfigData: (data) =>
+        set((state) => ({
+          ...state,
+          ...data,
+          lang: state.lang,
+          dictionary: dictionaries[state.lang as Lang] as Dictionary,
+        })),
       setSoundActive: (active) => set({ soundActive: active }),
       updateDataEndpoint: (data) => set({ dataEndpoint: data }),
       initializeStore: ({ gameHash, userHash }) => {
