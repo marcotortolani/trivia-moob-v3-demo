@@ -13,7 +13,7 @@ import { useConfigStore } from '@/lib/config-store'
 import { useGameStore } from '@/lib/game-store'
 import { hexToRgb } from '@/lib/utils'
 
-//import mediaMoob from '/img/default/logo-media-moob.svg'
+import mediaMoob from '/img/default/logo-media-moob.svg'
 
 import { X } from 'lucide-react'
 import {
@@ -49,6 +49,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
   } = useConfigStore()
   const { score } = useGameStore()
   const navigate = useNavigate()
+
   const [playSwoosh] = useSound(swoosh)
 
   const currentYear = new Date().getFullYear()
@@ -89,11 +90,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             >
               <X className=" w-full h-full" />
             </button>
-            <div className=" w-3/4">
+            <div className="w-3/4">
               <FallbackImage
                 primaryImage={images.es.logoHeaderMenu || images.es.logoHeader}
                 fallbackImage={images.es.logoHeader}
                 alt="Logo header menu"
+                className=" max-w-[300px] mx-auto max-h-[150px]"
               />
             </div>
           </SheetTitle>
@@ -131,7 +133,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             <button
               type="button"
               onClick={() => setLang('es')}
-              className={` w-12 h-8 p-0.5 pt-1 font-tekoMedium text-xl rounded-full`}
+              className=" w-12 h-8 p-0.5 pt-1 font-tekoMedium text-xl rounded-full"
               style={{
                 backgroundColor:
                   lang === 'es' ? colors.primary : colors.secondary,
@@ -218,7 +220,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             borderTop: `1px solid ${colors.primary}`,
           }}
         >
-          {/* <div className=" w-full flex flex-col xs:flex-row items-center justify-center gap-1 xs:gap-4">
+          <div className=" w-full flex flex-col xs:flex-row items-center justify-center gap-1 xs:gap-4">
             <img
               src={mediaMoob}
               alt="Media Moob Logo white"
@@ -230,7 +232,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             >
               {dictionary['Another solution by Media Moob']}
             </p>
-          </div> */}
+          </div>
           <p
             className=" text-xs font-oswaldLight tracking-wider uppercase"
             style={{ color: colors.text }}
