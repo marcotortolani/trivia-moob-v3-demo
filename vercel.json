@@ -1,3 +1,5 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "rewrites": [
+    { "source": "/trivia/:path*", "destination": "/trivia/index.html" }
+  ]
 }
