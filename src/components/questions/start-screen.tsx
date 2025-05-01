@@ -21,6 +21,8 @@ const StartScreen = () => {
     setGameState({ currentState: 'PLAYING' })
   }
 
+  console.log(colors.nextBtnGradient)
+
   return (
     <motion.div
       key="start-screen"
@@ -70,7 +72,7 @@ const StartScreen = () => {
         onClick={handleBegin}
         className=" px-10 py-8 shadow-md shadow-black/60 uppercase text-3xl xs:text-4xl font-oswaldMedium tracking-wide rounded-full"
         style={{
-          background: colors.nextBtnGradient,
+          background: `linear-gradient(180deg, ${colors.nextBtnGradient} 60%, rgba(0, 0, 0, 1) 150%)`,
           color: colors.text,
         }}
       >
