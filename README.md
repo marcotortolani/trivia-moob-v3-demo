@@ -9,5 +9,7 @@ Currently, two official plugins are available:
 
 ## Versions
 
+- v3.7.1: Update endpoint a api.gaming
+
 - v3.7: Arreglo color de botón "Comenzar", arreglo de navegación a la ruta relativa "/trivia/"
   
